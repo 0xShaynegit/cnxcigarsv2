@@ -425,25 +425,27 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
 </head>
 <body>
 <div id="cigar-cursor" aria-hidden="true">
-  <svg width="64" height="28" viewBox="0 0 64 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- smoke -->
-    <g class="smoke-p"><path d="M10 10 Q8 6 10 2" stroke="#D4AF37" stroke-width="1.2" stroke-linecap="round" opacity=".6"/></g>
-    <g class="smoke-p"><path d="M13 10 Q11 5 14 1" stroke="#D4AF37" stroke-width="1" stroke-linecap="round" opacity=".4"/></g>
-    <g class="smoke-p"><path d="M7 10 Q6 7 7 3" stroke="#D4AF37" stroke-width=".8" stroke-linecap="round" opacity=".3"/></g>
-    <!-- ash tip -->
-    <ellipse cx="10" cy="14" rx="4" ry="5" fill="#9a9080"/>
-    <!-- cigar body -->
-    <rect x="13" y="11" width="38" height="6" rx="3" fill="#6B3A2A"/>
-    <!-- wrapper grain lines -->
-    <line x1="18" y1="11.5" x2="18" y2="16.5" stroke="#7d4433" stroke-width=".5" opacity=".5"/>
-    <line x1="24" y1="11.5" x2="24" y2="16.5" stroke="#7d4433" stroke-width=".5" opacity=".5"/>
-    <line x1="30" y1="11.5" x2="30" y2="16.5" stroke="#7d4433" stroke-width=".5" opacity=".5"/>
-    <line x1="36" y1="11.5" x2="36" y2="16.5" stroke="#7d4433" stroke-width=".5" opacity=".5"/>
-    <!-- gold band -->
-    <rect x="42" y="11" width="5" height="6" rx="1" fill="#D4AF37" opacity=".9"/>
-    <!-- cap / closed end -->
-    <ellipse cx="54" cy="14" rx="3.5" ry="3" fill="#5a2e1a"/>
-    <ellipse cx="57" cy="14" rx="1.5" ry="2.5" fill="#6B3A2A"/>
+  <svg width="72" height="52" viewBox="-8 -8 80 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g transform="rotate(30,32,14)">
+      <!-- smoke from lit end -->
+      <g class="smoke-p"><path d="M10 10 Q7 5 10 1" stroke="#D4AF37" stroke-width="1.2" stroke-linecap="round" opacity=".7"/></g>
+      <g class="smoke-p"><path d="M13 9 Q10 4 13 0" stroke="#D4AF37" stroke-width="1" stroke-linecap="round" opacity=".45"/></g>
+      <g class="smoke-p"><path d="M7 11 Q5 6 8 2" stroke="#D4AF37" stroke-width=".8" stroke-linecap="round" opacity=".3"/></g>
+      <!-- ash tip -->
+      <ellipse cx="10" cy="14" rx="4" ry="5" fill="#b8a070"/>
+      <!-- cigar body - all gold -->
+      <rect x="13" y="11" width="38" height="6" rx="3" fill="#D4AF37"/>
+      <!-- subtle darker grain lines -->
+      <line x1="18" y1="11.5" x2="18" y2="16.5" stroke="#b8942a" stroke-width=".6" opacity=".5"/>
+      <line x1="24" y1="11.5" x2="24" y2="16.5" stroke="#b8942a" stroke-width=".6" opacity=".5"/>
+      <line x1="30" y1="11.5" x2="30" y2="16.5" stroke="#b8942a" stroke-width=".6" opacity=".5"/>
+      <line x1="36" y1="11.5" x2="36" y2="16.5" stroke="#b8942a" stroke-width=".6" opacity=".5"/>
+      <!-- bright band -->
+      <rect x="42" y="11" width="5" height="6" rx="1" fill="#f0d060"/>
+      <!-- cap -->
+      <ellipse cx="54" cy="14" rx="3.5" ry="3" fill="#c9a030"/>
+      <ellipse cx="57" cy="14" rx="1.5" ry="2.5" fill="#D4AF37"/>
+    </g>
   </svg>
 </div>
 
