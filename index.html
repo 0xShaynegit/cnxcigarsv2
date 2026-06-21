@@ -402,9 +402,50 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
 @media(max-width:480px){
   .contact-grid{grid-template-columns:1fr}
 }
+/* CIGAR CURSOR */
+@media(pointer:fine){
+  *{cursor:none!important}
+  #cigar-cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);will-change:transform}
+  #cigar-cursor svg{display:block}
+  .smoke-p{transform-origin:center bottom;animation:smokeRise 1.8s ease-out infinite}
+  .smoke-p:nth-child(2){animation-delay:.4s;animation-duration:2.1s}
+  .smoke-p:nth-child(3){animation-delay:.9s;animation-duration:1.5s}
+  @keyframes smokeRise{0%{opacity:.7;transform:translateY(0) scaleX(1)}50%{opacity:.35}100%{opacity:0;transform:translateY(-18px) scaleX(2.2)}}
+}
+/* TEXT ANIMATIONS */
+.h-h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
+.h-h1 .w span{display:inline-block;transform:translateY(110%);opacity:0;animation:wordUp .9s var(--ease-expo) both}
+.h-eyebrow{overflow:hidden}
+.h-eyebrow span{display:inline-block;transform:translateY(100%);opacity:0;animation:wordUp .7s var(--ease-expo) .2s both}
+@keyframes wordUp{to{transform:translateY(0);opacity:1}}
+.split-word{display:inline-block;overflow:hidden;vertical-align:bottom}
+.split-word span{display:inline-block;transform:translateY(110%);opacity:0;transition:transform .7s var(--ease-expo),opacity .7s var(--ease-expo)}
+.split-word.in span{transform:translateY(0);opacity:1}
 </style>
 </head>
 <body>
+<div id="cigar-cursor" aria-hidden="true">
+  <svg width="64" height="28" viewBox="0 0 64 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- smoke -->
+    <g class="smoke-p"><path d="M10 10 Q8 6 10 2" stroke="#D4AF37" stroke-width="1.2" stroke-linecap="round" opacity=".6"/></g>
+    <g class="smoke-p"><path d="M13 10 Q11 5 14 1" stroke="#D4AF37" stroke-width="1" stroke-linecap="round" opacity=".4"/></g>
+    <g class="smoke-p"><path d="M7 10 Q6 7 7 3" stroke="#D4AF37" stroke-width=".8" stroke-linecap="round" opacity=".3"/></g>
+    <!-- ash tip -->
+    <ellipse cx="10" cy="14" rx="4" ry="5" fill="#9a9080"/>
+    <!-- cigar body -->
+    <rect x="13" y="11" width="38" height="6" rx="3" fill="#6B3A2A"/>
+    <!-- wrapper grain lines -->
+    <line x1="18" y1="11.5" x2="18" y2="16.5" stroke="#7d4433" stroke-width=".5" opacity=".5"/>
+    <line x1="24" y1="11.5" x2="24" y2="16.5" stroke="#7d4433" stroke-width=".5" opacity=".5"/>
+    <line x1="30" y1="11.5" x2="30" y2="16.5" stroke="#7d4433" stroke-width=".5" opacity=".5"/>
+    <line x1="36" y1="11.5" x2="36" y2="16.5" stroke="#7d4433" stroke-width=".5" opacity=".5"/>
+    <!-- gold band -->
+    <rect x="42" y="11" width="5" height="6" rx="1" fill="#D4AF37" opacity=".9"/>
+    <!-- cap / closed end -->
+    <ellipse cx="54" cy="14" rx="3.5" ry="3" fill="#5a2e1a"/>
+    <ellipse cx="57" cy="14" rx="1.5" ry="2.5" fill="#6B3A2A"/>
+  </svg>
+</div>
 
 <!-- AGE GATE -->
 <div id="gate" style="display:none">
@@ -460,8 +501,8 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
     <img src="./images/cnxcigars-cnx-cigars-amir-home.webp" alt="" width="720" height="1080">
   </div>
   <div class="hero-content">
-    <p class="h-eyebrow">Nimman Road &mdash; Chiang Mai</p>
-    <h1 class="h-h1">Chiang Mai's Premier<br>International<br>Cigar Lounge</h1>
+    <p class="h-eyebrow"><span>Nimman Road &mdash; Chiang Mai</span></p>
+    <h1 class="h-h1"><span class="w"><span style="animation-delay:.3s">Chiang Mai's</span></span> <span class="w"><span style="animation-delay:.45s">Premier</span></span><br><span class="w"><span style="animation-delay:.6s">International</span></span><br><span class="w"><span style="animation-delay:.75s">Cigar Lounge</span></span></h1>
     <span class="h-brand">CNX Cigars</span>
     <a href="#about" class="h-arrow">
       <svg width="12" height="36" viewBox="0 0 12 36" fill="none"><line x1="6" y1="0" x2="6" y2="30" stroke="currentColor" stroke-width="1"/><path d="M1 25L6 32L11 25" stroke="currentColor" stroke-width="1" fill="none"/></svg>
@@ -526,7 +567,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
     <div class="col-head">
       <div>
         <p class="t-label r" style="margin-bottom:.8rem">House brands</p>
-        <h2 class="r d1">Premium Collections</h2>
+        <h2 class="r d1 split-word">Premium Collections</h2>
       </div>
       <div class="right">
         <p class="t-body r d2">Hand-rolled cigars and heritage brands curated from the world's finest growing regions.</p>
@@ -545,7 +586,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
         <div class="col-info"><div class="col-brand">Davidoff</div><div class="col-origin">Dominican Republic</div></div>
       </div>
       <div class="col-card r d2">
-        <div class="col-card-img"><img src="./images/cnxcigars-cnx-cigars-humidor-shelves-stocked.webp" alt="Cohiba" width="350" height="525" loading="lazy"></div>
+        <div class="col-card-img"><img src="./images/cnxcigars-cnx-cigars-humidor-stocked-shelves.webp" alt="Cohiba" width="350" height="525" loading="lazy"></div>
         <div class="col-info"><div class="col-brand">Cohiba</div><div class="col-origin">Cuba</div></div>
       </div>
       <div class="col-card r d3">
@@ -584,7 +625,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
     <div class="craft-mosaic r d1">
       <div class="cm1"><img src="./images/cnxcigars-cnx-cigars-staff-and-guests-group.webp" alt="CNX Cigars staff and guests" width="600" height="750" loading="lazy"></div>
       <div class="cm2"><img src="./images/cnxcigars-cnx-cigars-bar-spirits-shelf.webp" alt="Spirits bar" width="700" height="480" loading="lazy"></div>
-      <div class="cm3"><img src="./images/cnxcigars-cnx-cigars-cigar-and-whisky-pairing.webp" alt="Cigar and whisky pairing" width="700" height="480" loading="lazy"></div>
+      <div class="cm3"><img src="./images/cnxcigars-cnx-cigars-cigar-and-drink-ambiance.webp" alt="Cigar and drink pairing" width="700" height="480" loading="lazy"></div>
     </div>
     <p class="craft-pull r">Premium Selection<br>and Craftsmanship</p>
     <p class="craft-body r d1">Luxury is embodied in every detail of our finest cigars. Imprinted in the delicate pattern of the premium tobacco, carefully aged to perfection, and presented in our signature gold-trimmed humidors.</p>
@@ -644,8 +685,8 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
 <section class="adv" id="lounge">
   <div class="adv-grid">
     <div class="adv-img-panel" aria-hidden="true">
-      <div class="adv-img active" id="advImg0"><img src="./images/cnxcigars-cnx-cigars-humidor-shelves-stocked.webp" alt="" width="720" height="1080" loading="lazy"></div>
-      <div class="adv-img" id="advImg1"><img src="./images/cnxcigars-cnx-cigars-founder-with-cigar-and-whisky.webp" alt="" width="720" height="1080" loading="lazy"></div>
+      <div class="adv-img active" id="advImg0"><img src="./images/cnxcigars-cnx-cigars-humidor-stocked-shelves.webp" alt="" width="720" height="1080" loading="lazy"></div>
+      <div class="adv-img" id="advImg1"><img src="./images/cnxcigars-cnx-cigars-owner-with-cigar-box.webp" alt="" width="720" height="1080" loading="lazy"></div>
       <div class="adv-img" id="advImg2"><img src="./images/cnxcigars-cnx-cigars-guests-relaxing-lounge.webp" alt="" width="720" height="1080" loading="lazy"></div>
       <div class="adv-img" id="advImg3"><img src="./images/cnxcigars-cnx-cigars-humidor-stocked-shelves.webp" alt="" width="720" height="1080" loading="lazy"></div>
       <div class="adv-img" id="advImg4"><img src="./images/cnxcigars-cnx-cigars-lounge-warm-interior.webp" alt="" width="720" height="1080" loading="lazy"></div>
@@ -691,7 +732,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
     <div class="hum-top">
       <div>
         <p class="t-label r" style="margin-bottom:.8rem">A curated selection</p>
-        <h2 class="r d1">From the dynamic humidor</h2>
+        <h2 class="r d1 split-word">From the dynamic humidor</h2>
       </div>
       <p class="t-body r d2">Four benchmarks from the collection. Each selected for provenance, construction, and flavour.</p>
     </div>
@@ -761,7 +802,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
   <div class="wrap">
     <div class="svc-hdr">
       <p class="t-label r" style="margin-bottom:.8rem">What we offer</p>
-      <h2 class="r d1">Selection. Preservation. Hospitality.</h2>
+      <h2 class="r d1 split-word">Selection. Preservation. Hospitality.</h2>
     </div>
   </div>
   <div class="wrap" style="padding-left:0;padding-right:0">
@@ -1029,6 +1070,27 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
     if(!wasOpen)item.classList.add('open');
   });
 });
+
+// CIGAR CURSOR
+(function(){
+  const cur=document.getElementById('cigar-cursor');
+  if(!cur||window.matchMedia('(pointer:coarse)').matches)return;
+  let mx=window.innerWidth/2,my=window.innerHeight/2,cx=mx,cy=my;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
+  (function loop(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cur.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';requestAnimationFrame(loop);})();
+})();
+
+// SPLIT-WORD REVEALS
+(function(){
+  document.querySelectorAll('.split-word').forEach(el=>{
+    const words=el.textContent.trim().split(' ');
+    el.innerHTML=words.map((w,i)=>'<span style="transition-delay:'+(i*0.08+0.05)+'s">'+w+'</span>').join(' ');
+  });
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+  },{threshold:.2});
+  document.querySelectorAll('.split-word').forEach(el=>obs.observe(el));
+})();
 
 // NEWSLETTER
 function handleNL(e){
