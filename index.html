@@ -426,6 +426,58 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
 .split-word{display:inline-block;overflow:hidden;vertical-align:bottom}
 .split-word span{display:inline-block;transform:translateY(110%);opacity:0;transition:transform .7s var(--ease-expo),opacity .7s var(--ease-expo)}
 .split-word.in span{transform:translateY(0);opacity:1}
+/* STATS STRIP */
+.stats{background:var(--ink);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:clamp(3rem,5vw,5rem) 0}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.stats-item{padding:2rem clamp(1.5rem,4vw,4rem);text-align:center;border-right:1px solid var(--border)}
+.stats-item:last-child{border-right:none}
+.stats-num{font-family:var(--f-display);font-size:clamp(3rem,7vw,6rem);font-weight:200;color:var(--gold);line-height:1;margin-bottom:.5rem}
+.stats-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ash);line-height:1.5}
+/* COMMUNITY */
+.community{padding:clamp(5rem,9vw,9rem) 0;background:var(--ink-2)}
+.community-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,8vw,10rem);align-items:center}
+.community-img{aspect-ratio:4/5;overflow:hidden}
+.community-img img{width:100%;height:100%;object-fit:cover}
+.community-text .t-label{margin-bottom:1.5rem}
+.community-text h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.2vw,3.8rem);color:var(--cream);line-height:1.15;margin-bottom:2rem}
+.community-text p{color:var(--stone);line-height:1.75;margin-bottom:1.5rem}
+/* THE BAR */
+.bar-section{padding:clamp(5rem,9vw,9rem) 0;background:var(--ink)}
+.bar-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,8vw,10rem);align-items:center}
+.bar-img{aspect-ratio:4/5;overflow:hidden}
+.bar-img img{width:100%;height:100%;object-fit:cover}
+.bar-text .t-label{margin-bottom:1.5rem}
+.bar-text h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.2vw,3.8rem);color:var(--cream);line-height:1.15;margin-bottom:2rem}
+.bar-text p{color:var(--stone);line-height:1.75;margin-bottom:1.5rem}
+/* B2B */
+.b2b{padding:clamp(5rem,9vw,9rem) 0;background:var(--ink-3);border-top:1px solid var(--border)}
+.b2b-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,8vw,8rem);align-items:start}
+.b2b-text h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.2vw,3.8rem);color:var(--cream);line-height:1.15;margin-bottom:1.5rem}
+.b2b-text p{color:var(--stone);line-height:1.75;margin-bottom:1.5rem}
+.b2b-list{list-style:none;margin:2rem 0;padding:0}
+.b2b-list li{padding:.75rem 0;border-bottom:1px solid var(--border);color:var(--stone);font-size:.88rem;letter-spacing:.02em;display:flex;gap:.75rem}
+.b2b-list li::before{content:'';width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:.45em}
+.b2b-panel{background:var(--ink-2);border:1px solid var(--border);padding:clamp(2rem,4vw,3.5rem)}
+.b2b-panel h3{font-family:var(--f-display);font-weight:300;font-size:1.4rem;color:var(--cream);margin-bottom:1rem}
+.b2b-panel p{color:var(--stone);font-size:.9rem;line-height:1.7}
+/* RECOGNITION */
+.recognition{padding:clamp(4rem,7vw,7rem) 0;background:var(--ink);border-top:1px solid var(--border)}
+.rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.rec-item{border:1px solid var(--border);padding:2.5rem 2rem;text-align:center}
+.rec-badge{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.rec-name{font-family:var(--f-display);font-size:1.15rem;font-weight:300;color:var(--cream);margin-bottom:.5rem}
+.rec-year{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ash)}
+/* RESPONSIVE ADDITIONS */
+@media(max-width:1100px){
+  .community-grid,.bar-grid,.b2b-grid{grid-template-columns:1fr}
+  .rec-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .stats-grid{grid-template-columns:1fr}
+  .stats-item{border-right:none;border-bottom:1px solid var(--border)}
+  .stats-item:last-child{border-bottom:none}
+  .rec-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -597,6 +649,26 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
   </div>
 </section>
 
+<!-- STATS STRIP -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stats-item r">
+        <div class="stats-num">80+</div>
+        <div class="stats-label">Premium Selections<br>in the Humidor</div>
+      </div>
+      <div class="stats-item r d1">
+        <div class="stats-num">No.1</div>
+        <div class="stats-label">Premium Cigar Stock<br>in Northern Thailand</div>
+      </div>
+      <div class="stats-item r d2">
+        <div class="stats-num r" style="font-size:clamp(1.2rem,2.5vw,2rem);letter-spacing:.08em;padding-top:.8rem">Nationwide<br>Shipping</div>
+        <div class="stats-label" style="margin-top:.8rem">Thailand-wide delivery<br>direct to your door</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CRAFTSMANSHIP -->
 <section class="craft">
   <div class="wrap">
@@ -658,6 +730,24 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
       <div class="hours-cta r d2">
         <a href="./services.html" class="btn-gold">Reserve a Seat</a>
         <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE BAR -->
+<section class="bar-section">
+  <div class="wrap">
+    <div class="bar-grid">
+      <div class="bar-img r-img">
+        <img src="./images/cnxcigars-cnx-cigars-bar-chocolate-martini-glasses-garnish.webp" alt="CNX Cigars bar" width="720" height="900" loading="lazy">
+      </div>
+      <div class="bar-text">
+        <p class="t-label r" style="margin-bottom:1.5rem">The bar</p>
+        <h2 class="r d1 split-word">Every Cigar Deserves a Perfect Pairing</h2>
+        <p class="r d2">Complementing our world-class cigar selection is a sophisticated bar curated for exceptional pairings. CNX proudly offers one of the region's finest collections of single malt whiskies alongside premium spirits, wines, champagne, and handcrafted cocktails.</p>
+        <p class="r d3">Whether enjoying an intimate evening in our VIP room or relaxing among friends in the main lounge, our team is dedicated to helping guests discover the perfect pairing to elevate every cigar experience.</p>
+        <div class="r d4" style="margin-top:2.5rem"><a href="./services.html" class="btn-gold">Reserve a Seat</a></div>
       </div>
     </div>
   </div>
@@ -774,6 +864,24 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
         <p class="t-body r d3">Amir Nadimi founded CNX Cigars on thirty years with the leaf, and on a single, clear idea: that the best cigar is the one shared. He built this lounge as a community, not a shop. A confluence point for expatriates, travellers, and local connoisseurs who understand that slowing down to smoke a fine cigar is an act of mindfulness.</p>
         <p class="t-body r d3" style="margin-top:1rem">He speaks the language of draw, construction, and flavour evolution with the precision of a craftsman. Whether you are exploring your first cigar or chasing a rare vitola, the knowledge on offer here is real and freely shared.</p>
         <div style="margin-top:2.5rem" class="r d4"><a href="./services.html" class="btn-gold">Reserve a Seat</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="community">
+  <div class="wrap">
+    <div class="community-grid">
+      <div class="community-img r-img">
+        <img src="./images/cnxcigars-cnx-cigars-guests-toasting-drinks.webp" alt="CNX Cigars community gathering" width="720" height="900" loading="lazy">
+      </div>
+      <div class="community-text">
+        <p class="t-label r" style="margin-bottom:1.5rem">Community &amp; culture</p>
+        <h2 class="r d1 split-word">More Than a Lounge. A Circle.</h2>
+        <p class="r d2">CNX International Cigar Bar &amp; Lounge is a community built on camaraderie, respect, and meaningful conversation. Cigars serve as the common thread that brings together people from all walks of life, creating an environment where friendships, business connections, and unforgettable moments naturally unfold.</p>
+        <p class="r d3">From seasoned aficionados to first-time guests, everyone is welcomed with warmth, humility, and genuine hospitality. Through events, education, and shared experiences, we continue to cultivate a cigar culture unlike any other in Northern Thailand.</p>
+        <div class="r d4" style="margin-top:2.5rem"><a href="#contact" class="btn-gold">Join the Conversation</a></div>
       </div>
     </div>
   </div>
@@ -916,6 +1024,59 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
   </div>
 </section>
 
+<!-- B2B / HORECA -->
+<section class="b2b" id="b2b">
+  <div class="wrap">
+    <div class="b2b-grid">
+      <div class="b2b-text">
+        <p class="t-label r" style="margin-bottom:1.5rem">B2B partnerships</p>
+        <h2 class="r d1 split-word">HORECA Consultancy</h2>
+        <p class="r d2">Elevate your hospitality offering with a world-class cigar program. CNX Cigars provides tailored consultancy for hotels, restaurants, bars, and private clubs looking to introduce or enhance their cigar service.</p>
+        <p class="r d3">From curated selections and humidor setup to staff training and ongoing supply, we partner with businesses across Thailand to create unforgettable guest experiences.</p>
+        <ul class="b2b-list r d4">
+          <li>Staff training, service and presentation</li>
+          <li>Cigar storage and accessory maintenance</li>
+          <li>On-site presence in Chiang Mai</li>
+          <li>Available for advance booking for special events</li>
+        </ul>
+        <div class="r d5" style="margin-top:2.5rem"><a href="#contact" class="btn-gold">Get in Touch</a></div>
+      </div>
+      <div class="b2b-panel r d2">
+        <h3>Habanos Authorized<br>Point of Sale</h3>
+        <p>CNX Cigars is an official Habanos S.A. authorized dealer, guaranteeing the authenticity of every Cuban cigar in our collection. Genuine provenance. Uncompromised quality.</p>
+        <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)">
+          <p class="t-label" style="margin-bottom:.75rem;color:var(--gold)">Shipping &amp; Distribution</p>
+          <p>We offer shipping and distribution across Thailand, bringing the finest cigars directly to your door. Contact us for trade and wholesale enquiries.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section class="recognition">
+  <div class="wrap">
+    <p class="t-label r" style="margin-bottom:2.5rem;text-align:center">Awards &amp; recognition</p>
+    <div class="rec-grid">
+      <div class="rec-item r">
+        <div class="rec-badge">Official Certification</div>
+        <div class="rec-name">Habanos Authorized<br>Point of Sale</div>
+        <div class="rec-year">Verified Authentic Cuban Cigars</div>
+      </div>
+      <div class="rec-item r d1">
+        <div class="rec-badge">Restaurant Guru</div>
+        <div class="rec-name">Excellent Service<br>Award Winner</div>
+        <div class="rec-year">2026</div>
+      </div>
+      <div class="rec-item r d2">
+        <div class="rec-badge">Asia Iconic</div>
+        <div class="rec-name">Excellence &amp; Innovation<br>Award</div>
+        <div class="rec-year">2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-bg" aria-hidden="true">
@@ -927,7 +1088,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
     <p class="t-body-lg r d2">New arrivals, exclusive tastings, and insider notes. Delivered monthly. No noise.</p>
     <div class="btn-grp r d3" style="justify-content:center">
       <a href="./services.html" class="btn-gold">Reserve a Seat</a>
-      <a href="https://wa.me/66PHONENUMBER" class="btn-outline" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://wa.me/66622769937" class="btn-outline" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
     <div class="contact-grid r d2">
       <div class="cg-item">
@@ -939,12 +1100,12 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
         <p>Open Daily<br>12 p.m. to 12 a.m.<br>Walk-ins welcome</p>
       </div>
       <div class="cg-item">
-        <div class="cg-label">Enquiries</div>
-        <p>For reservations, B2B consulting, or rare vitola requests:<br><a href="./services.html">Use our contact form</a></p>
+        <div class="cg-label">Contact</div>
+        <p>WhatsApp: +66 622 769 937<br>LINE: Bodazey<br>Email: cigarschiangmai@gmail.com</p>
       </div>
       <div class="cg-item">
-        <div class="cg-label">Recognition</div>
-        <p>Restaurant Guru<br>2026 Award Winner</p>
+        <div class="cg-label">Enquiries</div>
+        <p>For reservations, B2B consulting, or rare vitola requests:<br><a href="./services.html">Use our contact form</a></p>
       </div>
     </div>
   </div>
@@ -958,6 +1119,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
         <div class="brand-mark" style="font-size:1.4rem;letter-spacing:.3em">CNX Cigars</div>
         <div class="brand-tag">International Cigar Bar &amp; Lounge</div>
         <p>Cigars Chiang Mai Co., Ltd<br>2nd Floor, 45 Nimmana Haeminda Rd Lane 11<br>Chiang Mai 50200, Thailand</p>
+        <p style="margin-top:1rem">WhatsApp: +66 622 769 937<br>LINE: Bodazey<br>cigarschiangmai@gmail.com</p>
       </div>
       <div class="ft-col">
         <h4>Explore</h4>
