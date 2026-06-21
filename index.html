@@ -312,10 +312,19 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .testi{background:var(--ink-3);border-top:1px solid var(--border);padding:clamp(5rem,9vw,9rem) 0}
 .testi-hdr{margin-bottom:clamp(3.5rem,6vw,6rem)}
 .testi-hdr h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.2vw,3.8rem);color:var(--cream)}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.testi-card{border-top:1px solid rgba(212,175,55,.18);padding-top:2rem}
+.testi-carousel{position:relative;overflow:hidden}
+.testi-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.testi-card{flex:0 0 calc(33.333% - 1.35rem);margin-right:2rem;border-top:1px solid rgba(212,175,55,.18);padding-top:2rem}
 .testi-card blockquote{font-family:var(--f-display);font-size:clamp(1rem,1.5vw,1.25rem);font-weight:300;font-style:italic;color:var(--cream);line-height:1.65;margin-bottom:1.5rem}
 .testi-card cite{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ash);font-style:normal}
+.testi-stars{color:#D4AF37;font-size:.85rem;letter-spacing:.05em;margin-bottom:1rem}
+.testi-nav{display:flex;align-items:center;gap:1.5rem;margin-top:3rem}
+.testi-btn{width:44px;height:44px;border:1px solid rgba(212,175,55,.3);border-radius:50%;background:none;color:#D4AF37;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
+.testi-btn:hover{border-color:#D4AF37;background:rgba(212,175,55,.08)}
+.testi-btn svg{width:18px;height:18px;stroke:#D4AF37;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.testi-dots{display:flex;gap:.5rem}
+.testi-dot{width:6px;height:6px;border-radius:50%;background:rgba(212,175,55,.25);border:none;cursor:pointer;padding:0;transition:background .2s}
+.testi-dot.active{background:#D4AF37}
 
 /* FAQ */
 .faq{background:var(--ink-2);padding:clamp(5rem,9vw,9rem) 0}
@@ -373,7 +382,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
   .adv-img-panel{display:none}
   .founder-grid{grid-template-columns:1fr}
   .founder-badge{left:0}
-  .testi-grid{grid-template-columns:1fr 1fr}
+  .testi-card{flex:0 0 calc(50% - 1rem)}
   .contact-grid{grid-template-columns:1fr 1fr}
   .ft-top{grid-template-columns:1fr 1fr}
   .svc-grid{grid-template-columns:1fr 1fr}
@@ -395,22 +404,20 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
   .hum-top{grid-template-columns:1fr}
   .faq-grid{grid-template-columns:1fr}
   .svc-grid{grid-template-columns:1fr}
-  .testi-grid{grid-template-columns:1fr}
+  .testi-card{flex:0 0 calc(100%)}
   .contact-grid{grid-template-columns:1fr 1fr}
   .ft-top{grid-template-columns:1fr}
 }
 @media(max-width:480px){
   .contact-grid{grid-template-columns:1fr}
 }
-/* CIGAR CURSOR */
+/* DOT CURSOR */
 @media(pointer:fine){
   *{cursor:none!important}
-  #cigar-cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);will-change:transform}
-  #cigar-cursor svg{display:block}
-  .smoke-p{transform-origin:center bottom;animation:smokeRise 1.8s ease-out infinite}
-  .smoke-p:nth-child(2){animation-delay:.4s;animation-duration:2.1s}
-  .smoke-p:nth-child(3){animation-delay:.9s;animation-duration:1.5s}
-  @keyframes smokeRise{0%{opacity:.7;transform:translateY(0) scaleX(1)}40%{opacity:.4}100%{opacity:0;transform:translateY(-22px) scaleX(2.5)}}
+  .cursor{position:fixed;top:0;left:0;width:8px;height:8px;background:#D4AF37;border-radius:50%;pointer-events:none;z-index:99999;will-change:transform;transform:translate(-50%,-50%)}
+  .cursor-ring{position:fixed;top:0;left:0;width:32px;height:32px;border:1px solid rgba(212,175,55,.45);border-radius:50%;pointer-events:none;z-index:99998;will-change:transform;transform:translate(-50%,-50%);transition:width .2s ease,height .2s ease,border-color .2s ease}
+  .cursor.light{background:#fcfaf2}
+  .cursor-ring.light{border-color:rgba(252,250,242,.35)}
 }
 /* TEXT ANIMATIONS */
 .h-h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
@@ -424,31 +431,8 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
 </style>
 </head>
 <body>
-<div id="cigar-cursor" aria-hidden="true">
-  <svg width="80" height="70" viewBox="-10 -20 80 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g transform="rotate(-30,32,14)">
-      <!-- smoke rising from ash (left/bottom end) -->
-      <g class="smoke-p"><path d="M10 9 Q7 4 9 -2" stroke="rgba(255,255,255,.7)" stroke-width="1.3" stroke-linecap="round"/></g>
-      <g class="smoke-p"><path d="M12 10 Q9 4 11 -3" stroke="rgba(255,255,255,.45)" stroke-width="1" stroke-linecap="round"/></g>
-      <g class="smoke-p"><path d="M8 10 Q5 5 7 -1" stroke="rgba(255,255,255,.28)" stroke-width=".8" stroke-linecap="round"/></g>
-      <!-- grey ash tip -->
-      <ellipse cx="10" cy="14" rx="4" ry="5" fill="#999"/>
-      <ellipse cx="10" cy="14" rx="2.5" ry="3.5" fill="#bbb" opacity=".6"/>
-      <!-- cigar body gold -->
-      <rect x="13" y="11" width="38" height="6" rx="3" fill="#D4AF37"/>
-      <!-- grain lines -->
-      <line x1="19" y1="11.5" x2="19" y2="16.5" stroke="#b8942a" stroke-width=".6" opacity=".45"/>
-      <line x1="25" y1="11.5" x2="25" y2="16.5" stroke="#b8942a" stroke-width=".6" opacity=".45"/>
-      <line x1="31" y1="11.5" x2="31" y2="16.5" stroke="#b8942a" stroke-width=".6" opacity=".45"/>
-      <line x1="37" y1="11.5" x2="37" y2="16.5" stroke="#b8942a" stroke-width=".6" opacity=".45"/>
-      <!-- white band -->
-      <rect x="42" y="11" width="5" height="6" rx="1" fill="white" opacity=".9"/>
-      <!-- cap -->
-      <ellipse cx="54" cy="14" rx="3.5" ry="3" fill="#c9a030"/>
-      <ellipse cx="57" cy="14" rx="1.5" ry="2.5" fill="#D4AF37"/>
-    </g>
-  </svg>
-</div>
+<div class="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
 
 <!-- AGE GATE -->
 <div id="gate" style="display:none">
@@ -840,19 +824,48 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
       <p class="t-label r" style="margin-bottom:.8rem">From the room</p>
       <h2 class="r d1">What people say<br>after the first light</h2>
     </div>
-    <div class="testi-grid">
-      <div class="testi-card r">
-        <blockquote>"I came in not knowing where to start. I left with a cigar I loved and an hour of conversation I did not expect."</blockquote>
-        <cite>Lounge regular, Nimman</cite>
+    <div class="testi-carousel" id="testiCarousel">
+      <div class="testi-track" id="testiTrack">
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"A wonderful cigar lounge in a beautiful setting. Great selection, knowledgeable staff, and a genuinely relaxing atmosphere. One of the best spots in Chiang Mai."</blockquote>
+          <cite>Google Review</cite>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"Perfect place to unwind with a premium cigar. The staff are friendly and really know their product. I keep coming back every visit to Chiang Mai."</blockquote>
+          <cite>Google Review</cite>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"Excellent selection of international cigars and whisky. The lounge has a great vibe -- intimate without being stuffy. Highly recommend for any cigar enthusiast."</blockquote>
+          <cite>Google Review</cite>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"The best cigar bar in northern Thailand, no question. Knowledgeable recommendations, premium stock, and a comfortable place to sit and enjoy the experience."</blockquote>
+          <cite>Google Review</cite>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"Hidden gem on Nimman. I came in as a beginner and left feeling like I understood cigars for the first time. The owner took real time to help me find the right one."</blockquote>
+          <cite>Google Review</cite>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"A proper lounge with a curated selection. None of the tourist trap feel you find elsewhere. Just quality, honesty, and a great smoke in a beautiful space."</blockquote>
+          <cite>Google Review</cite>
+        </div>
       </div>
-      <div class="testi-card r d1">
-        <blockquote>"The guidance is honest. No upsell, no theatre. Just someone who clearly knows the leaf and is happy to share it."</blockquote>
-        <cite>Visiting aficionado, Bangkok</cite>
-      </div>
-      <div class="testi-card r d2">
-        <blockquote>"It feels like a private club with the door left open. That is rare, and it is the reason I keep coming back."</blockquote>
-        <cite>Hospitality partner, Chiang Mai</cite>
-      </div>
+    </div>
+    <div class="testi-nav">
+      <button class="testi-btn" id="testiPrev" aria-label="Previous reviews">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="testi-dots" id="testiDots"></div>
+      <button class="testi-btn" id="testiNext" aria-label="Next reviews">
+        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -1074,13 +1087,47 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 });
 
-// CIGAR CURSOR
+// DOT CURSOR
 (function(){
-  const cur=document.getElementById('cigar-cursor');
-  if(!cur||window.matchMedia('(pointer:coarse)').matches)return;
-  let mx=window.innerWidth/2,my=window.innerHeight/2,cx=mx,cy=my;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
-  (function loop(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cur.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';requestAnimationFrame(loop);})();
+  if(window.matchMedia('(pointer:coarse)').matches)return;
+  const dot=document.querySelector('.cursor'),ring=document.querySelector('.cursor-ring');
+  if(!dot||!ring)return;
+  let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+  function isDark(el){
+    const bg=window.getComputedStyle(el).backgroundColor;
+    const m=bg.match(/\d+/g);
+    if(!m||m.length<3)return true;
+    return(parseInt(m[0])*299+parseInt(m[1])*587+parseInt(m[2])*114)/1000<128;
+  }
+  function updateTheme(){
+    const el=document.elementFromPoint(mx,my);
+    if(!el)return;
+    const dark=isDark(el);
+    dot.classList.toggle('light',!dark);
+    ring.classList.toggle('light',!dark);
+  }
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.transform='translate('+mx+'px,'+my+'px) translate(-50%,-50%)';},{passive:true});
+  (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.transform='translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';requestAnimationFrame(loop);})();
+  setInterval(updateTheme,300);
+})();
+
+// TESTIMONIAL CAROUSEL
+(function(){
+  const track=document.getElementById('testiTrack');
+  const dotsEl=document.getElementById('testiDots');
+  if(!track)return;
+  const cards=Array.from(track.querySelectorAll('.testi-card'));
+  const total=cards.length;
+  let perPage=window.innerWidth<=768?1:window.innerWidth<=1100?2:3;
+  let pages=Math.ceil(total/perPage);
+  let page=0;
+  function buildDots(){dotsEl.innerHTML='';for(let i=0;i<pages;i++){const d=document.createElement('button');d.className='testi-dot'+(i===0?' active':'');d.setAttribute('aria-label','Page '+(i+1));d.addEventListener('click',()=>go(i));dotsEl.appendChild(d);}}
+  function go(n){page=Math.max(0,Math.min(n,pages-1));const slideW=track.parentElement.offsetWidth;track.style.transform='translateX(-'+(page*slideW)+'px)';dotsEl.querySelectorAll('.testi-dot').forEach((d,i)=>d.classList.toggle('active',i===page));}
+  function init(){perPage=window.innerWidth<=768?1:window.innerWidth<=1100?2:3;pages=Math.ceil(total/perPage);const gap=perPage>1?2:0;cards.forEach(c=>{c.style.flex='0 0 calc('+Math.floor(100/perPage)+'% - '+((perPage-1)*gap/perPage)+'rem)';c.style.marginRight=gap+'rem';});page=0;buildDots();go(0);}
+  init();
+  let resizeT;window.addEventListener('resize',()=>{clearTimeout(resizeT);resizeT=setTimeout(init,200);});
+  document.getElementById('testiPrev').addEventListener('click',()=>go(page-1));
+  document.getElementById('testiNext').addEventListener('click',()=>go(page+1));
 })();
 
 // SPLIT-WORD REVEALS
