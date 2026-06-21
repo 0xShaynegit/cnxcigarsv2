@@ -168,10 +168,8 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* HERO VIDEO + TOGGLE */
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s var(--ease-expo)}
-.hero-video.fade{opacity:0}
-.hero-toggle{position:absolute;bottom:clamp(2.5rem,5vw,4.5rem);left:var(--g);z-index:2;display:flex;align-items:center;gap:.6rem;padding:.55rem 1rem .55rem .7rem;border:1px solid rgba(255,255,255,.15);background:rgba(8,8,8,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--stone);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;transition:border-color .2s,color .2s;cursor:pointer}
-.hero-toggle:hover{border-color:rgba(212,175,55,.4);color:var(--gold)}
+.hero-video{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hero-video iframe{position:absolute;top:50%;left:50%;width:177.78vh;height:56.25vw;min-width:100%;min-height:100%;transform:translate(-50%,-50%)}
 .ht-dot{width:8px;height:8px;border-radius:50%;background:var(--ash);flex-shrink:0;transition:background .3s}
 .hero-toggle.colour .ht-dot{background:var(--gold)}
 .hero-toggle.colour{color:var(--gold);border-color:rgba(212,175,55,.3)}
@@ -453,9 +451,9 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
 
 <!-- HERO -->
 <section class="hero" id="top" aria-label="Hero">
-  <video id="heroVideo" class="hero-video" autoplay muted loop playsinline>
-    <source src="./images/cnxcigars-hero-bw.mp4" type="video/mp4">
-  </video>
+  <div class="hero-video">
+    <iframe src="https://player.vimeo.com/video/1203211104?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
   <div class="hero-scrim"></div>
   <div class="hero-scrim-b"></div>
   <div class="hero-portrait" aria-hidden="true">
@@ -472,10 +470,6 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
   <div class="hero-logo" aria-hidden="true">
     <img src="./images/cnxcigars-cnx-cigars-logo-circle.webp" alt="CNX Cigars" width="160" height="160">
   </div>
-  <button class="hero-toggle" id="videoToggle" aria-label="Toggle colour">
-    <span class="ht-dot" id="htDot"></span>
-    <span class="ht-label" id="htLabel">Colour</span>
-  </button>
 </section>
 
 <!-- MARQUEE -->
@@ -965,26 +959,6 @@ const mobMenu=document.getElementById('mobMenu'),burger=document.getElementById(
 function toggleMob(){burger.classList.toggle('open');mobMenu.classList.toggle('open');document.body.style.overflow=mobMenu.classList.contains('open')?'hidden':'';}
 function closeMob(){burger.classList.remove('open');mobMenu.classList.remove('open');document.body.style.overflow='';}
 
-// HERO VIDEO TOGGLE
-(function(){
-  const video=document.getElementById('heroVideo');
-  const btn=document.getElementById('videoToggle');
-  const label=document.getElementById('htLabel');
-  const src={bw:'./images/cnxcigars-hero-bw.mp4',colour:'./images/cnxcigars-hero.mp4'};
-  let isColour=false;
-  btn.addEventListener('click',()=>{
-    isColour=!isColour;
-    video.classList.add('fade');
-    setTimeout(()=>{
-      video.querySelector('source').src=isColour?src.colour:src.bw;
-      video.load();
-      video.play();
-      video.classList.remove('fade');
-      label.textContent=isColour?'B&W':'Colour';
-      btn.classList.toggle('colour',isColour);
-    },400);
-  });
-})();
 
 // ABOUT BG PARALLAX
 (function(){
