@@ -31,19 +31,20 @@
 /* RESET */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body{overflow-x:hidden}
+body{overflow-x:hidden;background:#080808}
 img{display:block;max-width:100%;height:auto}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 button{cursor:pointer;border:none;background:none;font:inherit}
 
-/* TOKENS */
+/* DESIGN TOKENS */
 :root{
   --ink:#080808;
   --ink-2:#0f0f0f;
   --ink-3:#161616;
   --gold:#D4AF37;
   --gold-dim:rgba(212,175,55,.15);
+  --gold-faint:rgba(212,175,55,.06);
   --cream:#f0ece4;
   --stone:#c8c4bc;
   --ash:#787068;
@@ -56,8 +57,11 @@ button{cursor:pointer;border:none;background:none;font:inherit}
   --g:clamp(1.2rem,4vw,2.2rem);
   --max:1380px;
 }
+
 body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .wrap{max-width:var(--max);margin:0 auto;padding-left:var(--g);padding-right:var(--g)}
+
+/* TYPE */
 .t-label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:400;color:var(--gold)}
 .t-body{font-size:clamp(.88rem,1.1vw,1rem);line-height:1.8;color:var(--ash)}
 .t-body-lg{font-size:clamp(.95rem,1.3vw,1.08rem);line-height:1.8;color:var(--stone)}
@@ -83,7 +87,7 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .nav-logo{font-family:var(--f-brand);font-size:1.1rem;color:var(--gold);letter-spacing:.5em}
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(240,236,228,.5);transition:color .2s}
-.nav-links a:hover,.nav-links a[aria-current]{color:var(--gold)}
+.nav-links a:hover{color:var(--gold)}
 .nav-cta{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;padding:.55rem 1.4rem;border:1px solid rgba(212,175,55,.3);color:var(--gold);transition:background .2s,color .2s}
 .nav-cta:hover{background:var(--gold);color:var(--ink)}
 .burger{display:none;flex-direction:column;gap:6px;padding:4px}
@@ -97,14 +101,16 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .mob-menu a:hover{color:var(--gold)}
 
 /* PAGE HERO */
-.pg-hero{position:relative;height:70vh;min-height:520px;overflow:hidden;display:flex;align-items:flex-end}
-.pg-hero-bg{position:absolute;inset:0}
-.pg-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
-.pg-hero-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.9) 0%,rgba(8,8,8,.4) 50%,rgba(8,8,8,.15) 100%)}
-.pg-hero-content{position:relative;z-index:1;padding:0 var(--g) clamp(3.5rem,6vw,6rem);width:100%}
-.pg-hero-content .t-label{margin-bottom:1.2rem}
-.pg-hero-content h1{font-family:var(--f-display);font-weight:300;font-size:clamp(2.8rem,7vw,6.5rem);color:var(--cream);line-height:1.05;letter-spacing:-.02em;max-width:900px}
-.pg-hero-content p{font-size:clamp(.9rem,1.3vw,1.08rem);color:var(--stone);line-height:1.75;max-width:620px;margin-top:1.5rem}
+.pg-hero{padding:clamp(8rem,14vw,13rem) 0 clamp(5rem,9vw,9rem);background:var(--ink);border-bottom:1px solid var(--border)}
+.pg-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,8vw,10rem);align-items:end}
+.pg-hero-img{position:relative;aspect-ratio:3/4;overflow:hidden}
+.pg-hero-img img{width:100%;height:100%;object-fit:cover;object-position:center}
+.pg-hero-badge{position:absolute;bottom:2rem;left:2rem;background:rgba(8,8,8,.85);border:1px solid var(--border-hi);padding:1.2rem 1.6rem;backdrop-filter:blur(8px)}
+.pg-hero-badge .f-badge-label{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.pg-hero-badge p{font-size:.75rem;color:var(--stone)}
+.pg-hero-text .t-label{margin-bottom:1.5rem}
+.pg-hero-text h1{font-family:var(--f-display);font-weight:300;font-size:clamp(3rem,7vw,6.5rem);color:var(--cream);line-height:1.05;letter-spacing:-.02em;margin-bottom:2rem}
+.pg-hero-text blockquote{font-family:var(--f-display);font-size:clamp(1.15rem,1.8vw,1.5rem);font-weight:300;font-style:italic;color:var(--stone);line-height:1.6;border-left:1px solid var(--gold);padding-left:1.5rem;margin-bottom:2.5rem}
 
 /* BIO SECTIONS */
 .bio-section{padding:clamp(5rem,9vw,9rem) 0;border-top:1px solid var(--border)}
@@ -132,8 +138,8 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 
 /* PULL QUOTE */
 .pull-quote{padding:clamp(4rem,7vw,7rem) 0;background:var(--ink-3);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.pull-quote blockquote{font-family:var(--f-display);font-size:clamp(1.3rem,3vw,2.5rem);font-weight:300;font-style:italic;color:var(--cream);line-height:1.4;max-width:860px;margin:0 auto;text-align:center}
-.pull-quote cite{display:block;margin-top:2rem;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);text-align:center;font-style:normal}
+.pull-quote blockquote{font-family:var(--f-display);font-size:clamp(1.5rem,3.5vw,3rem);font-weight:300;font-style:italic;color:var(--cream);line-height:1.35;max-width:900px;margin:0 auto;text-align:center}
+.pull-quote cite{display:block;margin-top:2rem;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);text-align:center;font-style:normal}
 
 /* COMPLIANCE PANEL */
 .compliance-panel{background:var(--ink-3);border:1px solid var(--border-hi);padding:clamp(2rem,4vw,3rem);margin-bottom:2.5rem}
@@ -172,7 +178,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
 
 /* RESPONSIVE */
 @media(max-width:1100px){
-  .bio-grid,.bio-grid.flip{grid-template-columns:1fr}
+  .pg-hero-inner,.bio-grid,.bio-grid.flip{grid-template-columns:1fr}
   .bio-label{position:static}
   .ft-top{grid-template-columns:1fr 1fr}
 }
@@ -191,25 +197,24 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu" role="dialog" aria-label="Navigation">
-  <a href="./" onclick="closeMob()">Home</a>
-  <a href="./brands/" onclick="closeMob()">Collection</a>
+  <a href="./services.html" onclick="closeMob()">Services</a>
+  <a href="./collection.html" onclick="closeMob()">Collection</a>
+  <a href="./accessories.html" onclick="closeMob()">Accessories</a>
+  <a href="./lounge.html" onclick="closeMob()">The Lounge</a>
   <a href="./about.html" onclick="closeMob()">About</a>
-  <a href="./founder.html" onclick="closeMob()">The Founder</a>
-  <a href="./services.html" onclick="closeMob()">Reserve</a>
-  <a href="./#contact" onclick="closeMob()">Contact</a>
 </div>
 
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
   <a href="./" class="nav-logo" aria-label="CNX Cigars home">CNX Cigars</a>
   <div class="nav-links">
-    <a href="./">Home</a>
-    <a href="./brands/">Collection</a>
+    <a href="./services.html">Services</a>
+    <a href="./collection.html">Collection</a>
+    <a href="./accessories.html">Accessories</a>
+    <a href="./lounge.html">The Lounge</a>
     <a href="./about.html" aria-current="page">About</a>
-    <a href="./founder.html">The Founder</a>
-    <a href="./#contact">Contact</a>
   </div>
-  <a href="./services.html" class="nav-cta">Reserve a Seat</a>
+  <a href="./services.html#reserve" class="nav-cta">Reserve a Seat</a>
   <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -217,14 +222,26 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
 
 <!-- PAGE HERO -->
 <section class="pg-hero">
-  <div class="pg-hero-bg">
-    <img src="./images/cnxcigars-cnx-cigars-lounge-interior-full-room-overview.webp" alt="CNX Cigars lounge interior" width="1920" height="1080">
-  </div>
-  <div class="pg-hero-scrim"></div>
-  <div class="pg-hero-content">
-    <p class="t-label r">Chiang Mai, Northern Thailand</p>
-    <h1 class="r d1">Cultivating Excellence<br>in Northern Thailand</h1>
-    <p class="r d2">The definitive luxury cigar lounge, premier authorized consultancy, and licensed distribution authority in the region.</p>
+  <div class="wrap">
+    <div class="pg-hero-inner">
+      <div class="pg-hero-img r-img">
+        <img src="./images/cnxcigars-cnx-cigars-lounge-interior-full-room-overview.webp" alt="CNX Cigars lounge interior, Chiang Mai" width="960" height="1280">
+        <div class="pg-hero-badge">
+          <div class="f-badge-label">Restaurant Guru 2026</div>
+          <p>Award Winner</p>
+        </div>
+      </div>
+      <div class="pg-hero-text">
+        <p class="t-label r" style="margin-bottom:1.5rem">Chiang Mai, Northern Thailand</p>
+        <h1 class="r d1">Cultivating<br>Excellence</h1>
+        <blockquote class="r d2">"There is no shortcut to authenticity. Every cigar in this room has been verified, every relationship with a producer has been earned over decades, and every guest who walks through that door deserves to know exactly what they are smoking."</blockquote>
+        <p class="t-body-lg r d3">The definitive luxury cigar lounge, premier authorized consultancy, and licensed distribution authority in Northern Thailand.</p>
+        <div class="btn-grp r d4" style="margin-top:2.5rem">
+          <a href="./services.html#reserve" class="btn-gold">Reserve a Seat</a>
+          <a href="./founder.html" class="btn-outline">Meet the Founder</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -288,7 +305,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
   </div>
 </section>
 
-<!-- PULL QUOTE: GLOBAL HERITAGE PROTOCOL -->
+<!-- PULL QUOTE -->
 <div class="pull-quote">
   <div class="wrap">
     <blockquote class="r">Absolute product authenticity serves as the foundation of the CNX Cigars operational ethos. The establishment functions as a certified, authorized retail partner of the Pacific Cigar Company, the exclusive distributor of Habanos S.A. for the Asia-Pacific territory.</blockquote>
@@ -336,7 +353,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
           </tbody>
         </table>
         <p class="r d2">From the historic, cedar-heavy profiles of classic Cuban Churchills to the toothy, oil-rich Maduro leaves cultivated across single-estate valleys in Esteli, Nicaragua, the collection accommodates every nuance of contemporary palate dynamics.</p>
-        <div class="r d3" style="margin-top:2rem"><a href="./brands/" class="btn-gold">Explore the Collection</a></div>
+        <div class="r d3" style="margin-top:2rem"><a href="./collection.html" class="btn-gold">Explore the Collection</a></div>
       </div>
     </div>
   </div>
@@ -378,7 +395,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         <p class="r d2">This includes providing specialized staff education on proper humidor climate calibration, precision cutting and lighting rituals, and seamless legal compliance management.</p>
         <p class="r d3">By combining decades of international heritage with localized operational precision, CNX Cigars remains the undisputed epicenter of premium smoking culture in Northern Thailand, maintaining an absolute benchmark of luxury, education, and professional execution.</p>
         <div class="btn-grp r d4" style="margin-top:2.5rem">
-          <a href="./#b2b" class="btn-gold">B2B Enquiries</a>
+          <a href="./services.html#b2b" class="btn-gold">B2B Enquiries</a>
           <a href="./founder.html" class="btn-outline">Meet the Founder</a>
         </div>
       </div>
@@ -393,8 +410,8 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <h2 class="r d1">The undisputed epicenter of premium<br>smoking culture in Northern Thailand.</h2>
     <p class="r d2">Come for the ambiance. Stay for the conversation.</p>
     <div class="btn-grp r d3" style="justify-content:center">
-      <a href="./services.html" class="btn-gold">Reserve a Seat</a>
-      <a href="./#contact" class="btn-outline">Get in Touch</a>
+      <a href="./services.html#reserve" class="btn-gold">Reserve a Seat</a>
+      <a href="./founder.html" class="btn-outline">Meet the Founder</a>
     </div>
   </div>
 </section>
@@ -413,20 +430,20 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         <h4>Explore</h4>
         <ul>
           <li><a href="./">Home</a></li>
-          <li><a href="./brands/">Cigars &amp; Brands</a></li>
+          <li><a href="./collection.html">Collection</a></li>
+          <li><a href="./accessories.html">Accessories</a></li>
+          <li><a href="./lounge.html">The Lounge</a></li>
           <li><a href="./about.html">About</a></li>
-          <li><a href="./founder.html">The Founder</a></li>
-          <li><a href="./#contact">Contact</a></li>
-          <li><a href="./legal-privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="./services.html">Services &amp; Contact</a></li>
         </ul>
       </div>
       <div class="ft-col">
         <h4>The Lounge</h4>
         <ul>
-          <li><a href="./#cigars">Collections</a></li>
-          <li><a href="./#lounge">Experience</a></li>
-          <li><a href="./#b2b">B2B &amp; HORECA</a></li>
-          <li><a href="./services.html">Reserve a Seat</a></li>
+          <li><a href="./collection.html">The Collection</a></li>
+          <li><a href="./lounge.html">Experience</a></li>
+          <li><a href="./services.html#b2b">B2B &amp; HORECA</a></li>
+          <li><a href="./services.html#reserve">Reserve a Seat</a></li>
         </ul>
       </div>
     </div>

@@ -1,51 +1,49 @@
-# CNX Cigars - Session Handover
+# CNX Cigars Handover
+Updated: 21/06/2026
 
-**Date**: 21 June 2026
-**Status**: Premium vanilla rebuild complete. Project folder archived and clean. Ready for browser verification.
+## Where We Are
 
-## What's Done
-- Full premium vanilla rebuild (index.html, services.html, brands/index.html)
-- Hero with B&W / colour video toggle (cnxcigars-hero-bw.mp4 default, cnxcigars-hero.mp4 colour)
-- 33 lounge WebPs + 10 humidor WebPs, all under 200KB, semantically named
-- Age gate hidden (display:none) for dev -- unhide before delivery
-- All bare "CNX" updated to "CNX Cigars" throughout
-- Archive complete: old CSS/JS/framework/TTFs moved to _archive/
+Vanilla rebuild essentially complete. All pages built and deployed to Cloudflare Workers via GitHub.
 
-## Before Delivery (in order)
-1. **Unhide age gate** -- remove `style="display:none"` from `<div id="gate">` in index.html
-2. **Analytics token** -- replace `ANALYTICS_TOKEN_PLACEHOLDER` in index.html, services.html, brands/index.html
-3. **WhatsApp number** -- replace `66PHONENUMBER` with Amir's real number in index.html
-4. **Browser verify** -- full scroll desktop + mobile, age gate fires, all CTAs work
+- **Homepage:** `index.html` - full build, all sections done
+- **Founder:** `founder.html` - Amir Nadimi full biography, 6 sections
+- **About:** `about.html` - CNX Cigars company page, 6 sections
+- **Brands:** `brands/index.html` - pre-existing
+- **Services:** `services.html` - pre-existing OLD template, do not use as design reference
 
-## Project Structure (clean)
-- `index.html` -- homepage (main file, 3200+ lines)
-- `services.html` -- lounge + B2B intake
-- `brands/index.html` -- brand cards
-- `images/` -- all WebPs + 2 hero mp4s
-- `fonts/woff2/` -- TrajanPro, Cormorant Garamond, DM Sans, DM Serif Display
-- `favicon/` -- full set
-- `_headers`, `robots.txt`, `sitemap.xml`, `site.webmanifest`
+## What Was Done This Session (21/06/2026)
 
-## Critical Technical Notes
+- Replaced cigar cursor with dot cursor (gold dot + lagging ring, vanilla)
+- Built testimonials carousel with 6 real Google reviews (3 per page)
+- All 20 real reviews saved to `reviews-bank.md`
+- Fixed 3 broken image references
+- Removed transparent ghost portrait from hero
+- Added founder portrait (red blazer) to founder section
+- Fixed descender clip on hero h1 (padding-bottom:.18em on .w wrapper)
+- Collections: all cigar-only photos
+- Removed all double hyphens from copy
+- Added 5 new homepage sections: stats, community, bar, B2B/HORECA, recognition
+- Phone number: +66 622 769 937 (wa.me/66622769937 live)
+- LINE: Bodazey and email in contact + footer
+- Created founder.html (same design system as homepage)
+- Created about.html (same design system as homepage)
+- Gallery: 3rd photo = opening-night-fisheye, 5th = teal-reserved-seating-nook
 
-### Encoding
-- index.html contains UTF-8 non-breaking spaces (hex c2a0) in original template text
-- These break PowerShell `-replace` regex and Edit tool string matching
-- Reliable fix: Python `f.readlines()` + line-index replacement + `f.writelines()`
+## Pending Before Delivery
 
-### Age Gate
-- Gate ID: `<div id="gate" style="display:none">`
-- localStorage key: `cnx_age_verified` = `'1'`
-- Thai law: 20+ only
+1. **Unhide age gate** - remove `style="display:none"` from `<div id="gate">` in index.html
+2. **Analytics token** - replace `ANALYTICS_TOKEN_PLACEHOLDER` in all 5 pages (index, founder, about, services, brands/index)
+3. **Chaty widget** - WhatsApp +66 622 769 937, LINE: Bodazey
+4. **Browser verify** - desktop + mobile full scroll
 
-### Hero Video Toggle
-- Default loads B&W version
-- Button swaps src, calls `.load()` + `.play()` with 400ms opacity crossfade
+## Key Technical Notes
 
-## Content Reference Files (kept)
-- `content-homepage-final.md` -- master copy
-- `founder-bio.md` -- Amir's story
-- `content-faq.md` -- FAQ
-- `content-reference.md` -- full library
-- `design-brief.md` -- design tokens
-- `seo-report.md` -- SEO
+- Build: `npm run build && npx wrangler deploy`
+- Build copies: index.html services.html founder.html about.html brands favicon fonts images _headers robots.txt sitemap.xml site.webmanifest
+- Design template: index.html / founder.html / about.html (NOT services.html - old template)
+- Fonts: `./fonts/woff2/` from root
+- Vimeo hero: video ID 1203211104
+
+## Next Session
+
+Browser verify full site desktop + mobile, then unhide age gate, replace analytics tokens, set up Chaty, ship.
