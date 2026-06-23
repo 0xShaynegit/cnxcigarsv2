@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Accessories | Cigar Cutters, Lighters and Humidors Chiang Mai | CNX Cigars</title>
-<meta name="description" content="Curated cigar accessories in Chiang Mai. Cutters, lighters, humidors, cases and ashtrays selected to match the cellar. By appointment at CNX Cigars.">
+<meta name="description" content="Curated cigar accessories in Chiang Mai. Cutters, lighters, humidors, cases and ashtrays selected to complement the cellar. Walk in or message CNX Cigars.">
 <link rel="canonical" href="https://cnxcigars.com/accessories.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cnxcigars.com/accessories.html">
@@ -122,6 +122,22 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .bio-cta{padding:clamp(5rem,9vw,8rem) 0;background:var(--ink-3);border-top:1px solid var(--border);text-align:center}
 .bio-cta h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.5vw,3.4rem);color:var(--cream);line-height:1.15;margin-bottom:1.5rem}
 .bio-cta p{font-size:clamp(.9rem,1.2vw,1.05rem);color:var(--stone);line-height:1.8;max-width:620px;margin:0 auto 3rem}
+
+/* FAQ */
+.faq{background:var(--ink-2);padding:clamp(5rem,9vw,9rem) 0}
+.faq-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(3rem,6vw,6rem)}
+.faq-left h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.2vw,3.2rem);color:var(--cream);margin-bottom:1.2rem;line-height:1.1}
+.faq-left p{font-size:clamp(.88rem,1.1vw,1rem);line-height:1.8;color:var(--ash);margin-bottom:2rem}
+.faq-list{border-top:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:1.4rem 0;font-family:var(--f-body);font-size:.94rem;color:var(--stone);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color .2s;line-height:1.5}
+.faq-q:hover{color:var(--cream)}
+.faq-icon{font-size:1.2rem;color:var(--gold);flex-shrink:0;transition:transform .3s var(--ease-expo)}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{overflow:hidden;max-height:0;transition:max-height .58s var(--ease-expo)}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a p{padding-bottom:1.4rem;font-size:.9rem;color:var(--ash);line-height:1.8}
+@media(max-width:900px){.faq-grid{grid-template-columns:1fr}}
 
 /* FOOTER */
 footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(4rem,7vw,6rem) 0 2rem}
@@ -286,10 +302,66 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-left r">
+        <p class="t-label" style="display:block;margin-bottom:1rem">Using your equipment</p>
+        <h2>Accessories &amp; Ritual Questions</h2>
+        <p>Guidance on cutters, lighters, humidors, and how to get the most from your cigar.</p>
+        <a href="./collection.html" class="btn-outline">Explore the Collection</a>
+      </div>
+      <div class="faq-list r d1">
+        <div class="faq-item">
+          <button class="faq-q">What type of cut is best for a beginner? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>A straight guillotine cut is the most forgiving for beginners. It produces a clean, wide opening that draws easily and does not require precise technique to execute well. A V-cut produces a more concentrated draw with slightly more flavour intensity, but the groove can fill with tar over a long smoke. A punch cut creates the smallest opening, which suits tighter ring gauges but can cause heat build-up in thicker vitolas. Start with a guillotine until you understand how different cigars draw, then experiment from there.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Where exactly should I cut the cap? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Cut just above the shoulder, where the cap meets the body of the cigar. The cap is the small circular piece of tobacco leaf applied to the head of the cigar to seal it during construction. Cutting too deep into the body risks unravelling the wrapper. Cutting too little leaves the draw restricted. For a Torpedo or Belicoso with a pointed head, cut at the widest part of the taper, roughly a centimetre from the tip.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I use a regular lighter or matches to light a cigar? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Avoid petrol lighters and standard matches. Petrol lighters introduce fuel residue that taints the tobacco flavour, particularly in the first third of the smoke. Regular matches use sulphur-based heads that do the same. Use butane torch lighters, which burn cleanly and hot enough to toast the foot of the cigar evenly, or long cedar matches and let the sulphur burn off before touching the flame to the tobacco. Soft flame butane lighters are also acceptable. The goal is a clean, odourless flame that does not introduce anything extraneous to the tobacco itself.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How do I light a cigar correctly? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Toast first, then light. Hold the foot of the cigar above the flame at a slight angle without touching it, rotating slowly until the outer ring begins to glow. This is called toasting and it pre-warms the tobacco for an even ignition. Then place the cigar in your mouth, hold the flame just below the foot without touching it, and draw slowly while rotating. Once the foot glows evenly across its full diameter, the cigar is lit. A rushed or uneven light leads to a canoe burn, where one side burns faster than the other for the entire smoke.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What humidity should a home humidor be set to? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>The standard recommendation is 65 to 70 percent relative humidity at 18 to 20 degrees Celsius. In the Thai climate, maintaining the lower end of that range, around 65 to 67 percent, is preferable because ambient temperatures are higher and humidity management is harder. Too much moisture causes the wrapper to swell, making the cigar tight to draw. Too little causes it to dry out and crack. A digital hygrometer is essential for any serious home humidor. Analogue hygrometers are typically inaccurate by five to ten percent.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How long will a cigar keep in a humidor? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Indefinitely, if the humidor is properly maintained. Well-stored cigars continue to age and evolve over years, and many collectors deliberately age Cuban cigars for five, ten, or twenty years before smoking them. The key variables are consistent humidity, consistent temperature, and absence of light. Cigars stored in a correctly calibrated humidor will not degrade. What you are avoiding is the two failure modes: drying out at low humidity, which causes cracking and harsh flavour, and over-humidification, which causes mould and tight draw.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do I need to season a new humidor before using it? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes. A new Spanish cedar-lined humidor must be seasoned before storing cigars. The cedar needs to absorb moisture until it reaches equilibrium, otherwise it will pull humidity from your cigars rather than maintaining them. The simplest method is to wipe the interior lightly with distilled water on a clean cloth, place a small open container of distilled water inside, close the lid, and leave it for 24 to 48 hours. Check the hygrometer and repeat if necessary until the reading stabilises at your target humidity. Never use tap water, which contains minerals that encourage mould.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I travel internationally with cigars? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes, within limits that vary by destination. Most countries allow personal import of a small quantity of cigars, typically 25 to 50 cigars, without duty. The US has specific restrictions on Cuban cigars due to the trade embargo, although the rules on personal import for personal use have relaxed in recent years. Australia and New Zealand have biosecurity rules that require declaration. Always check the specific import allowance for your destination. For travel, a portable travel humidor will keep your cigars in condition for several days without any humidification device.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What is a travel humidor and do I need one? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>A travel humidor is a hard-sided, sealed case designed to protect a small number of cigars during transit. For short trips of one to three days, a quality ziplock bag with a small Boveda packet is adequate. For longer trips or frequent travellers, a proper travel humidor with a locking seal and a single humidity pack will protect two to five cigars in good condition for up to two weeks. Ask Amir which travel humidor he recommends for your frequency of travel.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What should I look for when buying a table lighter? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>For a cigar table lighter, prioritise a strong, wind-resistant butane torch flame over soft flame designs. Single torch is sufficient for most cigars, but a double or triple torch makes lighting thicker ring gauges easier. Refillability is essential, as disposable table lighters are a false economy. Look for a design with an accessible fuel fill valve and an adjustable flame height. For outdoor use or in air-conditioned rooms with strong circulation, a torch lighter is almost mandatory. Soft flame lighters struggle against any air movement.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CLOSING CTA -->
 <section class="bio-cta">
   <div class="wrap">
-    <p class="t-label r" style="margin-bottom:1.5rem;display:block">By appointment</p>
+    <p class="t-label r" style="margin-bottom:1.5rem;display:block">Open daily, Nimman</p>
     <h2 class="r d1">Outfit your ritual.</h2>
     <p class="r d2">From a single straight cutter to a fifty-cigar humidor, every accessory is selected to match the cellar. Ask our team what suits the way you smoke, and we will guide you to the right piece.</p>
     <div class="btn-grp r d3" style="justify-content:center">
@@ -354,6 +426,9 @@ function closeMob(){mob.classList.remove('open');burger.classList.remove('open')
 // REVEAL
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');if(item.classList.contains('open')){item.classList.remove('open');return;}document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));item.classList.add('open');});});
 
 // DOT CURSOR
 (function(){

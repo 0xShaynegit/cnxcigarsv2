@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Lounge | Cigar Lounge Chiang Mai | CNX Cigars</title>
-<meta name="description" content="A climate-stabilised cigar lounge in the heart of Nimman. An open room for thirty, a private reserve for six. By appointment, Chiang Mai.">
+<meta name="description" content="A climate-stabilised cigar lounge in the heart of Nimman, Chiang Mai. An open floor for walk-ins, a private reserve for those who ask. CNX Cigars.">
 <link rel="canonical" href="https://cnxcigars.com/lounge.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cnxcigars.com/lounge.html">
 <meta property="og:title" content="The Lounge | Cigar Lounge Chiang Mai | CNX Cigars">
-<meta property="og:description" content="A climate-stabilised cigar lounge in the heart of Nimman. An open room for thirty, a private reserve for six. By appointment, Chiang Mai.">
+<meta property="og:description" content="A climate-stabilised cigar lounge in the heart of Nimman, Chiang Mai. An open floor for walk-ins, a private reserve for those who ask. CNX Cigars.">
 <meta property="og:image" content="https://cnxcigars.com/images/cnxcigars-cnx-cigars-logo-elephant-circle-black.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Lounge | Cigar Lounge Chiang Mai | CNX Cigars">
@@ -145,6 +145,22 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .bio-cta h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.5vw,4rem);color:var(--cream);line-height:1.15;margin-bottom:1.5rem}
 .bio-cta p{font-size:clamp(.9rem,1.2vw,1.05rem);color:var(--stone);line-height:1.8;max-width:620px;margin:0 auto 3rem}
 
+/* FAQ */
+.faq{background:var(--ink-2);padding:clamp(5rem,9vw,9rem) 0}
+.faq-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(3rem,6vw,6rem)}
+.faq-left h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.2vw,3.2rem);color:var(--cream);margin-bottom:1.2rem;line-height:1.1}
+.faq-left p{font-size:clamp(.88rem,1.1vw,1rem);line-height:1.8;color:var(--ash);margin-bottom:2rem}
+.faq-list{border-top:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:1.4rem 0;font-family:var(--f-body);font-size:.94rem;color:var(--stone);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color .2s;line-height:1.5}
+.faq-q:hover{color:var(--cream)}
+.faq-icon{font-size:1.2rem;color:var(--gold);flex-shrink:0;transition:transform .3s var(--ease-expo)}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{overflow:hidden;max-height:0;transition:max-height .58s var(--ease-expo)}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a p{padding-bottom:1.4rem;font-size:.9rem;color:var(--ash);line-height:1.8}
+@media(max-width:900px){.faq-grid{grid-template-columns:1fr}}
+
 /* FOOTER */
 footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(4rem,7vw,6rem) 0 2rem}
 .ft-top{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem}
@@ -221,7 +237,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         <img src="./images/cnxcigars-cnx-cigars-lounge-brown-leather-chair-ashtray-side-table.webp" alt="A leather wingback chair and ashtray in the CNX Cigars lounge, Chiang Mai" width="720" height="960">
         <div class="pg-hero-badge">
           <div class="f-badge-label">Nimman, Chiang Mai</div>
-          <p>By Appointment</p>
+          <p>Walk-ins Welcome</p>
         </div>
       </div>
       <div class="pg-hero-text">
@@ -297,7 +313,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
       <div class="bio-body">
         <div class="philosophy-item r">
           <div class="ph-heading">On Booking</div>
-          <p>The reserve is held by appointment only, confirmed directly through LINE or WhatsApp. A short conversation lets us prepare the room, the pairings, and the selection before you arrive. Nothing is left to chance.</p>
+          <p>The reserve is confirmed through LINE or WhatsApp. A short message lets us prepare the room, the pairings, and the selection before you arrive. Nothing is left to chance.</p>
         </div>
         <div class="philosophy-item r d1">
           <div class="ph-heading">On Privacy</div>
@@ -319,7 +335,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
       <div class="bio-body">
         <p class="r">We do not take public form submissions, and we do not list a checkout. Every visit, whether to the open floor or the private reserve, begins with a direct message. It is a deliberate friction, and it is the right one.</p>
         <p class="r d1">A message lets us hold the right seats, brief the room, and ensure that the cigars matched to your evening are in condition before you cross the door. It is the difference between arriving as a name on a list and arriving as a guest who was expected.</p>
-        <div class="r d2" style="margin-top:2.5rem"><a href="./services.html#reserve" class="btn-gold">Initiate Booking Protocol</a></div>
+        <div class="r d2" style="margin-top:2.5rem"><a href="./services.html#reserve" class="btn-gold">Reserve the Private Room</a></div>
       </div>
       <div class="bio-label">
         <p class="t-label r" style="margin-bottom:1rem">Protocol</p>
@@ -347,6 +363,62 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
     <div class="lounge-map r" style="margin:clamp(2.5rem,5vw,4rem) 0 0;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.0223814865376!2d98.9642770753626!3d18.797155882350904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da3b1ce8a65eb7%3A0x2348f8e88b96ea1!2sCNX%20Cigars%20%7C%20International%20Cigar%20Bar%20%26%20lounge%20%7C%20Cigars%20Chiang%20Mai%20Co.%2C%20Ltd!5e0!3m2!1sen!2sau!4v1782064183815!5m2!1sen!2sau" width="100%" height="450" style="border:0;display:block;width:100%;filter:grayscale(.3) contrast(1.05)" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="CNX Cigars location on Google Maps, Nimmana Haeminda Road Lane 11, Chiang Mai"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-left r">
+        <p class="t-label" style="display:block;margin-bottom:1rem">Before your visit</p>
+        <h2>Lounge Questions</h2>
+        <p>Practical answers for first-time visitors and regular guests alike.</p>
+        <a href="./services.html#reserve" class="btn-outline">Get in Touch</a>
+      </div>
+      <div class="faq-list r d1">
+        <div class="faq-item">
+          <button class="faq-q">What are the opening hours? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>CNX Cigars is open daily from 12 noon to midnight. No booking is required to visit during these hours. Walk in any time and the team will look after you from the moment you arrive.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do I need to buy a cigar to use the lounge? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>A purchase is expected if you are using the lounge space, but there is no minimum spend and no pressure. If you want to come in, look around, ask questions, and leave without buying anything on your first visit, that is fine. The lounge operates on the understanding that trust is built over time. Most first-time visitors who come in just to look end up lighting something within the hour.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I bring a non-smoking guest? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes. Non-smoking guests are welcome in the lounge. The air filtration system runs continuously and keeps the environment comfortable even for non-smokers. The lounge is social by nature and the conversation is as much a part of the experience as the cigars. Non-smoking companions are treated as full guests.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How is the air quality managed? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>The lounge uses multi-stage HEPA filtration and carbon-scrubbing intake chambers that complete a full air volume replacement every few minutes. The result is a clean, neutral atmosphere without residual smoke build-up. Guests can spend several hours in the lounge without the sensory fatigue common in poorly ventilated smoking venues. The system runs continuously during all opening hours.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is there a dress code? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>There is no formal dress code. Smart casual is the natural register of the clientele, but you will not be turned away for arriving in anything short of beachwear. The lounge attracts a mix of expats, business travellers, collectors, and curious locals. The atmosphere is refined but relaxed. Dress to feel comfortable.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Are drinks available in the lounge? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Ask the team when you arrive. Pairing recommendations, including whisky, rum, and coffee, can be arranged and are part of the lounge conversation. The focus is on the cigar experience, but a well-chosen drink alongside it is expected and encouraged.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Where is the lounge located and is there parking? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>CNX Cigars is on the second floor of 45 Nimmana Haeminda Road, Lane 11, in the Nimman area of Chiang Mai. It is one of Chiang Mai's most accessible and well-known neighbourhoods. Street parking is available in the area and the building is straightforward to find. Message us via WhatsApp if you need directions on the day.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I smoke my own cigar in the lounge? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>This is considered on a case-by-case basis and is generally reserved for established regular clients. If you have a specific cigar you want to smoke in the lounge, message Amir before you visit and he will advise. Any cigar smoked on the premises must be authentic and legally sourced. The lounge does not permit counterfeit tobacco under any circumstances.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What is the best time to visit for a quieter experience? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Early afternoons, between noon and four, tend to be quieter and are an ideal time for a first visit or a longer guided conversation with Amir. Evenings from seven onwards are more social and often include a mix of regulars, walk-ins, and visitors. Both have their character. If you want Amir's full attention for a selection consultation or a longer conversation, an afternoon visit is the better choice.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is the lounge suitable for a business meeting? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes, and it is frequently used for exactly that. A cigar lounge naturally slows a conversation down and creates a context that is difficult to replicate in a restaurant or hotel lobby. The atmosphere is private enough for candid discussion and relaxed enough that guests drop their guard. Many of CNX's regular clients use the lounge for client entertainment, informal deal discussions, and relationship-building evenings. For larger groups or a fully private setting, contact us in advance.</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -419,6 +491,9 @@ function closeMob(){mob.classList.remove('open');burger.classList.remove('open')
 // REVEAL
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.r,.r-img').forEach(el=>obs.observe(el));
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');if(item.classList.contains('open')){item.classList.remove('open');return;}document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));item.classList.add('open');});});
 
 // DOT CURSOR
 (function(){

@@ -157,6 +157,22 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .bio-cta h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.5vw,4rem);color:var(--cream);line-height:1.15;margin-bottom:1.5rem}
 .bio-cta p{font-size:clamp(.9rem,1.2vw,1.05rem);color:var(--stone);line-height:1.8;max-width:620px;margin:0 auto 3rem}
 
+/* FAQ */
+.faq{background:var(--ink-2);padding:clamp(5rem,9vw,9rem) 0}
+.faq-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(3rem,6vw,6rem)}
+.faq-left h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.2vw,3.2rem);color:var(--cream);margin-bottom:1.2rem;line-height:1.1}
+.faq-left p{font-size:clamp(.88rem,1.1vw,1rem);line-height:1.8;color:var(--ash);margin-bottom:2rem}
+.faq-list{border-top:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:1.4rem 0;font-family:var(--f-body);font-size:.94rem;color:var(--stone);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color .2s;line-height:1.5}
+.faq-q:hover{color:var(--cream)}
+.faq-icon{font-size:1.2rem;color:var(--gold);flex-shrink:0;transition:transform .3s var(--ease-expo)}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{overflow:hidden;max-height:0;transition:max-height .58s var(--ease-expo)}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a p{padding-bottom:1.4rem;font-size:.9rem;color:var(--ash);line-height:1.8}
+@media(max-width:900px){.faq-grid{grid-template-columns:1fr}}
+
 /* FOOTER */
 footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(4rem,7vw,6rem) 0 2rem}
 .ft-top{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem}
@@ -409,6 +425,58 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-left r">
+        <p class="t-label" style="display:block;margin-bottom:1rem">About CNX Cigars</p>
+        <h2>Questions About the Brand</h2>
+        <p>The story behind the lounge, the people who built it, and what makes it different.</p>
+        <a href="./founder.html" class="btn-outline">Meet the Founder</a>
+      </div>
+      <div class="faq-list r d1">
+        <div class="faq-item">
+          <button class="faq-q">How long has CNX Cigars been operating? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>CNX Cigars was founded by Amir Nadimi, whose direct involvement in premium tobacco culture spans over 30 years. The Chiang Mai lounge is the physical expression of that career, built on relationships, direct sourcing networks, and a deep understanding of what a cigar venue should feel like. The business has been operating in its current form in the Nimman area of Chiang Mai for several years and has built its reputation entirely through word of mouth.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Are your cigars genuine? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes. Every Cuban cigar sold at CNX Cigars is sourced through the Pacific Cigar Company, the sole authorised Habanos S.A. distributor for the Asia-Pacific region. Each cigar carries official Thai tax documentation that confirms legal importation through the authorised channel. This is the only reliable guarantee of authenticity in the Thai market. Counterfeit Cuban cigars are common across Thailand's tourist economy. None are permitted on our premises.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What makes CNX Cigars different from other cigar retailers in Thailand? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Most cigar retail in Thailand is incidental, a shelf in a hotel lobby or a glass case in a bar, with no expertise behind it. CNX Cigars is built differently. The selection is personally curated by Amir, the humidor is maintained to exacting climate standards, and every interaction is led by someone who has spent three decades immersed in premium tobacco culture. There is no theatre, no gatekeeping, and no upselling. The honest answer to your question is always the answer you will get.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is CNX Cigars an authorised Habanos retailer? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>CNX Cigars is a certified, authorised retail partner of the Pacific Cigar Company, which holds the exclusive Habanos S.A. distribution rights for the Asia-Pacific territory. This means every Cuban cigar we sell is sourced through the official legal chain. It is the only meaningful assurance of authenticity available to consumers in the Thai market, and it is the basis on which CNX's reputation for quality has been built.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Does CNX Cigars work with hotels and restaurants? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes. B2B hospitality consulting is a core part of what CNX Cigars does. Amir works with ultra-luxury resorts, boutique hotels, private clubs, and high-end F&amp;B venues across Northern Thailand and Southeast Asia to design and implement credible cigar programmes. This covers brand selection, humidor infrastructure, regulatory compliance, staff training, and ongoing supply. If you represent a property that wants to explore this, contact us directly via the Services page.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Why is Chiang Mai the right location for this kind of lounge? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Chiang Mai has a unique character in Southeast Asia: a sophisticated, internationally connected community of expats, long-term visitors, and discerning Thai clientele, in a city that moves at a slower pace than Bangkok. That combination creates exactly the right environment for a premium cigar lounge. The absence of competition in Northern Thailand meant CNX could build without compromise. There is no other venue in the region with the depth of selection, the climate infrastructure, or the expertise that CNX Cigars provides.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is smoking cigars legal in Thailand? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes. Smoking cigars is legal in Thailand in designated smoking areas. CNX Cigars operates as a licensed tobacco retail and lounge venue in full compliance with Thai tobacco law. The lounge is a permitted smoking venue. All products sold carry official Thai tax documentation confirming legal importation. There are no legal restrictions on adult customers smoking on the premises during opening hours.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What is the age policy? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>CNX Cigars is an adults-only establishment. Under Thai law, the minimum age to purchase or consume tobacco products is 20 years. Valid identification may be requested at the door. This policy applies to all guests without exception.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do you have an online shop or delivery service? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>CNX Cigars does not operate an e-commerce platform or offer general delivery. We are a lounge-first business, and the experience of selecting a cigar in person, with guidance from someone who knows the stock, is central to what we do. For established B2B clients and regular customers, supply arrangements can be discussed directly with Amir via WhatsApp or LINE.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CLOSING CTA -->
 <section class="bio-cta">
   <div class="wrap">
@@ -477,6 +545,9 @@ function closeMob(){mob.classList.remove('open');burger.classList.remove('open')
 // REVEAL
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.r,.r-img').forEach(el=>obs.observe(el));
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');if(item.classList.contains('open')){item.classList.remove('open');return;}document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));item.classList.add('open');});});
 
 // DOT CURSOR
 (function(){

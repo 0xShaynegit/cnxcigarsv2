@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lounge & Services | CNX Cigars Chiang Mai</title>
-<meta name="description" content="Private lounge access and B2B hospitality consulting by CNX Cigars. Appointment-only curation, founder-led guidance, and luxury cigar program design for elite properties.">
+<meta name="description" content="Private lounge access and B2B hospitality consulting by CNX Cigars. Founder-led guidance and luxury cigar program design for elite properties in Northern Thailand.">
 <link rel="canonical" href="https://cnxcigars.com/services.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cnxcigars.com/services.html">
 <meta property="og:title" content="Lounge & Services | CNX Cigars">
-<meta property="og:description" content="Private lounge access and B2B hospitality consulting. Appointment-only curation, founder-led guidance, luxury cigar program design.">
+<meta property="og:description" content="Private lounge access and B2B hospitality consulting. Founder-led guidance and luxury cigar program design for hotels and private clubs.">
 <link rel="icon" type="image/x-icon" href="./favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32.png">
 <link rel="apple-touch-icon" href="./favicon/apple-touch-icon.png">
@@ -184,6 +184,22 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .bio-cta{padding:clamp(5rem,9vw,9rem) 0;background:var(--ink);border-top:1px solid var(--border);text-align:center}
 .bio-cta h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.5vw,4rem);color:var(--cream);line-height:1.15;margin-bottom:1.5rem}
 .bio-cta p{font-size:clamp(.9rem,1.2vw,1.05rem);color:var(--stone);line-height:1.8;max-width:620px;margin:0 auto 3rem}
+
+/* FAQ */
+.faq{background:var(--ink-2);padding:clamp(5rem,9vw,9rem) 0}
+.faq-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(3rem,6vw,6rem)}
+.faq-left h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.2vw,3.2rem);color:var(--cream);margin-bottom:1.2rem;line-height:1.1}
+.faq-left p{font-size:clamp(.88rem,1.1vw,1rem);line-height:1.8;color:var(--ash);margin-bottom:2rem}
+.faq-list{border-top:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:1.4rem 0;font-family:var(--f-body);font-size:.94rem;color:var(--stone);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color .2s;line-height:1.5}
+.faq-q:hover{color:var(--cream)}
+.faq-icon{font-size:1.2rem;color:var(--gold);flex-shrink:0;transition:transform .3s var(--ease-expo)}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{overflow:hidden;max-height:0;transition:max-height .58s var(--ease-expo)}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a p{padding-bottom:1.4rem;font-size:.9rem;color:var(--ash);line-height:1.8}
+@media(max-width:900px){.faq-grid{grid-template-columns:1fr}}
 
 /* FOOTER */
 footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(4rem,7vw,6rem) 0 2rem}
@@ -452,7 +468,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
   <div class="wrap">
     <div class="bio-grid flip">
       <div class="bio-body">
-        <p class="r">Access is by verified appointment only. To arrange your private lounge entry or submit a B2B consultation request, contact us directly via LINE or WhatsApp, or complete the form below. The team will respond within 48 hours.</p>
+        <p class="r">Walk-ins are always welcome during opening hours. For a private session, a tasting, or a B2B consultation, a message in advance is all it takes. Contact us directly via LINE or WhatsApp, or use the form below. We respond within 48 hours.</p>
         <form class="contact-form r d1" id="contact-form">
           <div class="form-group">
             <label for="f-name">Name</label>
@@ -492,9 +508,61 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         </form>
       </div>
       <div class="bio-label">
-        <p class="t-label r" style="margin-bottom:1rem">Private appointment</p>
+        <p class="t-label r" style="margin-bottom:1rem">Get in touch</p>
         <h2 class="r d1">Reserve Your Seat</h2>
-        <p class="r d2">Whether for a private lounge session or a B2B consultation, every engagement begins with a direct conversation.</p>
+        <p class="r d2">The lounge is open to all. For private sessions or a B2B consultation, a direct conversation is the best place to start.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-left r">
+        <p class="t-label" style="display:block;margin-bottom:1rem">Before you visit</p>
+        <h2>Reservations &amp; Services Questions</h2>
+        <p>Everything you need to know before making contact. For anything not covered here, message Amir directly.</p>
+        <a href="#reserve" class="btn-outline">Make an Enquiry</a>
+      </div>
+      <div class="faq-list r d1">
+        <div class="faq-item">
+          <button class="faq-q">Do I need to book in advance to visit the lounge? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Walk-ins are welcome during all opening hours. No advance booking is required for an individual visit. If you are coming as a group of four or more, a quick WhatsApp message 24 hours before helps us prepare. For private tastings or events, we ask for at least one week's notice for small groups and two to four weeks for larger gatherings.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What is included in a guided tasting session with Amir? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>A guided tasting is a structured, one-on-one or small group consultation with Amir. He will map your palate against a curated flight of three to five cigars, explaining wrapper profiles, filler blends, and how each vitola's size affects the flavour curve. Sessions typically run 90 minutes to two hours and are conducted in the lounge. The cost of cigars is separate and discussed in advance. These sessions are well suited to collectors building their palate, clients shopping for a special occasion, or groups new to cigars who want a proper introduction.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I bring my own cigar to smoke in the lounge? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>This is assessed on a case-by-case basis. CNX Cigars is primarily a retail lounge, and bringing outside cigars is not the default expectation. For regular clients or special circumstances, please ask Amir directly via WhatsApp. What is non-negotiable is that any cigar smoked in the lounge must be authentic and legally sourced. The lounge has zero tolerance for counterfeit tobacco.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can you source a specific cigar I cannot find elsewhere? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes, in many cases. Amir has built direct relationships with authorised distributors and collectors over three decades. If you are looking for a limited release, a retired vitola, or a regional edition not commonly available in Thailand, contact us with the specific cigar you are chasing. We will advise on availability and realistic timelines. There is no guarantee on rare allocations, but the network is genuinely broad.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I hire the lounge for a private corporate event? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes. The lounge can be arranged for private corporate evenings, client entertainment, and team events. The space accommodates groups up to approximately 30 guests comfortably. Events can include a guided tasting, curated cigar and spirits pairings, and branded or gift-boxed cigar selections for guests. Submit an enquiry through the form above or contact us via WhatsApp with your date, group size, and brief description of the occasion.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What does a B2B hospitality consultation involve? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>A B2B consultation begins with an assessment of your property's existing F&amp;B programme, guest profile, and available space. From that, Amir develops a cigar programme recommendation covering brand selection, vitola range, price architecture, humidor specification, and staff training requirements. Ongoing supply and replenishment can be managed by CNX Cigars directly, removing the sourcing burden from your team. The initial consultation is conducted in person where possible. Initial enquiries can be submitted via the form above or through WhatsApp.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Which types of properties do you typically work with? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>CNX Cigars works with ultra-luxury resorts, boutique hotels, Michelin-starred restaurants, private members clubs, and high-end wellness properties across Northern Thailand and Southeast Asia. The common thread is a guest profile that values considered luxury and experiential depth. We do not work with fast-casual or mid-market venues, as the programme requires a minimum level of service infrastructure and guest expectation to operate correctly.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do you offer cigar and spirits pairings for private events? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes. Pairing menus can be developed for private events that align specific vitolas with whisky, rum, cognac, or coffee. These are structured by Amir based on the flavour profiles of both the tobacco and the spirits being served, rather than generic pairings. If you have an existing spirits collection at your property, share the details when you submit your enquiry and we will design the pairing around what you already have.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How far in advance should I make a private tasting booking? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>For individual or small group sessions of two to four people, one week's notice is generally sufficient. For groups of five or more, two weeks is preferred. For full private event buy-outs or B2B consultations, four weeks minimum allows us to prepare properly. Peak periods around Chiang Mai's high season, November through February, tend to fill quickly. Earlier is always better.</p></div>
+        </div>
       </div>
     </div>
   </div>
@@ -504,7 +572,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
 <section class="bio-cta">
   <div class="wrap">
     <p class="t-label r" style="margin-bottom:1.5rem;display:block">Northern Thailand's premier cigar authority</p>
-    <h2 class="r d1">This is not retail.<br>This is thirty years of mastery,<br>available by appointment.</h2>
+    <h2 class="r d1">This is not retail.<br>This is thirty years of mastery,<br>open to anyone who walks through the door.</h2>
     <p class="r d2">A room where the air is calm, the inventory is verified, and the conversation is honest. You will find a home here.</p>
     <div class="btn-grp r d3" style="justify-content:center">
       <a href="#reserve" class="btn-gold">Reserve a Seat</a>
@@ -615,6 +683,9 @@ document.getElementById('contact-form').addEventListener('submit',function(e){
   document.getElementById('f-type').value='private';
   document.querySelectorAll('.custom-select-option').forEach((o,i)=>o.classList.toggle('selected',i===0));
 });
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');if(item.classList.contains('open')){item.classList.remove('open');return;}document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));item.classList.add('open');});});
 
 // DOT CURSOR
 (function(){

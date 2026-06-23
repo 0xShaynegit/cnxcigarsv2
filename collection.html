@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Collection | Premium Cigars Thailand | CNX Cigars</title>
-<meta name="description" content="Our curated cellar of authentic Cuban cigars in Chiang Mai. Cohiba, Montecristo, Partagas, Romeo y Julieta and more, each personally selected. By appointment.">
+<meta name="description" content="Our curated cellar of authentic Cuban cigars in Chiang Mai. Cohiba, Montecristo, Partagas, Romeo y Julieta and more, each personally selected. Walk in any time.">
 <link rel="canonical" href="https://cnxcigars.com/collection.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cnxcigars.com/collection.html">
 <meta property="og:title" content="The Collection | Premium Cigars Thailand | CNX Cigars">
-<meta property="og:description" content="Our curated cellar of authentic Cuban cigars in Chiang Mai. Each cigar personally selected. By appointment.">
+<meta property="og:description" content="Our curated cellar of authentic Cuban cigars in Chiang Mai. Each cigar personally selected. Walk in any time.">
 <meta property="og:image" content="https://cnxcigars.com/images/cnxcigars-cnx-cigars-logo-elephant-circle-black.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Collection | Premium Cigars Thailand | CNX Cigars">
-<meta name="twitter:description" content="Our curated cellar of authentic Cuban cigars in Chiang Mai. Each cigar personally selected. By appointment.">
+<meta name="twitter:description" content="Our curated cellar of authentic Cuban cigars in Chiang Mai. Each cigar personally selected. Walk in any time.">
 <meta name="twitter:image" content="https://cnxcigars.com/images/cnxcigars-cnx-cigars-logo-elephant-circle-black.webp">
 <link rel="icon" type="image/x-icon" href="./favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32.png">
@@ -107,6 +107,9 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .marque-head h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.4rem,2.4vw,2rem);color:var(--cream);letter-spacing:.01em}
 .marque-head .count{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
 
+/* BRAND NOTE */
+.marque-note{font-size:clamp(.86rem,1.1vw,.98rem);line-height:1.78;color:var(--ash);max-width:720px;margin:0 auto 1.8rem;text-align:center}
+
 /* GRID + CARDS */
 .cigar-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1rem,2vw,1.6rem)}
 .cigar-card{width:260px;max-width:100%;background:var(--ink-2);border:1px solid var(--border);transition:border-color .3s,transform .3s}
@@ -131,6 +134,22 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .bio-cta{padding:clamp(5rem,9vw,8rem) 0;background:var(--ink-3);border-top:1px solid var(--border);text-align:center}
 .bio-cta h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.5vw,3.4rem);color:var(--cream);line-height:1.15;margin-bottom:1.5rem}
 .bio-cta p{font-size:clamp(.9rem,1.2vw,1.05rem);color:var(--stone);line-height:1.8;max-width:620px;margin:0 auto 3rem}
+
+/* FAQ */
+.faq{background:var(--ink-2);padding:clamp(5rem,9vw,9rem) 0}
+.faq-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(3rem,6vw,6rem)}
+.faq-left h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2rem,4.2vw,3.2rem);color:var(--cream);margin-bottom:1.2rem;line-height:1.1}
+.faq-left p{font-size:clamp(.88rem,1.1vw,1rem);line-height:1.8;color:var(--ash);margin-bottom:2rem}
+.faq-list{border-top:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:1.4rem 0;font-family:var(--f-body);font-size:.94rem;color:var(--stone);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color .2s;line-height:1.5}
+.faq-q:hover{color:var(--cream)}
+.faq-icon{font-size:1.2rem;color:var(--gold);flex-shrink:0;transition:transform .3s var(--ease-expo)}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{overflow:hidden;max-height:0;transition:max-height .58s var(--ease-expo)}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a p{padding-bottom:1.4rem;font-size:.9rem;color:var(--ash);line-height:1.8}
+@media(max-width:900px){.faq-grid{grid-template-columns:1fr}}
 
 /* FOOTER */
 footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(4rem,7vw,6rem) 0 2rem}
@@ -231,6 +250,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <!-- COHIBA -->
     <div class="marque" id="cohiba">
       <div class="marque-head r"><h3>Cohiba</h3><span class="count">Two vitolas</span></div>
+      <p class="marque-note r">Originally produced exclusively for Fidel Castro, Cohiba became commercially available in 1982 and is now regarded as Cuba's prestige benchmark. A triple-fermentation process applied to the ligero leaves sets it apart from every other Havana brand. Smooth, complex, and long on the palate, with a finish that rewards patience.</p>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Cohiba</span></div><div class="cigar-info"><h4 class="cigar-name">Cohiba Siglo II</h4><span class="strength">Medium</span><p class="cigar-note">Creamy cigar with cedar, herbs, and soft floral sweetness.</p></div></article>
         <article class="cigar-card r d1"><div class="cigar-media"><span class="mono">Cohiba</span></div><div class="cigar-info"><h4 class="cigar-name">Cohiba Robusto</h4><span class="strength">Medium-Full</span><p class="cigar-note">Rich smoke layered with cocoa, earth, and refined pepper notes.</p></div></article>
@@ -240,6 +260,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <!-- MONTECRISTO -->
     <div class="marque" id="montecristo">
       <div class="marque-head r"><h3>Montecristo</h3><span class="count">Three vitolas</span></div>
+      <p class="marque-note r">The world's bestselling premium cigar brand, named after the Alexandre Dumas novel that factory readers would recite aloud during rolling shifts. Medium to full in body, with a construction consistency few Havana marques can match. The No.2 torpedo is considered by many collectors to be the finest Cuban vitola in regular production.</p>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Montecristo</span></div><div class="cigar-info"><h4 class="cigar-name">Montecristo No.2</h4><span class="strength">Full</span><p class="cigar-note">Bold cigar with espresso, cedar, and deep earthy complexity.</p></div></article>
         <article class="cigar-card r d1"><div class="cigar-media"><span class="mono">Montecristo</span></div><div class="cigar-info"><h4 class="cigar-name">Montecristo No.4</h4><span class="strength">Medium</span><p class="cigar-note">Balanced smoke featuring cocoa, cedar, and smooth creamy texture.</p></div></article>
@@ -250,6 +271,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <!-- ROMEO Y JULIETA -->
     <div class="marque" id="romeo-y-julieta">
       <div class="marque-head r"><h3>Romeo y Julieta</h3><span class="count">Four vitolas</span></div>
+      <p class="marque-note r">Founded in Havana in 1875, Romeo y Julieta has one of the longest unbroken histories in Cuban tobacco. Winston Churchill smoked them so consistently that the factory named a vitola after him, a tradition that continues today. Medium in body and balanced in profile, the range is an honest entry point into Cuban cigars without compromise on quality.</p>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Romeo y Julieta</span></div><div class="cigar-info"><h4 class="cigar-name">Romeo y Julieta No.1</h4><span class="strength">Medium</span><p class="cigar-note">Smooth cigar with cedar, leather, and subtle natural sweetness.</p></div></article>
         <article class="cigar-card r d1"><div class="cigar-media"><span class="mono">Romeo y Julieta</span></div><div class="cigar-info"><h4 class="cigar-name">Romeo y Julieta No.2</h4><span class="strength">Light-Medium</span><p class="cigar-note">Elegant profile with soft earth, cream, and delicate spice.</p></div></article>
@@ -261,6 +283,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <!-- PARTAGAS -->
     <div class="marque" id="partagas">
       <div class="marque-head r"><h3>Partagas</h3><span class="count">Three vitolas</span></div>
+      <p class="marque-note r">One of Havana's oldest operating brands, founded in 1845 and still produced at the original Real Fabrica de Tabacos Partagas factory. Known for its bold, full-bodied character built on sun-grown Vuelta Abajo leaf with extended fermentation. A working cigar for those who want intensity, earthiness, and depth without theatrics.</p>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Partagas</span></div><div class="cigar-info"><h4 class="cigar-name">Partagas Serie D No.4</h4><span class="strength">Full</span><p class="cigar-note">Bold and earthy cigar layered with leather, spice, and cocoa.</p></div></article>
         <article class="cigar-card r d1"><div class="cigar-media"><span class="mono">Partagas</span></div><div class="cigar-info"><h4 class="cigar-name">Partagas Serie D No.5</h4><span class="strength">Full</span><p class="cigar-note">Compact cigar delivering cedar, espresso, and sweet pepper notes.</p></div></article>
@@ -271,6 +294,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <!-- BOLIVAR -->
     <div class="marque">
       <div class="marque-head r"><h3>Bolivar</h3><span class="count">Two vitolas</span></div>
+      <p class="marque-note r">Named after South American liberator Simon Bolivar, and the cigars match the name: intense, earthy, and uncompromising. Bolivar is widely regarded as the most powerful Cuban brand in regular production, with a dark, oil-rich wrapper and a body that builds steadily from first draw to final inch. For experienced smokers who want concentration over elegance.</p>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Bolivar</span></div><div class="cigar-info"><h4 class="cigar-name">Bolivar Royal Corona</h4><span class="strength">Medium-Full</span><p class="cigar-note">Rich cigar with herbal earthiness and smooth woody complexity.</p></div></article>
         <article class="cigar-card r d1"><div class="cigar-media"><span class="mono">Bolivar</span></div><div class="cigar-info"><h4 class="cigar-name">Bolivar Belicoso Fino</h4><span class="strength">Full</span><p class="cigar-note">Powerful smoke with leather, cocoa, and lingering pepper finish.</p></div></article>
@@ -280,6 +304,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <!-- HOYO DE MONTERREY -->
     <div class="marque">
       <div class="marque-head r"><h3>Hoyo de Monterrey</h3><span class="count">Two vitolas</span></div>
+      <p class="marque-note r">Grown in the Vuelta Abajo region, widely regarded as the finest tobacco-growing valley in the world. Hoyo's house style leans mild to medium, built around creamy cedar, toasted nuts, and a natural sweetness that makes it an approachable starting point for those new to Cuban cigars. The Epicure No.2 is Amir's go-to recommendation for first-time visitors.</p>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Hoyo de Monterrey</span></div><div class="cigar-info"><h4 class="cigar-name">Hoyo de Monterrey Epicure No.2</h4><span class="strength">Mild-Medium</span><p class="cigar-note">Creamy cigar with cedar, toasted nuts, and mellow sweetness.</p></div></article>
         <article class="cigar-card r d1"><div class="cigar-media"><span class="mono">Hoyo de Monterrey</span></div><div class="cigar-info"><h4 class="cigar-name">Hoyo de Monterrey Epicure Especial</h4><span class="strength">Medium</span><p class="cigar-note">Smooth profile with coffee, cocoa, and gentle earthy spice.</p></div></article>
@@ -289,6 +314,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <!-- H. UPMANN -->
     <div class="marque">
       <div class="marque-head r"><h3>H. Upmann</h3><span class="count">Three vitolas</span></div>
+      <p class="marque-note r">A Havana institution since 1844, when German banker Herman Upmann established a factory and began exporting cigars in personal cedar boxes stamped with his name - a presentation format that became a template for the entire industry. Medium in body, consistently refined in construction, and one of the most reliable Cuban brands for those who value predictability as much as character.</p>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">H. Upmann</span></div><div class="cigar-info"><h4 class="cigar-name">H. Upmann Magnum 46</h4><span class="strength">Medium</span><p class="cigar-note">Balanced cigar offering cedar, cream, and roasted coffee notes.</p></div></article>
         <article class="cigar-card r d1"><div class="cigar-media"><span class="mono">H. Upmann</span></div><div class="cigar-info"><h4 class="cigar-name">H. Upmann Magnum 54</h4><span class="strength">Medium</span><p class="cigar-note">Creamy smoke with cocoa, sweetness, and smooth cedar finish.</p></div></article>
@@ -299,6 +325,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <!-- TRINIDAD -->
     <div class="marque">
       <div class="marque-head r"><h3>Trinidad</h3><span class="count">Two vitolas</span></div>
+      <p class="marque-note r">Originally produced exclusively as diplomatic gifts by the Cuban government, Trinidad was not made commercially available until 1998. Relatively rare and consistently understated, with a medium-bodied profile that prioritises refinement over power. Honeyed, delicate, and long on the finish - a cigar that rewards attention rather than demanding it.</p>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Trinidad</span></div><div class="cigar-info"><h4 class="cigar-name">Trinidad Vigia</h4><span class="strength">Medium</span><p class="cigar-note">Refined cigar with honeyed sweetness, cedar, and creamy richness.</p></div></article>
         <article class="cigar-card r d1"><div class="cigar-media"><span class="mono">Trinidad</span></div><div class="cigar-info"><h4 class="cigar-name">Trinidad Media Luna</h4><span class="strength">Medium</span><p class="cigar-note">Balanced smoke featuring nuts, leather, and subtle earthy sweetness.</p></div></article>
@@ -308,6 +335,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <!-- PUNCH -->
     <div class="marque">
       <div class="marque-head r"><h3>Punch</h3><span class="count">Three vitolas</span></div>
+      <p class="marque-note r">An old Havana brand dating to 1840, originally aimed at the British export market - hence the English name. Medium to full in body, with a character built on earth, cedar, and warming spice that develops well through the second half of the smoke. Often overlooked by those chasing prestige labels, and frequently the best value in the Cuban humidor for that reason.</p>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Punch</span></div><div class="cigar-info"><h4 class="cigar-name">Punch Short de Punch</h4><span class="strength">Medium-Full</span><p class="cigar-note">Bold cigar layered with cedar, earth, and warm baking spice.</p></div></article>
         <article class="cigar-card r d1"><div class="cigar-media"><span class="mono">Punch</span></div><div class="cigar-info"><h4 class="cigar-name">Punch Super Selection No.1</h4><span class="strength">Medium</span><p class="cigar-note">Creamy profile with honey, toasted nuts, and smooth spice.</p></div></article>
@@ -318,6 +346,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <!-- HOUSE SINGLES -->
     <div class="marque">
       <div class="marque-head r"><h3>House Singles</h3><span class="count">Selected marques</span></div>
+      <p class="marque-note r">A rotating selection of individual vitolas from smaller or less widely distributed Cuban marques. Quai d'Orsay is a French-commissioned brand of rare elegance. Juan Lopez and Jose L Piedra represent the traditional, unfussy side of Havana rolling. Quintero is rustic and bold. Ask Amir what is currently on the shelf and why he chose it.</p>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Quai d'Orsay</span></div><div class="cigar-info"><h4 class="cigar-name">Quai d'Orsay No.50</h4><span class="strength">Mild-Medium</span><p class="cigar-note">Elegant cigar with vanilla, cedar, and smooth hazelnut notes.</p></div></article>
         <article class="cigar-card r d1"><div class="cigar-media"><span class="mono">Juan Lopez</span></div><div class="cigar-info"><h4 class="cigar-name">Juan Lopez Seleccion No.2</h4><span class="strength">Medium</span><p class="cigar-note">Medium-bodied cigar with woody, herbal, and lightly spiced character.</p></div></article>
@@ -336,12 +365,68 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-left r">
+        <p class="t-label" style="display:block;margin-bottom:1rem">New to cigars</p>
+        <h2>Common Questions from First-Time Visitors</h2>
+        <p>Everything you wanted to know before lighting your first cigar. No judgement. No gatekeeping.</p>
+        <a href="./services.html#reserve" class="btn-outline">Ask Amir Directly</a>
+      </div>
+      <div class="faq-list r d1">
+        <div class="faq-item">
+          <button class="faq-q">What is the difference between Cuban and New World cigars? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Cuban cigars use tobacco grown exclusively in Cuba, primarily from the Vuelta Abajo region, and are governed by strict production rules overseen by Habanos S.A. New World cigars are made in countries like Nicaragua, the Dominican Republic, and Honduras, often using Cuban seed tobacco transplanted decades ago. Cuban cigars are prized for their complexity and heritage. New World cigars often offer bolder, more consistent flavour profiles at competitive prices. Both categories have great examples. The right choice depends on the profile you enjoy.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What strength should a beginner start with? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Start mild to medium. A full-strength cigar smoked before your palate has any reference point tends to deliver nicotine ahead of flavour, which is not the experience you want. Amir's standard recommendation for first-time visitors is the Hoyo de Monterrey Epicure No.2 or the Romeo y Julieta Churchill. Both are gentle enough to be approachable, complex enough to be interesting. Work up in strength over multiple sessions rather than jumping straight to Bolivar or Partagas.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What does vitola mean? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Vitola is the term for a specific cigar size and shape within a brand's range. It defines the ring gauge (diameter) and length of the cigar. A Robusto, a Churchill, and a Torpedo are all different vitolas. The same brand blended with the same tobaccos will smoke differently across vitolas because the ratio of wrapper to filler changes with diameter, and burn time affects how the flavour develops through the smoke.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What is the difference between a Robusto, a Churchill, and a Torpedo? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>A Robusto is short and wide, around 5 inches by 50 ring gauge, smoking for roughly 45 to 60 minutes. It is the most popular format globally because it delivers a concentrated flavour experience in a manageable time frame. A Churchill is longer and narrower, around 7 inches by 47, taking 90 minutes or more and allowing the flavour to evolve through distinct phases. A Torpedo has a tapered, pointed head that concentrates the draw and often produces a slightly richer, more intense character from the first third onwards. For a first visit, a Robusto is the most practical choice.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What do wrapper, binder, and filler mean? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>A cigar has three distinct components. The filler is the interior blend of tobacco leaves, which determines the body, strength, and core flavour. The binder is a single leaf wrapped tightly around the filler to hold it in shape and contribute to combustion. The wrapper is the outermost leaf, often the most expensive component, which influences approximately 30 to 60 percent of the final flavour. A dark, oily wrapper generally indicates a richer, fuller profile. A pale, silky Colorado claro wrapper tends toward creaminess and subtlety.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Why do some cigars cost 200 THB and others 1,500 THB? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Price reflects the quality and age of the tobacco, the complexity of the blend, and in the case of Cuban cigars, the cost of legal importation through authorised channels. Aged tobacco is more expensive to produce because it requires years of storage before rolling. Premium wrappers like Ecuadorian Connecticut or Cuban Claro are graded and priced by visual and tactile quality. The 200 THB range covers excellent, well-made cigars from established brands. The 1,500 THB range is for aged Cuban vitolas and limited releases where the tobacco itself carries decades of investment.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What does medium-bodied mean in practice? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Body refers to the weight and intensity of the smoke on the palate, not the flavour complexity. A light-bodied cigar delivers a gentle, airy draw without much physical presence. A full-bodied cigar sits heavy in the mouth and chest, often with significant nicotine. Medium-bodied is the middle ground: you feel the smoke, it has weight and character, but it does not overwhelm. Most first-time visitors find medium-bodied cigars the most satisfying because they provide enough substance to taste what the tobacco is doing without the nicotine overpowering the experience.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Should I pair a cigar with whisky, rum, or coffee? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>All three work well, but the pairing should complement rather than compete. Rum pairs naturally with Cuban cigars because both come from sugar cane-adjacent traditions and the sweetness in aged rum echoes the natural sugars in the tobacco. Single malt Scotch pairs well with fuller-bodied cigars because the peat and wood notes align with the earthy character of the leaf. Coffee is excellent with medium-bodied cigars and helps neutralise tannins between draws. The simplest rule: avoid heavily flavoured or very sweet drinks in the first third of the cigar, when the tobacco flavours are most nuanced.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How long does a cigar actually take to smoke? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>It depends on the vitola and your draw pace. A Petit Corona takes 20 to 30 minutes. A Robusto runs 45 to 60 minutes. A Churchill or Double Corona can take 90 minutes to two hours. A cigar should be smoked slowly, with a draw roughly every 30 to 60 seconds. Smoking too fast heats the tobacco above its ideal combustion point, generating harsh, bitter compounds that mask the underlying flavour. If the cigar tastes harsh, slow down and rest it in the ashtray between draws.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How do I know if a cigar is genuine? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>At CNX Cigars, every Cuban cigar carries official Thai tax documentation issued through the Pacific Cigar Company, the sole authorised Habanos S.A. distributor for the Asia-Pacific region. This is the legal chain of custody that confirms authenticity. Counterfeit Cuban cigars are common in Thailand's tourist markets. Indicators of fakes include loose construction, uneven burn, rough seams, missing or poorly printed band holograms, and pricing well below market rate. If the price seems too good to be true, it almost certainly is.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CLOSING CTA -->
 <section class="bio-cta">
   <div class="wrap">
-    <p class="t-label r" style="margin-bottom:1.5rem;display:block">By appointment</p>
+    <p class="t-label r" style="margin-bottom:1.5rem;display:block">Open daily, Nimman</p>
     <h2 class="r d1">A cellar selected by hand,<br>tasted in the lounge.</h2>
-    <p class="r d2">Every cigar listed here is chosen, stored, and authenticated in person. Tell us what you reach for, or let Amir guide the evening. Each selection is available for tasting in the lounge by appointment.</p>
+    <p class="r d2">Every cigar listed here is chosen, stored, and authenticated in person. Tell us what you reach for, or let Amir guide the evening. Walk in any time or send a message to plan your visit.</p>
     <div class="btn-grp r d3" style="justify-content:center">
       <a href="./services.html#reserve" class="btn-gold">Reserve a Seat</a>
       <a href="./about.html" class="btn-outline">About CNX Cigars</a>
@@ -404,6 +489,9 @@ function closeMob(){mob.classList.remove('open');burger.classList.remove('open')
 // REVEAL
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');if(item.classList.contains('open')){item.classList.remove('open');return;}document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));item.classList.add('open');});});
 
 // DOT CURSOR
 (function(){
