@@ -88,7 +88,7 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .mob-menu{position:fixed;inset:0;z-index:190;background:var(--ink-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .4s}
 .mob-menu.open{opacity:1;pointer-events:all}
 .mob-menu a{font-family:var(--f-display);font-size:clamp(2rem,7vw,3.2rem);font-weight:300;color:var(--cream);transition:color .2s}
-.mob-menu a:hover{color:var(--gold)}
+.mob-menu a:hover{color:var(--gold)}.mob-sub{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center}.mob-sub a{font-family:var(--f-display);font-size:clamp(.85rem,3vw,1.1rem);letter-spacing:.12em;text-transform:uppercase;color:var(--ash);transition:color .2s}.mob-sub a:hover{color:var(--gold)}
 
 /* PAGE HERO */
 .pg-hero{padding:clamp(8rem,14vw,12rem) 0 clamp(3rem,6vw,5rem);background:var(--ink);border-bottom:1px solid var(--border);text-align:center}
@@ -180,7 +180,8 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
 <div class="mob-menu" id="mobMenu" role="dialog" aria-label="Navigation">
   <a href="./services.html" onclick="closeMob()">Services</a>
   <a href="./collection.html" onclick="closeMob()">Collection</a>
-  <a href="./accessories.html" onclick="closeMob()">Accessories</a>
+  <a href="./accessories.html" aria-current="page" onclick="closeMob()">Accessories</a>
+  <div class="mob-sub"><a href="#humidors" onclick="closeMob()">Humidors</a><a href="#cutters" onclick="closeMob()">Cutters</a><a href="#lighters" onclick="closeMob()">Lighters</a><a href="#cases" onclick="closeMob()">Cases</a><a href="#ashtrays" onclick="closeMob()">Ashtrays</a><a href="#humidity" onclick="closeMob()">Humidity</a></div>
   <a href="./lounge.html" onclick="closeMob()">The Lounge</a>
   <a href="./about.html" onclick="closeMob()">About</a>
 </div>
@@ -215,7 +216,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
   <div class="wrap">
 
     <!-- HUMIDORS -->
-    <div class="marque">
+    <div class="marque" id="humidors">
       <div class="marque-head r"><h3>Humidors</h3><span class="count">Five options</span></div>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-20-25-cigar-humidor-cherry.webp" alt="20 to 25 Cigar Humidor Cherry" width="520" height="650" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">20 to 25 Cigar Humidor Cherry</h4></div></article>
@@ -227,7 +228,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- CUTTERS & TOOLS -->
-    <div class="marque">
+    <div class="marque" id="cutters">
       <div class="marque-head r"><h3>Cutters &amp; Tools</h3><span class="count">Nine options</span></div>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-cnx-straight-cutter.webp" alt="CNX Straight Cutter" width="520" height="650" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">CNX Straight Cutter</h4></div></article>
@@ -243,7 +244,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- LIGHTERS & FUEL -->
-    <div class="marque">
+    <div class="marque" id="lighters">
       <div class="marque-head r"><h3>Lighters &amp; Fuel</h3><span class="count">Two options</span></div>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-ronsonol-lighter-fluid.webp" alt="Ronsonol Lighter Fluid" width="520" height="650" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Ronsonol Lighter Fluid</h4></div></article>
@@ -252,7 +253,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- CASES -->
-    <div class="marque">
+    <div class="marque" id="cases">
       <div class="marque-head r"><h3>Travel Cases</h3><span class="count">Six options</span></div>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-lubinski-3-ring-carbon-fiber-case.webp" alt="Lubinski 3 Ring Carbon Fiber Case" width="520" height="650" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Lubinski 3 Ring Carbon Fiber Case</h4></div></article>
@@ -265,7 +266,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- ASHTRAYS -->
-    <div class="marque">
+    <div class="marque" id="ashtrays">
       <div class="marque-head r"><h3>Ashtrays</h3><span class="count">Eleven options</span></div>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-cohiba-long-ashtray.webp" alt="Cohiba Long Ashtray" width="520" height="650" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Cohiba Long Ashtray</h4></div></article>
@@ -283,7 +284,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- HUMIDITY CARE -->
-    <div class="marque" style="margin-bottom:0">
+    <div class="marque" id="humidity" style="margin-bottom:0">
       <div class="marque-head r"><h3>Humidity Care</h3><span class="count">Two options</span></div>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-boveda-pack-60-gram.webp" alt="Boveda Pack 60 Gram" width="520" height="650" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Boveda Pack, 60 Gram</h4></div></article>
