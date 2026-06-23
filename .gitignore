@@ -29,6 +29,10 @@ Thumbs.db
 coverage/
 .nyc_output/
 
+# Claude / project docs
+.claude/
+*.md
+
 # Temp/archive
 _archive/
 .temp/
