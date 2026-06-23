@@ -109,6 +109,7 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 
 /* BRAND NOTE */
 .marque-note{font-size:clamp(.86rem,1.1vw,.98rem);line-height:1.78;color:var(--ash);max-width:720px;margin:0 auto 1.8rem;text-align:center}
+.marque-3col{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;align-items:start}@media(max-width:860px){.marque-3col{grid-template-columns:1fr}}
 
 /* GRID + CARDS */
 .cigar-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1rem,2vw,1.6rem)}
@@ -467,40 +468,163 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
       </div>
     </div>
 
-    <!-- THE SELECTION -->
-    <div class="marque" style="margin-bottom:0">
-      <div class="marque-head r"><h3>The Selection</h3><span class="count">Further afield</span></div>
-      <p class="marque-note r">A curated range of individual picks from across Nicaragua, Honduras, the Dominican Republic, and Thailand. Each chosen on its own merits. Brand shown on each card.</p>
-      <div class="cigar-grid">
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-arturo-fuente-hemingway-short-story.webp" alt="Arturo Fuente Hemingway Short Story" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Arturo Fuente</span><h4 class="cigar-name">Hemingway Short Story</h4><span class="strength">Mild-Medium</span><p class="cigar-note">4" &middot; Ring 42. Cameroon wrapper over Dominican Republic binder and filler. Cedar, spice, and a touch of sweetness.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-henry-clay-warhawk-robusto.webp" alt="Henry Clay Warhawk Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Henry Clay</span><h4 class="cigar-name">Warhawk Robusto</h4><span class="strength">Mild-Medium</span><p class="cigar-note">5 1/2" &middot; Ring 50. Connecticut wrapper. Honduran binder and filler. A generous, well-structured personality with a complex palette of aromas.</p></div></article>
-        <article class="cigar-card r d2"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-henry-clay-warhawk-churchill.webp" alt="Henry Clay Warhawk Churchill" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Henry Clay</span><h4 class="cigar-name">Warhawk Churchill</h4><span class="strength">Mild-Medium</span><p class="cigar-note">7" &middot; Ring 48. Connecticut wrapper. Honduran binder and filler. The same Warhawk composition in a longer, more leisurely format.</p></div></article>
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-joya-de-nicaragua-cabinetta.webp" alt="Joya de Nicaragua Cabinetta" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Joya de Nicaragua</span><h4 class="cigar-name">Cabinetta</h4><span class="strength">Mild-Medium</span><p class="cigar-note">6" &middot; Ring 54. Ecuadorian Shade wrapper. Floral aroma with leather, toast, fruity jam, butter, light spice, and growing black pepper.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-joya-de-nicaragua-red-robusto.webp" alt="Joya de Nicaragua Red Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Joya de Nicaragua</span><h4 class="cigar-name">Red Robusto</h4><span class="strength">Medium</span><p class="cigar-note">5" &middot; Ring 50. Ecuador wrapper over Nicaragua binder and filler. Mellow creaminess, salted caramel, roasted nuts, spice, earthiness, and cedar.</p></div></article>
-        <article class="cigar-card r d2"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-nicatabaco-factory-blend-no2-toro-deluxe.webp" alt="Nicatabaco Factory Blend No.2 Toro Deluxe" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Nicatabaco</span><h4 class="cigar-name">Factory Blend No.2 Toro Deluxe</h4><span class="strength">Mild-Medium</span><p class="cigar-note">6" &middot; Ring 50. All-Nicaraguan. Balanced and aromatic flavour profile with a clean, medium-bodied character.</p></div></article>
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-plasencia-reserva-original.webp" alt="Plasencia Reserva Original" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Plasencia</span><h4 class="cigar-name">Reserva Original</h4><span class="strength">Medium</span><p class="cigar-note">All-Nicaraguan. Notes of nuts, fruits, caramel, marzipan nuances, and cedar. The taste that captivated Europeans more than five centuries ago.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-villa-zamorano-robusto.webp" alt="Villa Zamorano Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Villa Zamorano</span><h4 class="cigar-name">Robusto</h4><span class="strength">Medium</span><p class="cigar-note">5" &middot; Ring 52. Indonesian Sumatra wrapper. Honduran binder and filler. Handmade at the Maya Selva factory. Accessible everyday smoke with an exceptional quality ratio.</p></div></article>
-        <article class="cigar-card r d2"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-villa-zamorano-reserva-no15.webp" alt="Villa Zamorano Reserva No.15" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Villa Zamorano</span><h4 class="cigar-name">Reserva No.15</h4><span class="strength">Medium-Full</span><p class="cigar-note">5" &middot; Ring 54. Habano wrapper. Honduran and Nicaraguan tobaccos. Complexity without overwhelming intensity.</p></div></article>
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-azan-white-campana.webp" alt="Azan White Campana" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Azan</span><h4 class="cigar-name">White Campana</h4><span class="strength">Medium</span><p class="cigar-note">Campana &middot; 5 1/2" &middot; Ring 52. Ecuadorian Corojo grande wrapper. Filler from Jalapa and Esteli, Nicaragua and Matafina, Brazil. A distinctive sweet flavoured cigar.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-esteban-carreras-cashmere-boolit.webp" alt="Esteban Carreras Cashmere Boolit" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Esteban Carreras</span><h4 class="cigar-name">Cashmere Boolit</h4><span class="strength">Mild-Medium</span><p class="cigar-note">4 3/4" &middot; Ring 46. Ecuadorian Connecticut wrapper over Nicaraguan binder and filler. Musty wood, cream, black pepper, coffee bean, cedar, and tannin throughout.</p></div></article>
-        <article class="cigar-card r d2"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-jc-newman-brick-house-habano.webp" alt="JC Newman Brick House Habano" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">JC Newman</span><h4 class="cigar-name">Brick House Habano</h4><span class="strength">Medium</span><p class="cigar-note">5" &middot; Ring 54. Ecuador wrapper over Nicaraguan binder and filler. Cocoa powder, earth, red pepper, and cedar from start to finish.</p></div></article>
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-alec-bradley-project-40-maduro.webp" alt="Alec Bradley Project 40 Maduro" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Alec Bradley</span><h4 class="cigar-name">Project 40 Maduro</h4><span class="strength">Medium-Full</span><p class="cigar-note">Wrapper: Nicaragua. Binder: Habano-seed Brazilian. Filler: Nicaragua. Creamy almond, toast, cedar, leather, hay, gritty earth, and powdery dark cocoa.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-casa-magna-colorado-robusto.webp" alt="Casa Magna Colorado Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Casa Magna</span><h4 class="cigar-name">Colorado Robusto</h4><span class="strength">Medium-Full</span><p class="cigar-note">5.5" &middot; Ring 50. Earthy, cocoa, leather, spice, cedar, nuts, and hints of espresso. Cigar Aficionado #1 Cigar of the Year 2008, rated 93.</p></div></article>
-        <article class="cigar-card r d2"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-esteban-carreras-mr-brownstone.webp" alt="Esteban Carreras Mr. Brownstone" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Esteban Carreras</span><h4 class="cigar-name">Mr. Brownstone</h4><span class="strength">Medium-Full</span><p class="cigar-note">5" &middot; Ring 52. Connecticut Broadleaf wrapper. Ecuadorian Habano binder. Nicaraguan filler. Cocoa, chocolate, coffee, earth, citrus, and red pepper notes.</p></div></article>
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-oliva-serie-v-double-robusto.webp" alt="Oliva Serie V Double Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Oliva</span><h4 class="cigar-name">Serie V Double Robusto</h4><span class="strength">Medium-Full</span><p class="cigar-note">5" &middot; Ring 54. Ecuadorian Sungrown wrapper. Nicaraguan binder and filler. Bold impressions of coffee, oak, and spice with orange peel, cinnamon, and rum.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-league-of-fat-bastards-serie-o.webp" alt="League of Fat Bastards Serie O" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">League of Fat Bastards</span><h4 class="cigar-name">Serie O</h4><span class="strength">Full</span><p class="cigar-note">5 1/2" &middot; Ring 46. Mexican San Andres Oscuro wrapper. Dominican binder. Nicaraguan Condega filler. Cherry, cocoa, earth, and spice with a bold but never bitter finish.</p></div></article>
-        <article class="cigar-card r d2"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-league-of-fat-bastards-serie-l.webp" alt="League of Fat Bastards Serie L" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">League of Fat Bastards</span><h4 class="cigar-name">Serie L</h4><span class="strength">Full</span><p class="cigar-note">5" &middot; Ring 50. Mexican San Andres Oscuro wrapper. Dominican binder. Nicaraguan Condega filler. Well-balanced cedar, cocoa, and spice. Bold but controlled.</p></div></article>
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-ep-carrillo-pledge-prequel.webp" alt="E.P. Carrillo Pledge Prequel" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">E.P. Carrillo</span><h4 class="cigar-name">Pledge Prequel</h4><span class="strength">Full</span><p class="cigar-note">5" &middot; Ring 50. All-Nicaraguan. Spicy oak, black pepper, leather, espresso, and dark fruit, evolving with licorice, cocoa, and baking spices.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-ashton-vsg-eclipse.webp" alt="Ashton VSG Eclipse" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Ashton VSG</span><h4 class="cigar-name">Eclipse</h4><span class="strength">Full</span><p class="cigar-note">6" &middot; Ring 52. Ecuadorian Sun Grown wrapper. Aged Dominican filler. Powerful and refined. The only round, not box-pressed, vitola in the VSG line.</p></div></article>
-        <article class="cigar-card r d2"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-my-father-flor-de-las-antillas-toro.webp" alt="My Father Flor de las Antillas Toro" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">My Father</span><h4 class="cigar-name">Flor de las Antillas Toro</h4><span class="strength">Medium-Full</span><p class="cigar-note">6" &middot; Ring 52. Sun-grown Nicaraguan Corojo wrapper. Full-bodied Nicaraguan puro with coffee, leather, espresso, subtle sweetness, and a peppery kick.</p></div></article>
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-my-father-le-bijou-1922-torpedo.webp" alt="My Father Le Bijou 1922 Torpedo" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">My Father</span><h4 class="cigar-name">Le Bijou 1922 Torpedo</h4><span class="strength">Full</span><p class="cigar-note">6 1/8" &middot; Ring 52. Nicaraguan wrapper. Crafted by Jaime Garcia as a tribute to his father, born in 1922. Direct, uncompromising, and bold throughout.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-baiyasuub-thailand.webp" alt="Baiyasuub Thailand" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Baiyasuub</span><h4 class="cigar-name">Thailand</h4><span class="strength">Mild-Medium</span><p class="cigar-note">Robusto &middot; 5" &middot; Ring 50. The first commercially produced, 100% handrolled premium cigar from pure Thai tobacco. Earthy character, subtle natural sweetness, and a clean aromatic finish.</p></div></article>
-        <article class="cigar-card r d2"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-ashton-connecticut-cigarillos.webp" alt="Ashton Connecticut Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Ashton</span><h4 class="cigar-name">Connecticut Cigarillos</h4><span class="strength">Mild</span><p class="cigar-note">3 1/2" &middot; Ring 20. Dominican wrapper and binder. Cameroon filler. Hickory, black pepper, cocoa, and nutmeg opening, with leather and baking spices towards the middle.</p></div></article>
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-davidoff-club-cigarillos.webp" alt="Davidoff Club Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Davidoff</span><h4 class="cigar-name">Club Cigarillos</h4><span class="strength">Mild</span><p class="cigar-note">3 1/2" &middot; Ring 20. Ecuadorian wrapper. Dominican binder and filler. Hay, mild spices, cedar, and a hint of nut carried by a silky smoke with a delicate sweetness.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-davidoff-primeros.webp" alt="Davidoff Primeros" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Davidoff</span><h4 class="cigar-name">Primeros</h4><span class="strength">Mild</span><p class="cigar-note">Petit Panetela &middot; approx. 15 mins. Connecticut Shade wrapper. Mexican binder. Dominican filler. Sweet woods, vanilla, and cedar in a quick, premium smoke.</p></div></article>
-        <article class="cigar-card r d2"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-moods-cigarillos.webp" alt="Moods Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Moods</span><h4 class="cigar-name">Cigarillos</h4><span class="strength">Mild-Medium</span><p class="cigar-note">3.5" &middot; 10 per pack. Sumatra wrapper. Tropical filler blend with Virginia and Oriental tobaccos in a Brazilian wrapper. Gently aged and perfectly balanced.</p></div></article>
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-villiger-export-cigarillos.webp" alt="Villiger Export Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><span class="card-brand">Villiger</span><h4 class="cigar-name">Export Cigarillos</h4><span class="strength">Mild-Medium</span><p class="cigar-note">4" &middot; 36mm. Swiss dry-cured. Indonesian Sumatra or Brazilian wrapper. Short filler Java/Brazilian. Consistent cocoa, cream, roasted nuts, and a subtle spiciness.</p></div></article>
+    <!-- SELECTION: individual brands, 3-col grid -->
+    <div class="marque-3col" style="margin-bottom:0">
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Arturo Fuente</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-arturo-fuente-hemingway-short-story.webp" alt="Arturo Fuente Hemingway Short Story" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Hemingway Short Story</h4><span class="strength">Mild-Medium</span><p class="cigar-note">4" &middot; Ring 42. Cameroon wrapper over Dominican Republic binder and filler. Cedar, spice, and a touch of sweetness.</p></div></article>
+        </div>
       </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Henry Clay</h3><span class="count">Two vitolas</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-henry-clay-warhawk-robusto.webp" alt="Henry Clay Warhawk Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Warhawk Robusto</h4><span class="strength">Mild-Medium</span><p class="cigar-note">5 1/2" &middot; Ring 50. Connecticut wrapper. Honduran binder and filler. Well-structured personality with a complex palette of aromas.</p></div></article>
+          <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-henry-clay-warhawk-churchill.webp" alt="Henry Clay Warhawk Churchill" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Warhawk Churchill</h4><span class="strength">Mild-Medium</span><p class="cigar-note">7" &middot; Ring 48. Connecticut wrapper. Honduran binder and filler. Same composition in a longer, more leisurely format.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Alec Bradley</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-alec-bradley-project-40-maduro.webp" alt="Alec Bradley Project 40 Maduro" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Project 40 Maduro</h4><span class="strength">Medium-Full</span><p class="cigar-note">Wrapper: Nicaragua. Binder: Habano-seed Brazilian. Filler: Nicaragua. Creamy almond, toast, cedar, leather, gritty earth, and dark cocoa.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Ashton VSG</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-ashton-vsg-eclipse.webp" alt="Ashton VSG Eclipse" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Eclipse</h4><span class="strength">Full</span><p class="cigar-note">6" &middot; Ring 52. Ecuadorian Sun Grown wrapper. Aged Dominican filler. Powerful and refined. The only round, not box-pressed, vitola in the VSG line.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Casa Magna</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-casa-magna-colorado-robusto.webp" alt="Casa Magna Colorado Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Colorado Robusto</h4><span class="strength">Medium-Full</span><p class="cigar-note">5.5" &middot; Ring 50. Earthy, cocoa, leather, spice, cedar, nuts, and hints of espresso. Cigar Aficionado #1 Cigar of the Year 2008, rated 93.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Esteban Carreras</h3><span class="count">Two vitolas</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-esteban-carreras-mr-brownstone.webp" alt="Esteban Carreras Mr. Brownstone" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Mr. Brownstone</h4><span class="strength">Medium-Full</span><p class="cigar-note">5" &middot; Ring 52. Connecticut Broadleaf wrapper. Ecuadorian Habano binder. Nicaraguan filler. Cocoa, chocolate, coffee, earth, and red pepper.</p></div></article>
+          <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-esteban-carreras-cashmere-boolit.webp" alt="Esteban Carreras Cashmere Boolit" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Cashmere Boolit</h4><span class="strength">Mild-Medium</span><p class="cigar-note">4 3/4" &middot; Ring 46. Ecuadorian Connecticut wrapper over Nicaraguan binder and filler. Cream, black pepper, coffee bean, cedar, and tannin.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>JC Newman</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-jc-newman-brick-house-habano.webp" alt="JC Newman Brick House Habano" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Brick House Habano</h4><span class="strength">Medium</span><p class="cigar-note">5" &middot; Ring 54. Ecuador wrapper over Nicaraguan binder and filler. Cocoa powder, earth, red pepper, and cedar from start to finish.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Joya de Nicaragua</h3><span class="count">Two vitolas</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-joya-de-nicaragua-cabinetta.webp" alt="Joya de Nicaragua Cabinetta" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Cabinetta</h4><span class="strength">Mild-Medium</span><p class="cigar-note">6" &middot; Ring 54. Ecuadorian Shade wrapper. Floral aroma with leather, toast, fruity jam, butter, and growing black pepper.</p></div></article>
+          <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-joya-de-nicaragua-red-robusto.webp" alt="Joya de Nicaragua Red Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Red Robusto</h4><span class="strength">Medium</span><p class="cigar-note">5" &middot; Ring 50. Ecuador wrapper over Nicaragua binder and filler. Mellow creaminess, salted caramel, roasted nuts, and cedar.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>League of Fat Bastards</h3><span class="count">Two vitolas</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-league-of-fat-bastards-serie-o.webp" alt="League of Fat Bastards Serie O" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Serie O</h4><span class="strength">Full</span><p class="cigar-note">5 1/2" &middot; Ring 46. Mexican San Andres Oscuro wrapper. Dominican binder. Nicaraguan Condega filler. Cherry, cocoa, earth, and spice. Bold but never bitter.</p></div></article>
+          <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-league-of-fat-bastards-serie-l.webp" alt="League of Fat Bastards Serie L" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Serie L</h4><span class="strength">Full</span><p class="cigar-note">5" &middot; Ring 50. Mexican San Andres Oscuro wrapper. Dominican binder. Nicaraguan Condega filler. Well-balanced cedar, cocoa, and spice.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Oliva</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-oliva-serie-v-double-robusto.webp" alt="Oliva Serie V Double Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Serie V Double Robusto</h4><span class="strength">Medium-Full</span><p class="cigar-note">5" &middot; Ring 54. Ecuadorian Sungrown wrapper. Nicaraguan binder and filler. Bold coffee, oak, and spice with orange peel, cinnamon, and rum.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>E.P. Carrillo</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-ep-carrillo-pledge-prequel.webp" alt="E.P. Carrillo Pledge Prequel" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Pledge Prequel</h4><span class="strength">Full</span><p class="cigar-note">5" &middot; Ring 50. All-Nicaraguan. Spicy oak, black pepper, leather, espresso, and dark fruit, evolving into licorice and cocoa.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Villa Zamorano</h3><span class="count">Two vitolas</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-villa-zamorano-robusto.webp" alt="Villa Zamorano Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Robusto</h4><span class="strength">Medium</span><p class="cigar-note">5" &middot; Ring 52. Indonesian Sumatra wrapper. Honduran binder and filler. Handmade at the Maya Selva factory. Accessible with exceptional value.</p></div></article>
+          <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-villa-zamorano-reserva-no15.webp" alt="Villa Zamorano Reserva No.15" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Reserva No.15</h4><span class="strength">Medium-Full</span><p class="cigar-note">5" &middot; Ring 54. Habano wrapper. Honduran and Nicaraguan tobaccos. Complexity without overwhelming intensity.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Plasencia</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-plasencia-reserva-original.webp" alt="Plasencia Reserva Original" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Reserva Original</h4><span class="strength">Medium</span><p class="cigar-note">All-Nicaraguan. Notes of nuts, fruits, caramel, marzipan nuances, and cedar. The taste that captivated Europeans more than five centuries ago.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>My Father</h3><span class="count">Two vitolas</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-my-father-flor-de-las-antillas-toro.webp" alt="My Father Flor de las Antillas Toro" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Flor de las Antillas Toro</h4><span class="strength">Medium-Full</span><p class="cigar-note">6" &middot; Ring 52. Sun-grown Nicaraguan Corojo wrapper. Full-bodied puro with coffee, leather, espresso, and a peppery kick.</p></div></article>
+          <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-my-father-le-bijou-1922-torpedo.webp" alt="My Father Le Bijou 1922 Torpedo" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Le Bijou 1922 Torpedo</h4><span class="strength">Full</span><p class="cigar-note">6 1/8" &middot; Ring 52. Nicaraguan wrapper. Tribute to Don Pepin Garcia, born 1922. Direct, uncompromising, and bold throughout.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Nicatabaco</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-nicatabaco-factory-blend-no2-toro-deluxe.webp" alt="Nicatabaco Factory Blend No.2 Toro Deluxe" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Factory Blend No.2 Toro Deluxe</h4><span class="strength">Mild-Medium</span><p class="cigar-note">6" &middot; Ring 50. All-Nicaraguan. Balanced and aromatic flavour profile with a clean, accessible character.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Azan</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-azan-white-campana.webp" alt="Azan White Campana" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">White Campana</h4><span class="strength">Medium</span><p class="cigar-note">Campana &middot; 5 1/2" &middot; Ring 52. Ecuadorian Corojo grande wrapper. Nicaraguan and Brazilian filler. A distinctive sweet flavoured cigar with exceptional construction.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Baiyasuub</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-baiyasuub-thailand.webp" alt="Baiyasuub Thailand" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Thailand</h4><span class="strength">Mild-Medium</span><p class="cigar-note">Robusto &middot; 5" &middot; Ring 50. The first commercially produced, 100% handrolled premium cigar from pure Thai tobacco. Earthy, subtly sweet, clean finish.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Ashton</h3><span class="count">Cigarillos</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-ashton-connecticut-cigarillos.webp" alt="Ashton Connecticut Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Connecticut Cigarillos</h4><span class="strength">Mild</span><p class="cigar-note">3 1/2" &middot; Ring 20. Dominican wrapper. Cameroon filler. Hickory, black pepper, cocoa, and nutmeg opening, with leather and baking spices.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Davidoff</h3><span class="count">Cigarillos</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-davidoff-club-cigarillos.webp" alt="Davidoff Club Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Club Cigarillos</h4><span class="strength">Mild</span><p class="cigar-note">3 1/2" &middot; Ring 20. Ecuadorian wrapper. Dominican binder and filler. Hay, mild spices, cedar, and a hint of nut with a delicate sweetness.</p></div></article>
+          <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-davidoff-primeros.webp" alt="Davidoff Primeros" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Primeros</h4><span class="strength">Mild</span><p class="cigar-note">Petit Panetela &middot; approx. 15 mins. Connecticut Shade wrapper. Mexican binder. Dominican filler. Sweet woods, vanilla, and cedar.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Moods</h3><span class="count">Cigarillos</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-moods-cigarillos.webp" alt="Moods Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Cigarillos</h4><span class="strength">Mild-Medium</span><p class="cigar-note">3.5" &middot; 10 per pack. Sumatra wrapper. Tropical filler blend with Virginia and Oriental tobaccos. Gently aged and perfectly balanced.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque">
+        <div class="marque-head r"><h3>Villiger</h3><span class="count">Cigarillos</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-villiger-export-cigarillos.webp" alt="Villiger Export Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Export Cigarillos</h4><span class="strength">Mild-Medium</span><p class="cigar-note">4" &middot; 36mm. Swiss dry-cured. Indonesian Sumatra or Brazilian wrapper. Consistent cocoa, cream, roasted nuts, and a subtle spiciness.</p></div></article>
+        </div>
+      </div>
+
     </div>
 
     <div class="r" style="text-align:center;margin-top:clamp(3rem,6vw,5rem)">
