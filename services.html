@@ -159,8 +159,19 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 /* CONTACT FORM */
 .contact-form{display:grid;gap:1.5rem}
 .form-group label{display:block;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);margin-bottom:.6rem}
-.form-group input,.form-group textarea,.form-group select{width:100%;background:transparent;border:1px solid var(--border-hi);color:var(--cream);padding:.85rem 1rem;font-family:var(--f-body);font-size:.9rem;transition:border-color .2s;outline:none}
+.form-group input,.form-group textarea{width:100%;background:transparent;border:1px solid var(--border-hi);color:var(--cream);padding:.85rem 1rem;font-family:var(--f-body);font-size:.9rem;transition:border-color .2s;outline:none}
 .form-group input:focus,.form-group textarea:focus{border-color:var(--gold)}
+.custom-select{position:relative;width:100%}
+.custom-select-trigger{width:100%;background:transparent;border:1px solid var(--border-hi);color:var(--cream);padding:.85rem 1rem;font-family:var(--f-body);font-size:.9rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .2s;user-select:none}
+.custom-select-trigger:focus{outline:none;border-color:var(--gold)}
+.custom-select.open .custom-select-trigger{border-color:var(--gold)}
+.custom-select-arrow{width:10px;height:10px;border-right:1px solid var(--stone);border-bottom:1px solid var(--stone);transform:rotate(45deg);margin-top:-4px;transition:transform .25s,border-color .2s;flex-shrink:0}
+.custom-select.open .custom-select-arrow{transform:rotate(-135deg);margin-top:4px;border-color:var(--gold)}
+.custom-select-options{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--ink-3);border:1px solid var(--border-hi);z-index:50;opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .2s,transform .2s}
+.custom-select.open .custom-select-options{opacity:1;pointer-events:all;transform:none}
+.custom-select-option{padding:.85rem 1rem;font-family:var(--f-body);font-size:.9rem;color:var(--stone);cursor:pointer;transition:color .15s,background .15s;letter-spacing:.01em}
+.custom-select-option:hover,.custom-select-option.focused{color:var(--cream);background:rgba(212,175,55,.07)}
+.custom-select-option.selected{color:var(--gold)}
 .form-group textarea{resize:vertical;min-height:130px}
 .form-note{font-size:.78rem;color:var(--ash);margin-top:.5rem}
 
@@ -456,12 +467,19 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
             <input type="email" id="f-email" name="email" required>
           </div>
           <div class="form-group">
-            <label for="f-type">Enquiry Type</label>
-            <select id="f-type" name="type">
-              <option value="private">Private Lounge Reservation</option>
-              <option value="b2b">B2B Hospitality Consulting</option>
-              <option value="other">General Enquiry</option>
-            </select>
+            <label id="f-type-label">Enquiry Type</label>
+            <div class="custom-select" id="enquirySelect" role="listbox" aria-labelledby="f-type-label" tabindex="0">
+              <div class="custom-select-trigger" aria-haspopup="listbox">
+                <span class="custom-select-value">Private Lounge Reservation</span>
+                <span class="custom-select-arrow" aria-hidden="true"></span>
+              </div>
+              <div class="custom-select-options">
+                <div class="custom-select-option selected" role="option" data-value="private">Private Lounge Reservation</div>
+                <div class="custom-select-option" role="option" data-value="b2b">B2B Hospitality Consulting</div>
+                <div class="custom-select-option" role="option" data-value="other">General Enquiry</div>
+              </div>
+            </div>
+            <input type="hidden" id="f-type" name="type" value="private">
           </div>
           <div class="form-group">
             <label for="f-message">Message</label>
@@ -551,6 +569,40 @@ function closeMob(){mob.classList.remove('open');burger.classList.remove('open')
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.r,.r-img').forEach(el=>obs.observe(el));
 
+// CUSTOM SELECT
+(function(){
+  const sel=document.getElementById('enquirySelect');
+  if(!sel)return;
+  const trigger=sel.querySelector('.custom-select-trigger');
+  const valueEl=sel.querySelector('.custom-select-value');
+  const options=sel.querySelectorAll('.custom-select-option');
+  const hidden=document.getElementById('f-type');
+  let focusIdx=0;
+
+  function open(){sel.classList.add('open');trigger.setAttribute('aria-expanded','true');}
+  function close(){sel.classList.remove('open');trigger.setAttribute('aria-expanded','false');}
+  function select(opt){
+    options.forEach(o=>o.classList.remove('selected'));
+    opt.classList.add('selected');
+    valueEl.textContent=opt.textContent;
+    hidden.value=opt.dataset.value;
+    focusIdx=[...options].indexOf(opt);
+    close();
+  }
+
+  trigger.addEventListener('click',()=>sel.classList.contains('open')?close():open());
+  options.forEach(opt=>opt.addEventListener('click',()=>select(opt)));
+
+  sel.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();sel.classList.contains('open')?select(options[focusIdx]):open();}
+    else if(e.key==='ArrowDown'){e.preventDefault();if(!sel.classList.contains('open'))open();focusIdx=Math.min(focusIdx+1,options.length-1);options.forEach((o,i)=>o.classList.toggle('focused',i===focusIdx));}
+    else if(e.key==='ArrowUp'){e.preventDefault();focusIdx=Math.max(focusIdx-1,0);options.forEach((o,i)=>o.classList.toggle('focused',i===focusIdx));}
+    else if(e.key==='Escape'){close();}
+  });
+
+  document.addEventListener('click',e=>{if(!sel.contains(e.target))close();});
+})();
+
 // CONTACT FORM
 document.getElementById('contact-form').addEventListener('submit',function(e){
   e.preventDefault();
@@ -559,6 +611,9 @@ document.getElementById('contact-form').addEventListener('submit',function(e){
   btn.disabled=true;
   btn.style.opacity='.6';
   this.reset();
+  document.querySelector('.custom-select-value').textContent='Private Lounge Reservation';
+  document.getElementById('f-type').value='private';
+  document.querySelectorAll('.custom-select-option').forEach((o,i)=>o.classList.toggle('selected',i===0));
 });
 
 // DOT CURSOR
