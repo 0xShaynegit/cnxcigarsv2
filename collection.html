@@ -102,7 +102,7 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .panel-intro p{color:var(--stone);line-height:1.8;font-size:clamp(.92rem,1.2vw,1.05rem)}
 
 /* MARQUE GROUP */
-.marque{margin-bottom:clamp(3.5rem,6vw,5.5rem)}
+.marque{margin-bottom:clamp(3.5rem,6vw,5.5rem)}.marque[id]{scroll-margin-top:90px}
 .marque-head{display:flex;align-items:baseline;justify-content:center;gap:1rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--border);text-align:center}
 .marque-head h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.4rem,2.4vw,2rem);color:var(--cream);letter-spacing:.01em}
 .marque-head .count{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
@@ -229,7 +229,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- COHIBA -->
-    <div class="marque">
+    <div class="marque" id="cohiba">
       <div class="marque-head r"><h3>Cohiba</h3><span class="count">Two vitolas</span></div>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Cohiba</span></div><div class="cigar-info"><h4 class="cigar-name">Cohiba Siglo II</h4><span class="strength">Medium</span><p class="cigar-note">Creamy cigar with cedar, herbs, and soft floral sweetness.</p></div></article>
@@ -238,7 +238,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- MONTECRISTO -->
-    <div class="marque">
+    <div class="marque" id="montecristo">
       <div class="marque-head r"><h3>Montecristo</h3><span class="count">Three vitolas</span></div>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Montecristo</span></div><div class="cigar-info"><h4 class="cigar-name">Montecristo No.2</h4><span class="strength">Full</span><p class="cigar-note">Bold cigar with espresso, cedar, and deep earthy complexity.</p></div></article>
@@ -248,7 +248,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- ROMEO Y JULIETA -->
-    <div class="marque">
+    <div class="marque" id="romeo-y-julieta">
       <div class="marque-head r"><h3>Romeo y Julieta</h3><span class="count">Four vitolas</span></div>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Romeo y Julieta</span></div><div class="cigar-info"><h4 class="cigar-name">Romeo y Julieta No.1</h4><span class="strength">Medium</span><p class="cigar-note">Smooth cigar with cedar, leather, and subtle natural sweetness.</p></div></article>
@@ -259,7 +259,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- PARTAGAS -->
-    <div class="marque">
+    <div class="marque" id="partagas">
       <div class="marque-head r"><h3>Partagas</h3><span class="count">Three vitolas</span></div>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><span class="mono">Partagas</span></div><div class="cigar-info"><h4 class="cigar-name">Partagas Serie D No.4</h4><span class="strength">Full</span><p class="cigar-note">Bold and earthy cigar layered with leather, spice, and cocoa.</p></div></article>
@@ -327,7 +327,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- NEW WORLD NOTE -->
-    <div class="marque" style="margin-bottom:0;text-align:center">
+    <div class="marque" id="new-world" style="margin-bottom:0;text-align:center">
       <div class="marque-head r"><h3>New World Cigars</h3><span class="count">By request</span></div>
       <p class="r" style="color:var(--stone);line-height:1.8;font-size:clamp(.92rem,1.2vw,1.05rem);max-width:760px;margin:0 auto">Beyond the Cuban cellar, we keep a rotating selection from Nicaragua, the Dominican Republic and Honduras. These are curated by request rather than listed. Tell our team the profile you enjoy and we will suggest options from the current rotation.</p>
       <div class="r d1" style="margin-top:1.8rem"><a href="https://wa.me/66622769937" class="btn-gold">Ask for a Recommendation</a></div>

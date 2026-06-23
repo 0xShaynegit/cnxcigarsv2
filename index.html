@@ -614,30 +614,30 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
   <div class="col-track-wrap">
     <div class="col-track" id="colTrack">
       <div style="width:var(--g);flex-shrink:0"></div>
-      <div class="col-card r">
+      <a class="col-card r" href="./collection.html#montecristo">
         <div class="col-card-img"><img src="./images/cnxcigars-cnx-cigars-humidor-montecristo-box-display.webp" alt="Montecristo" width="350" height="525" loading="lazy"></div>
         <div class="col-info"><div class="col-brand">Montecristo</div><div class="col-origin">Cuba</div></div>
-      </div>
-      <div class="col-card r d1">
+      </a>
+      <a class="col-card r d1" href="./collection.html#new-world">
         <div class="col-card-img"><img src="./images/cnxcigars-cnx-cigars-humidor-my-father-davidoff-selection.webp" alt="Davidoff" width="350" height="525" loading="lazy"></div>
         <div class="col-info"><div class="col-brand">Davidoff</div><div class="col-origin">Dominican Republic</div></div>
-      </div>
-      <div class="col-card r d2">
+      </a>
+      <a class="col-card r d2" href="./collection.html#cohiba">
         <div class="col-card-img"><img src="./images/cnxcigars-cnx-cigars-humidor-stocked-shelves.webp" alt="Cohiba" width="350" height="525" loading="lazy"></div>
         <div class="col-info"><div class="col-brand">Cohiba</div><div class="col-origin">Cuba</div></div>
-      </div>
-      <div class="col-card r d3">
+      </a>
+      <a class="col-card r d3" href="./collection.html#partagas">
         <div class="col-card-img"><img src="./images/cnxcigars-cnx-cigars-humidor-partagas-series-d-hoyo-shelf.webp" alt="Partagas" width="350" height="525" loading="lazy"></div>
         <div class="col-info"><div class="col-brand">Partagas</div><div class="col-origin">Cuba</div></div>
-      </div>
-      <div class="col-card r d4">
+      </a>
+      <a class="col-card r d4" href="./collection.html#romeo-y-julieta">
         <div class="col-card-img"><img src="./images/cnxcigars-cnx-cigars-humidor-romeo-julieta-tubo-display.webp" alt="Romeo y Julieta" width="350" height="525" loading="lazy"></div>
         <div class="col-info"><div class="col-brand">Romeo y Julieta</div><div class="col-origin">Cuba</div></div>
-      </div>
-      <div class="col-card r d5">
+      </a>
+      <a class="col-card r d5" href="./collection.html#new-world">
         <div class="col-card-img"><img src="./images/cnxcigars-cnx-cigars-league-of-fat-bastards-cigars.webp" alt="Padron 1926" width="350" height="525" loading="lazy"></div>
         <div class="col-info"><div class="col-brand">Padron 1926</div><div class="col-origin">Nicaragua</div></div>
-      </div>
+      </a>
       <div style="width:var(--g);flex-shrink:0"></div>
     </div>
   </div>
@@ -1197,18 +1197,49 @@ function closeMob(){burger.classList.remove('open');mobMenu.classList.remove('op
   window.addEventListener('scroll',tick,{passive:true});
 })();
 
-// COLLECTIONS DRAG + NAV
+// COLLECTIONS DRAG + NAV + AUTOPLAY
 (function(){
   const track=document.getElementById('colTrack');
   if(!track)return;
-  let down=false,sx=0,sl=0;
-  track.addEventListener('mousedown',e=>{down=true;track.classList.add('dragging');sx=e.pageX-track.offsetLeft;sl=track.scrollLeft;});
-  window.addEventListener('mouseup',()=>{down=false;track.classList.remove('dragging');});
+  let paused=false,down=false,sx=0,sl=0;
+
+  // Clone cards for seamless infinite loop
+  const origCards=[...track.querySelectorAll('a.col-card')];
+  origCards.forEach(c=>{
+    const cl=c.cloneNode(true);
+    cl.setAttribute('aria-hidden','true');
+    cl.setAttribute('tabindex','-1');
+    track.insertBefore(cl,track.lastChild);
+  });
+
+  // Drag
+  track.addEventListener('mousedown',e=>{down=true;paused=true;track.classList.add('dragging');sx=e.pageX-track.offsetLeft;sl=track.scrollLeft;});
+  window.addEventListener('mouseup',()=>{if(!down)return;down=false;track.classList.remove('dragging');setTimeout(()=>paused=false,900);});
   track.addEventListener('mousemove',e=>{if(!down)return;e.preventDefault();const x=e.pageX-track.offsetLeft;track.scrollLeft=sl-(x-sx)*1.2;});
-  const card=track.querySelector('.col-card');
-  const step=()=>card?card.offsetWidth+19:300;
-  document.getElementById('colNext').addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
-  document.getElementById('colPrev').addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
+
+  // Hover pause
+  track.addEventListener('mouseenter',()=>{if(!down)paused=true;});
+  track.addEventListener('mouseleave',()=>{if(!down)paused=false;});
+  track.addEventListener('touchstart',()=>paused=true,{passive:true});
+  track.addEventListener('touchend',()=>setTimeout(()=>paused=false,1800),{passive:true});
+
+  // Prev/Next
+  const step=()=>{const c=track.querySelector('a.col-card');return c?c.offsetWidth+19:300;};
+  document.getElementById('colNext').addEventListener('click',()=>{paused=true;track.scrollBy({left:step(),behavior:'smooth'});setTimeout(()=>paused=false,1200);});
+  document.getElementById('colPrev').addEventListener('click',()=>{paused=true;track.scrollBy({left:-step(),behavior:'smooth'});setTimeout(()=>paused=false,1200);});
+
+  // Autoplay   measure loop width after layout, then drift
+  let loopWidth=0;
+  requestAnimationFrame(()=>{
+    loopWidth=origCards.reduce((w,c)=>w+c.offsetWidth,0)+(origCards.length*Math.round(parseFloat(getComputedStyle(track).gap)||19));
+    const speed=0.45;
+    function tick(){
+      if(!paused)track.scrollLeft+=speed;
+      if(loopWidth>0&&track.scrollLeft>=loopWidth)track.scrollLeft-=loopWidth;
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
 })();
 
 // ADVANTAGES IMAGE SWAP
