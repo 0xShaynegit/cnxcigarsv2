@@ -1339,44 +1339,58 @@ function toggleMobGroup(btn){var sub=btn.nextElementSibling;var isOpen=sub.class
 (function(){
   const track=document.getElementById('colTrack');
   if(!track)return;
-  let paused=false,down=false,sx=0,sl=0;
+  let paused=false,down=false,sx=0,startOff=0,offset=0,loopWidth=0;
 
-  // Clone cards for seamless infinite loop
+  // Append cloned cards for seamless loop
   const origCards=[...track.querySelectorAll('a.col-card')];
   origCards.forEach(c=>{
     const cl=c.cloneNode(true);
     cl.setAttribute('aria-hidden','true');
     cl.setAttribute('tabindex','-1');
-    track.insertBefore(cl,track.lastChild);
+    track.appendChild(cl);
   });
 
-  // Drag
-  track.addEventListener('mousedown',e=>{down=true;paused=true;track.classList.add('dragging');sx=e.pageX-track.offsetLeft;sl=track.scrollLeft;});
+  function gap(){return Math.round(parseFloat(getComputedStyle(track).gap)||19);}
+  function step(){const c=track.querySelector('a.col-card');return c?c.offsetWidth+gap():300;}
+
+  function applyNow(){track.style.transition='none';track.style.transform='translateX('+offset+'px)';}
+  function applySmooth(){track.style.transition='transform 0.5s cubic-bezier(.4,0,.2,1)';track.style.transform='translateX('+offset+'px)';}
+  function wrap(){if(!loopWidth)return;if(offset<-loopWidth)offset+=loopWidth;if(offset>0)offset-=loopWidth;}
+
+  // Measure after first layout pass
+  requestAnimationFrame(()=>{
+    loopWidth=origCards.reduce((w,c)=>w+c.offsetWidth+gap(),0);
+    const speed=0.45;
+    function tick(){
+      if(!paused){offset-=speed;wrap();track.style.transform='translateX('+offset+'px)';}
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+
+  // Mouse drag
+  track.addEventListener('mousedown',e=>{down=true;paused=true;track.classList.add('dragging');sx=e.pageX;startOff=offset;});
   window.addEventListener('mouseup',()=>{if(!down)return;down=false;track.classList.remove('dragging');setTimeout(()=>paused=false,900);});
-  track.addEventListener('mousemove',e=>{if(!down)return;e.preventDefault();const x=e.pageX-track.offsetLeft;track.scrollLeft=sl-(x-sx)*1.2;});
+  track.addEventListener('mousemove',e=>{if(!down)return;e.preventDefault();offset=startOff+(e.pageX-sx);wrap();applyNow();});
+
+  // Touch drag
+  let tx=0;
+  track.addEventListener('touchstart',e=>{paused=true;tx=e.touches[0].pageX;startOff=offset;},{passive:true});
+  track.addEventListener('touchmove',e=>{offset=startOff+(e.touches[0].pageX-tx);wrap();applyNow();},{passive:true});
+  track.addEventListener('touchend',()=>setTimeout(()=>paused=false,1800),{passive:true});
 
   // Hover pause
   track.addEventListener('mouseenter',()=>{if(!down)paused=true;});
   track.addEventListener('mouseleave',()=>{if(!down)paused=false;});
-  track.addEventListener('touchstart',()=>paused=true,{passive:true});
-  track.addEventListener('touchend',()=>setTimeout(()=>paused=false,1800),{passive:true});
 
-  // Prev/Next
-  const step=()=>{const c=track.querySelector('a.col-card');return c?c.offsetWidth+19:300;};
-  document.getElementById('colNext').addEventListener('click',()=>{paused=true;track.scrollBy({left:step(),behavior:'smooth'});setTimeout(()=>paused=false,1200);});
-  document.getElementById('colPrev').addEventListener('click',()=>{paused=true;track.scrollBy({left:-step(),behavior:'smooth'});setTimeout(()=>paused=false,1200);});
-
-  // Autoplay   measure loop width after layout, then drift
-  let loopWidth=0;
-  requestAnimationFrame(()=>{
-    loopWidth=origCards.reduce((w,c)=>w+c.offsetWidth,0)+(origCards.length*Math.round(parseFloat(getComputedStyle(track).gap)||19));
-    const speed=0.45;
-    function tick(){
-      if(!paused)track.scrollLeft+=speed;
-      if(loopWidth>0&&track.scrollLeft>=loopWidth)track.scrollLeft-=loopWidth;
-      requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
+  // Prev/Next buttons
+  document.getElementById('colNext').addEventListener('click',()=>{
+    paused=true;offset-=step();wrap();applySmooth();
+    setTimeout(()=>{applyNow();paused=false;},550);
+  });
+  document.getElementById('colPrev').addEventListener('click',()=>{
+    paused=true;offset+=step();wrap();applySmooth();
+    setTimeout(()=>{applyNow();paused=false;},550);
   });
 })();
 
