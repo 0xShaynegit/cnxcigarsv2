@@ -16,6 +16,8 @@
 
   var isMobile = window.innerWidth <= 768;
 
+  var CNX_LOGO_HTML = '<img src="./images/cnxcigars-cnx-cigars-logo.svg" width="30" height="30" alt="" aria-hidden="true" style="width:30px;height:30px;pointer-events:none;">';
+
   var CHAT_ICON =
     '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
     '<path d="M20 2H4C2.9 2 2 2.9 2 4v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" fill="#0a0a0a"/>' +
@@ -190,7 +192,7 @@
     /* --- open / close --- */
     function openWidget() {
       isOpen = true;
-      trigger.innerHTML = CLOSE_ICON;
+      trigger.innerHTML = CNX_LOGO_HTML;
       if (chatNow) chatNow.style.opacity = '0';
       channelEls.forEach(function (item, idx) {
         item.el.style.transitionDelay = (idx * 0.07) + 's';
@@ -211,19 +213,40 @@
       });
     }
 
+    /* --- close timer (desktop hover-to-close) --- */
+    var closeTimer = null;
+    function startCloseTimer() {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(function () { if (isOpen) closeWidget(); }, 260);
+    }
+    function cancelCloseTimer() { clearTimeout(closeTimer); }
+
     /* --- events --- */
     trigger.addEventListener('click', function (e) {
       e.stopPropagation();
+      cancelCloseTimer();
       isOpen ? closeWidget() : openWidget();
     });
 
     trigger.addEventListener('mouseenter', function () {
       trigger.style.transform = 'scale(1.08)';
-      if (!isOpen && chatNow) chatNow.style.opacity = '1';
+      if (!isMobile) {
+        cancelCloseTimer();
+        if (!isOpen) openWidget();
+      } else {
+        if (!isOpen && chatNow) chatNow.style.opacity = '1';
+      }
     });
     trigger.addEventListener('mouseleave', function () {
       trigger.style.transform = 'scale(1)';
-      if (!isOpen && chatNow) chatNow.style.opacity = '0';
+      if (chatNow) chatNow.style.opacity = '0';
+      if (!isMobile) startCloseTimer();
+    });
+
+    /* --- keep open while mouse is over any channel row --- */
+    channelEls.forEach(function (item) {
+      item.el.addEventListener('mouseenter', function () { if (!isMobile) cancelCloseTimer(); });
+      item.el.addEventListener('mouseleave', function () { if (!isMobile) startCloseTimer(); });
     });
 
     document.addEventListener('click', function (e) {
