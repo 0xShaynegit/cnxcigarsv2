@@ -1,5 +1,5 @@
 # CNX Cigars Handover
-**Session:** 24/06/2026
+**Session:** 24/06/2026 (second pass)
 **Branch:** master
 **Deploy:** Cloudflare Pages via GitHub (0xShaynegit/cnxcigarsv2)
 
@@ -7,37 +7,31 @@
 
 ## Where We Left Off
 
-3-level mobile accordion nav built and applied to all 11 pages. Cuban section grid restructure done. Mobile overflow fixed on collection and accessories.
+SEO audit completed and all actionable fixes applied. Brands/ticker fixed. Ready for pre-delivery checklist.
 
 ---
 
-## What Was Built This Session
+## What Was Done This Session
 
-### 3-Level Mobile Accordion Nav (all 11 pages)
-- Old flat mob-menu replaced with accordion structure
-- Level 1: Services / Collection / Accessories / The Lounge / About
-- Collection expands to Cuban and New World sub-buttons
-- Cuban expands to 15 brands, New World expands to 25 brands
-- Accessories expands to 6 categories (Humidors, Cutters, Lighters, Cases, Ashtrays, Humidity)
-- All brand links use `./collection.html#brand-id` so they work from every page
-- New JS functions: `toggleMobGroup(btn)` + updated `closeMob()`
-- CSS: second `<style>` block injected into all 11 pages with mob accordion rules
+### Brands Link Fix (all pages)
+- `./brands/` directory never existed in the live project
+- Replaced all instances with `./collection.html` across: index.html, services.html, legal-privacy-policy.html, legal-photo-disclaimer.html, legal-terms-of-service.html
 
-### Brand IDs (collection.html)
-- 31 marque divs now have IDs for mobile nav deep-linking
-- See session memory for full list
+### Marquee Ticker Rebuild
+- Previous ticker had "Padron 1926" and "Oliva Serie V" - neither in the collection
+- Rebuilt with all 35 actual collection brands (13 Cuban + 22 New World), deduplicated
+- Animation slowed from 24s to 80s to match longer track
 
-### Cuban Section Restructure (collection.html)
-- 6 small brands removed from full-width standalone sections
-- Placed in `marque-3col` grid after Trinidad:
-  - Row 1: Juan Lopez (1col) + Jose L. Piedra (m2)
-  - Row 2: Montecristo OPEN (1col) + Quintero (m2)
-  - Row 3: Quai d'Orsay (1col) + Cohiba Cigarillos (m2)
-
-### Mobile Overflow Fix (collection.html + accessories.html)
-- cigar-grid now stacks to 1 column on mobile (flex-direction:column)
-- cigar-card forced to width:100% on mobile
-- html AND body both have overflow-x:hidden
+### SEO Fixes Applied
+| Fix | File |
+|-----|------|
+| Organization schema added | index.html |
+| priceRange: "500-2000+ THB" | index.html |
+| No aggregateRating (client preference) | index.html |
+| Twitter Card + OG image added | services.html |
+| Legal pages removed from sitemap | sitemap.xml |
+| noindex meta added | legal-*.html (all 3) |
+| ItemList schema (Cuban + New World) added | collection.html |
 
 ---
 
@@ -47,6 +41,9 @@
 2. **Analytics token** - replace `ANALYTICS_TOKEN_PLACEHOLDER` in all 10 pages
 3. **Chaty widget** - WhatsApp (+66 622 769 937) + LINE (Bodazey), bottom-left position
 4. **Browser verify** - full scroll desktop + mobile on all pages
+5. **OG social card image** - all pages still use logo (black on black). Needs a proper 1200x630 dark scene image. Low priority but worth noting.
+6. **Google Business Profile** - set up post-launch
+7. **Search Console** - submit sitemap post-launch
 
 ---
 
@@ -60,4 +57,4 @@ Other files vary. Always check before any PowerShell string replacement.
 
 ## Current Commit
 
-Not yet committed this session. Last commit: `5395aeb`
+Not yet committed. Multiple sessions of changes uncommitted.
