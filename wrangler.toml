@@ -2,4 +2,4 @@ name = "cnxcigarsv2"
 compatibility_date = "2026-06-21"
 
 [assets]
-directory = "."
+directory = "./dist"

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "mkdir -p dist && cp -r index.html services.html founder.html about.html collection.html lounge.html accessories.html legal-privacy-policy.html legal-terms-of-service.html legal-photo-disclaimer.html 404.html brands favicon fonts images _headers robots.txt sitemap.xml site.webmanifest dist/ 2>/dev/null || true",
+    "build": "mkdir -p dist && cp -r index.html services.html founder.html about.html collection.html lounge.html accessories.html legal-privacy-policy.html legal-terms-of-service.html legal-photo-disclaimer.html 404.html brands favicon fonts images css js scripts _headers robots.txt sitemap.xml site.webmanifest dist/ 2>/dev/null || true",
     "deploy": "npm run build && wrangler deploy"
   }
 }
