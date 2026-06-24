@@ -1,5 +1,5 @@
 # CNX Cigars Handover
-**Session:** 24/06/2026 (third pass)
+**Session:** 24/06/2026 (fourth pass)
 **Branch:** master
 **Deploy:** Cloudflare Workers via GitHub (0xShaynegit/cnxcigarsv2)
 **Live URL:** https://cnxcigarsv2.slrclaude.workers.dev
@@ -8,61 +8,54 @@
 
 ## Current State
 
-Site is live and building correctly. Chaty widget working on live site. PageSpeed 96 accessibility, 100 SEO.
+Site is live and building correctly. Chaty widget working on live site with 5 channels including email. PageSpeed 96 accessibility, 100 SEO. All CTAs route to services.html#reserve.
 
 ---
 
-## What Was Done This Session
+## What Was Done This Session (fifth pass)
 
-### Chaty Widget (bespoke, no external CSS)
-- Built from scratch: gold trigger (52px), 4 channels (WhatsApp, LINE, Facebook, Messenger)
-- WA + LINE URLs obfuscated with `atob()` base64
-- MutationObserver waits for `#preloader` removal before init (index.html); immediate on all other pages
-- **Desktop hover-to-open**: channels fan out on trigger mouseenter, close on mouseleave (260ms timer). Channel rows cancel the timer while mouse is over them.
-- Trigger icon swaps to CNX circle logo (`cnxcigars-cnx-cigars-logo-circle.webp`, 52x52, overflow:hidden) on open/hover; reverts to chat bubble on close
-- Labels hidden by default, appear in gold on hover (desktop only)
-- "Chat now" label appears on desktop hover + bottom-left zone mousemove
-- Mobile: tap to open/close only, no hover states
-- File: `scripts/chaty-widget.js`
-- Loaded via `<script src="./scripts/chaty-widget.js?v=3" defer></script>` on all 11 pages
+### All CTAs to services.html#reserve
+- All WhatsApp CTA buttons, `href="#contact"`, `href="#b2b"` replaced with `./services.html#reserve` across all 11 pages
+- Legal pages: `./#contact` links also updated
 
-### Worker Deploy Fix
-- `wrangler.toml` was pointing to `./dist` but site has no build step
-- Fix: `directory = "."` + `.assetsignore` file excludes `.git/`, `_archive/`, `*.md`, `*.toml`, `*.json`, `node_modules/`, `dist/`
-- Build command in Cloudflare dashboard: `npx wrangler deploy` (no npm run build)
+### About Section: Sticky Scroll Replaced with Parallax
+- Removed `position:sticky` + 110vh spacer (`.about-spacer{height:0}`)
+- `.about-sticky` is now `position:relative; height:100svh; overflow:hidden`
+- Background image: `height:125%; margin-top:-12%` for parallax travel room
+- JS: simple `translateY` based on section scroll position (18% range), runs on init
+- No more dead scroll space on desktop or mobile
 
-### Performance
-- Vimeo iframe deferred to `window.load` (no longer blocks first paint)
-- Preloader halved: 1400ms to 700ms
-- Hero logo resized: 960x960 (132KB) to 260x260 (16KB)
-- Vimeo preconnects added: `player.vimeo.com`, `f.vimeocdn.com`, `skyfire.vimeocdn.com`
+### Tobacco Legal Disclaimer
+- Added `.ft-legal` bar at very bottom of every footer (below `</div>` wrap, inside `<footer>`)
+- Text: "Online sale of tobacco is strictly prohibited in the Kingdom of Thailand including sales to persons under 20 years."
+- Style: small caps, muted, full-width, centred. Applied to all 11 pages via PowerShell batch.
 
-### Accessibility (78 to 96)
-- `role="button"` + `tabindex="0"` on chat trigger div
-- `title="CNX Cigars Lounge"` + `aria-hidden="true"` on Vimeo iframe
-- `aria-label="Scroll down"` on `.h-arrow` hero link
-- `.testi-dot` touch target: padding 11px (28px hit area from 6px dot)
-- Footer `h4` changed to `h3` (heading order fix); CSS selector updated
+### Recognition Section
+- Previous section had text placeholders only, no images
+- Downloaded Habanos Point + Asia Iconic badge PNGs from source site, converted to WebP
+- Images: `cnxcigars-cnx-cigars-habanos-point-authorized-dealer.webp` (23KB), `cnxcigars-cnx-cigars-asia-iconic-excellence-innovation-award-2026.webp` (21KB)
+- Restaurant Guru badge already existed: `cnxcigars-cnx-cigars-restaurant-guru-excellent-service-award.webp`
+- Section redesigned: flex row, badges as `<img>` with name/sub text below
+- CSS: `.rec-item img` 150x150, `.rec-item.rec-card img` height:180 (for rectangular RG card)
+- Background changed to `var(--ink-2)`
 
-### Collections Carousel Fix
-- Arrows were broken: `scrollBy()` doesn't work without `overflow` on the element
-- Rewrote entire carousel to use `transform: translateX` (autoplay, drag, touch, buttons all use offset variable)
-- Smooth 0.5s transition on button clicks; autoplay resumes cleanly after
+### Footer Social Icons (replaces text links)
+- Removed "WhatsApp: +66 622 769 937 / LINE: Bodazey / email" plain text from footer brand column
+- Added `.ft-social` icon row: WhatsApp, LINE, Facebook, Messenger, Email (36px circles, gold on hover)
+- WA + LINE hrefs set at runtime via `atob()` inline script (same obfuscation as Chaty)
+- IDs: `ft-wa`, `ft-line`
 
-### Mobile Hero
-- At max-width 768px: hero height reduced to 55svh (min 320px)
-- Hero logo halved: 36px on mobile (from 70px minimum)
+### Contact Section Links
+- WhatsApp button in contact section: `id="contact-wa-btn"`, href set via obfuscated JS
+- Contact grid: WhatsApp number and LINE are now `<a>` tags with `id="contact-wa-link"` / `id="contact-line-link"`, hrefs set via obfuscated JS
+- Email: plain `mailto:cigarschiangmai@gmail.com`
+- "Use our contact form" links to `./services.html#reserve`
+- Obfuscation script at bottom of inline `<script>` block in index.html
 
-### Collection Page: 1 Column Mobile
-- Breakpoint extended from 768px to 960px
-- Switched from `flex` override to `display:grid; grid-template-columns:1fr` for guaranteed single column
-
-### Collection CTA
-- "Ask the team for a recommendation" button links to `./services.html`
-
-### Cache Fix
-- `/scripts/*` `_headers` changed from `immutable` to `max-age=3600, must-revalidate`
-- All pages updated to `chaty-widget.js?v=3` to bust cached old widget version
+### Chaty Widget: Email Added (v4)
+- Added 5th channel: Email (envelope SVG, `mailto:cigarschiangmai@gmail.com` via atob)
+- `EMAIL_URL = atob('bWFpbHRvOmNpZ2Fyc2NoaWFuZ21haUBnbWFpbC5jb20=')`
+- Cache version bumped to `?v=4` across all 11 pages
 
 ---
 
@@ -82,9 +75,10 @@ Site is live and building correctly. Chaty widget working on live site. PageSpee
 - **Vanilla HTML/CSS/JS only. Zero frameworks.**
 - **No dist folder.** Files served from repo root via `.assetsignore`
 - **Worker** (not Pages): `wrangler.toml` with `[assets] directory = "."`
-- **All 11 pages** share the same chaty widget script via `?v=3` cache buster
+- **Chaty widget**: `scripts/chaty-widget.js?v=4` on all 11 pages. 5 channels: WA, LINE, FB, Messenger, Email.
 - **Fonts**: WOFF2 from `./fonts/woff2/` with `font-display:swap`
 - **Images**: WebP only, `./images/`
+- **Obfuscation pattern**: WA and LINE URLs decoded at runtime via `atob()`. Used in Chaty widget AND footer/contact inline script.
 
 ## File Line Endings (Critical)
 
@@ -94,6 +88,59 @@ Other files vary. Always check before any PowerShell string replacement.
 
 ---
 
+---
+
+## What Was Done This Session (fifth pass)
+
+### About Section: Sticky Scroll Replaced with Parallax
+- Removed `position:sticky` + 110vh spacer
+- `.about-sticky` now `position:relative; height:100svh; overflow:hidden`
+- Background image `height:125%; margin-top:-12%` for parallax travel room
+- JS: `translateY` based on section scroll position (18% range), runs on init
+
+### Tobacco Legal Disclaimer
+- `.ft-legal` bar added to footer on all 11 pages via PowerShell batch
+- Moved above the `border-top` line (outside `.ft-bottom`, inside `.wrap`)
+- Full brightness (opacity removed), centred, small caps
+
+### Recognition Section
+- Downloaded Habanos Point + Asia Iconic badge PNGs from reference site, converted to WebP
+- `cnxcigars-cnx-cigars-habanos-point-authorized-dealer.webp` (23KB)
+- `cnxcigars-cnx-cigars-asia-iconic-excellence-innovation-award-2026.webp` (21KB)
+- Section redesigned: flex row, badges as `<img>`, name/sub text below
+- Background changed to `var(--ink-2)`
+
+### Footer Consolidation
+- Removed entire `<!-- CONTACT -->` section (was duplicate of footer info)
+- `<footer id="contact">`   footer now serves as the contact anchor
+- 3-column layout: Brand + social icons | Visit + Enquiries | Explore + Newsletter
+- Visit column: full address + hours
+- Enquiries column: merged into Visit column below hours
+- Newsletter description paragraph restored above form
+- Responsive: 2-col at 1100px, 1-col at 768px
+
+### Footer Social Icons
+- All 5 social links (WA, LINE, FB, Messenger, Email) as 36px icon circles
+- WA, LINE, Email obfuscated via `atob()` inline script
+- FB and Messenger are plain hrefs (public pages, no obfuscation needed)
+- IDs: `ft-wa`, `ft-line`, `ft-fb`, `ft-msg`, `ft-email`
+- Obfuscation script at bottom of inline `<script>` block in index.html
+
+### Chaty Widget: Email Added (v4)
+- 5th channel: Email (envelope SVG, `mailto:` via atob)
+- Cache bumped to `?v=4` across all 11 pages
+
+### Founding Story Added
+- index.html founder section: new paragraph with 2022 Chiang Mai arrival, community events phase, May 2024 official opening
+- founder.html "Rooted in Chiang Mai" section: same narrative expanded into full paragraph before the existing copy
+
+### Site Comparison vs Reference (cnx-cigars.cnxcigarwebhosting.workers.dev)
+- Our site has MORE content overall (age gate, FAQ, testimonials, stats, accessories)
+- Only meaningful gap was the founding story dates   now fixed
+- Reference site uses Next.js; ours is vanilla
+
+---
+
 ## Current Commit
 
-b75a39d - Collection CTA: link to services page
+b3895f9 - Add founding story: 2022 arrival, community phase, May 2024 opening
