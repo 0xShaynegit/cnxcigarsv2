@@ -470,22 +470,24 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
 .b2b-panel h3{font-family:var(--f-display);font-weight:300;font-size:1.4rem;color:var(--cream);margin-bottom:1rem}
 .b2b-panel p{color:var(--stone);font-size:.9rem;line-height:1.7}
 /* RECOGNITION */
-.recognition{padding:clamp(4rem,7vw,7rem) 0;background:var(--ink);border-top:1px solid var(--border)}
-.rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.rec-item{border:1px solid var(--border);padding:2.5rem 2rem;text-align:center}
-.rec-badge{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-.rec-name{font-family:var(--f-display);font-size:1.15rem;font-weight:300;color:var(--cream);margin-bottom:.5rem}
-.rec-year{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ash)}
+.recognition{padding:clamp(4rem,7vw,7rem) 0;background:var(--ink-2);border-top:1px solid var(--border)}
+.rec-grid{display:flex;justify-content:center;align-items:flex-start;gap:clamp(3rem,6vw,7rem);flex-wrap:wrap}
+.rec-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.4rem}
+.rec-item img{width:150px;height:150px;object-fit:contain}
+.rec-item.rec-card img{width:auto;height:180px;object-fit:contain}
+.rec-name{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream)}
+.rec-sub{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 /* RESPONSIVE ADDITIONS */
 @media(max-width:1100px){
   .community-grid,.bar-grid,.b2b-grid{grid-template-columns:1fr}
-  .rec-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
   .stats-grid{grid-template-columns:1fr}
   .stats-item{border-right:none;border-bottom:1px solid var(--border)}
   .stats-item:last-child{border-bottom:none}
-  .rec-grid{grid-template-columns:1fr}
+  .rec-grid{gap:2.5rem}
+  .rec-item img{width:120px;height:120px}
+  .rec-item.rec-card img{height:150px}
 }
 </style>
 <style>
@@ -1198,22 +1200,24 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
 <!-- RECOGNITION -->
 <section class="recognition">
   <div class="wrap">
-    <p class="t-label r" style="margin-bottom:2.5rem;text-align:center">Awards &amp; recognition</p>
+    <p class="t-label r" style="margin-bottom:3rem;text-align:center">Recognition</p>
     <div class="rec-grid">
       <div class="rec-item r">
-        <div class="rec-badge">Official Certification</div>
-        <div class="rec-name">Habanos Authorized<br>Point of Sale</div>
-        <div class="rec-year">Verified Authentic Cuban Cigars</div>
+        <img src="./images/cnxcigars-cnx-cigars-habanos-point-authorized-dealer.webp" width="150" height="150" alt="Habanos Point Authorized Dealer" loading="lazy">
+        <div>
+          <div class="rec-name">Habanos Point</div>
+          <div class="rec-sub">Authorized Dealer</div>
+        </div>
       </div>
-      <div class="rec-item r d1">
-        <div class="rec-badge">Restaurant Guru</div>
-        <div class="rec-name">Excellent Service<br>Award Winner</div>
-        <div class="rec-year">2026</div>
+      <div class="rec-item rec-card r d1">
+        <img src="./images/cnxcigars-cnx-cigars-restaurant-guru-excellent-service-award.webp" width="140" height="180" alt="Restaurant Guru Excellent Service 2026" loading="lazy">
       </div>
       <div class="rec-item r d2">
-        <div class="rec-badge">Asia Iconic</div>
-        <div class="rec-name">Excellence &amp; Innovation<br>Award</div>
-        <div class="rec-year">2026</div>
+        <img src="./images/cnxcigars-cnx-cigars-asia-iconic-excellence-innovation-award-2026.webp" width="150" height="150" alt="Asia Iconic Excellence and Innovation Awards 2026" loading="lazy">
+        <div>
+          <div class="rec-name">Asia Iconic Awards</div>
+          <div class="rec-sub">2026</div>
+        </div>
       </div>
     </div>
   </div>
