@@ -1,51 +1,90 @@
 # CNX Cigars Handover
-**Session:** 24/06/2026 (second pass)
+**Session:** 24/06/2026 (third pass)
 **Branch:** master
-**Deploy:** Cloudflare Pages via GitHub (0xShaynegit/cnxcigarsv2)
+**Deploy:** Cloudflare Workers via GitHub (0xShaynegit/cnxcigarsv2)
+**Live URL:** https://cnxcigarsv2.slrclaude.workers.dev
 
 ---
 
-## Where We Left Off
+## Current State
 
-SEO audit completed and all actionable fixes applied. Brands/ticker fixed. Ready for pre-delivery checklist.
+Site is live and building correctly. Chaty widget working on live site. PageSpeed 96 accessibility, 100 SEO.
 
 ---
 
 ## What Was Done This Session
 
-### Brands Link Fix (all pages)
-- `./brands/` directory never existed in the live project
-- Replaced all instances with `./collection.html` across: index.html, services.html, legal-privacy-policy.html, legal-photo-disclaimer.html, legal-terms-of-service.html
+### Chaty Widget (bespoke, no external CSS)
+- Built from scratch: gold trigger (52px), 4 channels (WhatsApp, LINE, Facebook, Messenger)
+- WA + LINE URLs obfuscated with `atob()` base64
+- MutationObserver waits for `#preloader` removal before init (index.html); immediate on all other pages
+- **Desktop hover-to-open**: channels fan out on trigger mouseenter, close on mouseleave (260ms timer). Channel rows cancel the timer while mouse is over them.
+- Trigger icon swaps to CNX circle logo (`cnxcigars-cnx-cigars-logo-circle.webp`, 52x52, overflow:hidden) on open/hover; reverts to chat bubble on close
+- Labels hidden by default, appear in gold on hover (desktop only)
+- "Chat now" label appears on desktop hover + bottom-left zone mousemove
+- Mobile: tap to open/close only, no hover states
+- File: `scripts/chaty-widget.js`
+- Loaded via `<script src="./scripts/chaty-widget.js?v=3" defer></script>` on all 11 pages
 
-### Marquee Ticker Rebuild
-- Previous ticker had "Padron 1926" and "Oliva Serie V" - neither in the collection
-- Rebuilt with all 35 actual collection brands (13 Cuban + 22 New World), deduplicated
-- Animation slowed from 24s to 80s to match longer track
+### Worker Deploy Fix
+- `wrangler.toml` was pointing to `./dist` but site has no build step
+- Fix: `directory = "."` + `.assetsignore` file excludes `.git/`, `_archive/`, `*.md`, `*.toml`, `*.json`, `node_modules/`, `dist/`
+- Build command in Cloudflare dashboard: `npx wrangler deploy` (no npm run build)
 
-### SEO Fixes Applied
-| Fix | File |
-|-----|------|
-| Organization schema added | index.html |
-| priceRange: "500-2000+ THB" | index.html |
-| No aggregateRating (client preference) | index.html |
-| Twitter Card + OG image added | services.html |
-| Legal pages removed from sitemap | sitemap.xml |
-| noindex meta added | legal-*.html (all 3) |
-| ItemList schema (Cuban + New World) added | collection.html |
+### Performance
+- Vimeo iframe deferred to `window.load` (no longer blocks first paint)
+- Preloader halved: 1400ms to 700ms
+- Hero logo resized: 960x960 (132KB) to 260x260 (16KB)
+- Vimeo preconnects added: `player.vimeo.com`, `f.vimeocdn.com`, `skyfire.vimeocdn.com`
+
+### Accessibility (78 to 96)
+- `role="button"` + `tabindex="0"` on chat trigger div
+- `title="CNX Cigars Lounge"` + `aria-hidden="true"` on Vimeo iframe
+- `aria-label="Scroll down"` on `.h-arrow` hero link
+- `.testi-dot` touch target: padding 11px (28px hit area from 6px dot)
+- Footer `h4` changed to `h3` (heading order fix); CSS selector updated
+
+### Collections Carousel Fix
+- Arrows were broken: `scrollBy()` doesn't work without `overflow` on the element
+- Rewrote entire carousel to use `transform: translateX` (autoplay, drag, touch, buttons all use offset variable)
+- Smooth 0.5s transition on button clicks; autoplay resumes cleanly after
+
+### Mobile Hero
+- At max-width 768px: hero height reduced to 55svh (min 320px)
+- Hero logo halved: 36px on mobile (from 70px minimum)
+
+### Collection Page: 1 Column Mobile
+- Breakpoint extended from 768px to 960px
+- Switched from `flex` override to `display:grid; grid-template-columns:1fr` for guaranteed single column
+
+### Collection CTA
+- "Ask the team for a recommendation" button links to `./services.html`
+
+### Cache Fix
+- `/scripts/*` `_headers` changed from `immutable` to `max-age=3600, must-revalidate`
+- All pages updated to `chaty-widget.js?v=3` to bust cached old widget version
 
 ---
 
 ## Still Pending Before Delivery
 
 1. **Age gate** - remove `style="display:none"` from `<div id="gate">` in index.html
-2. **Analytics token** - replace `ANALYTICS_TOKEN_PLACEHOLDER` in all 10 pages
-3. **Chaty widget** - WhatsApp (+66 622 769 937) + LINE (Bodazey), bottom-left position
-4. **Browser verify** - full scroll desktop + mobile on all pages
-5. **OG social card image** - all pages still use logo (black on black). Needs a proper 1200x630 dark scene image. Low priority but worth noting.
-6. **Google Business Profile** - set up post-launch
-7. **Search Console** - submit sitemap post-launch
+2. **Analytics token** - replace `ANALYTICS_TOKEN_PLACEHOLDER` in all 11 pages (causes harmless CORS error in console until fixed)
+3. **Browser verify** - full scroll desktop + mobile on all pages before launch
+4. **OG social card image** - all pages use logo (black on black on social). Needs proper 1200x630 dark scene image. Low priority.
+5. **Google Business Profile** - set up post-launch
+6. **Search Console** - submit sitemap post-launch
 
 ---
+
+## Architecture Notes
+
+- **Vanilla HTML/CSS/JS only. Zero frameworks.**
+- **No dist folder.** Files served from repo root via `.assetsignore`
+- **Worker** (not Pages): `wrangler.toml` with `[assets] directory = "."`
+- **All 11 pages** share the same chaty widget script via `?v=3` cache buster
+- **Fonts**: WOFF2 from `./fonts/woff2/` with `font-display:swap`
+- **Images**: WebP only, `./images/`
 
 ## File Line Endings (Critical)
 
@@ -57,4 +96,4 @@ Other files vary. Always check before any PowerShell string replacement.
 
 ## Current Commit
 
-Not yet committed. Multiple sessions of changes uncommitted.
+b75a39d - Collection CTA: link to services page
