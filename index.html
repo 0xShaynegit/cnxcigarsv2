@@ -361,7 +361,7 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 
 /* FOOTER */
 footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem 0 2rem}
-.ft-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:4rem}
+.ft-top{display:grid;grid-template-columns:1.4fr 1.2fr 1fr;gap:3rem;margin-bottom:4rem}
 .ft-brand .brand-mark{font-family:var(--f-brand);font-size:1.9rem;color:var(--gold);letter-spacing:.44em;line-height:1}
 .ft-brand .brand-tag{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ash);margin:.05rem 0 1.6rem}
 .ft-brand p{font-size:.85rem;color:var(--ash);line-height:1.75}
@@ -394,7 +394,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
   .founder-badge{left:0}
   .testi-card{flex:0 0 calc(50% - 1rem)}
   .contact-grid{grid-template-columns:1fr 1fr}
-  .ft-top{grid-template-columns:1fr 1fr;row-gap:2rem}
+  .ft-top{grid-template-columns:1fr 1fr;row-gap:2.5rem}
   .svc-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
@@ -1245,15 +1245,13 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
       <div class="ft-col">
         <h3>Visit</h3>
         <p style="font-size:.85rem;color:var(--ash);line-height:1.75">2nd Floor, 45 Nimmana Haeminda Rd Lane 11<br>Tambon Su Thep, Mueang Chiang Mai<br>Chiang Mai 50200, Thailand</p>
-        <p style="font-size:.85rem;color:var(--ash);line-height:1.75;margin-top:1.2rem">Open Daily<br>12 p.m. to 12 a.m.<br>Walk-ins welcome</p>
-      </div>
-      <div class="ft-col">
-        <h3>Enquiries</h3>
+        <p style="font-size:.85rem;color:var(--ash);line-height:1.75;margin-top:.9rem">Open Daily<br>12 p.m. to 12 a.m.<br>Walk-ins welcome</p>
+        <h3 style="margin-top:2rem">Enquiries</h3>
         <p style="font-size:.85rem;color:var(--ash);line-height:1.75">For reservations, B2B consulting, or rare vitola requests.<br><a href="./services.html#reserve" style="color:var(--gold)">Use our contact form</a></p>
       </div>
       <div class="ft-col ft-nl">
         <h3>Explore</h3>
-        <ul style="margin-bottom:1.8rem">
+        <ul style="margin-bottom:2rem">
           <li><a href="./collection.html">Collection</a></li>
           <li><a href="./accessories.html">Accessories</a></li>
           <li><a href="./lounge.html">The Lounge</a></li>
@@ -1261,6 +1259,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
           <li><a href="./services.html">Services &amp; Contact</a></li>
         </ul>
         <h3>Stay in touch</h3>
+        <p style="font-size:.85rem;color:var(--ash);line-height:1.65;margin-bottom:1rem">The occasional note on tastings and new arrivals.</p>
         <form class="nl-form" onsubmit="handleNL(event)">
           <input class="nl-input" type="email" placeholder="Email address" required aria-label="Email address">
           <button class="nl-btn" type="submit">Subscribe</button>
