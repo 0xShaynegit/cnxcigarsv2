@@ -6,6 +6,7 @@
   var LINE_URL = atob('aHR0cHM6Ly9saW5lLm1lL3RpL3AvQm9kYXpleQ=='); // line.me/ti/p/Bodazey
   var FB_URL   = 'https://www.facebook.com/cigarschiangmai';
   var MSG_URL  = 'https://m.me/cigarschiangmai';
+  var EMAIL_URL = atob('bWFpbHRvOmNpZ2Fyc2NoaWFuZ21haUBnbWFpbC5jb20=');
 
   var GOLD      = '#D4AF37';
   var LEFT      = 20;
@@ -51,12 +52,19 @@
     '<path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.664V24l4.088-2.242c1.092.3 2.246.464 3.443.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26 6.559-6.963 3.13 3.26 5.889-3.26-6.56 6.963z"/>' +
     '</svg>';
 
+  var EMAIL_SVG =
+    '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">' +
+    '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>' +
+    '<polyline points="22,6 12,13 2,6"/>' +
+    '</svg>';
+
   // Array order = bottom to top when open (index 0 is closest to trigger)
   var channels = [
-    { label: 'WhatsApp',  url: WA_URL,  svg: WA_SVG  },
-    { label: 'LINE',      url: LINE_URL, svg: LINE_SVG },
-    { label: 'Facebook',  url: FB_URL,  svg: FB_SVG  },
-    { label: 'Messenger', url: MSG_URL, svg: MSG_SVG  }
+    { label: 'WhatsApp',  url: WA_URL,    svg: WA_SVG    },
+    { label: 'LINE',      url: LINE_URL,  svg: LINE_SVG  },
+    { label: 'Facebook',  url: FB_URL,    svg: FB_SVG    },
+    { label: 'Messenger', url: MSG_URL,   svg: MSG_SVG   },
+    { label: 'Email',     url: EMAIL_URL, svg: EMAIL_SVG }
   ];
 
   function createWidget() {
