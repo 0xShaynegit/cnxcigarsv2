@@ -159,9 +159,10 @@
         'font-size:11px',
         'letter-spacing:0.14em',
         'text-transform:uppercase',
-        'color:#7a7570',
+        'color:' + GOLD,
         'white-space:nowrap',
-        'transition:color 0.18s ease'
+        'opacity:0',
+        'transition:opacity 0.18s ease'
       ].join(';');
       label.textContent = ch.label;
 
@@ -169,13 +170,13 @@
         circle.style.background = '#2a2a2a';
         circle.style.color = GOLD;
         circle.style.borderColor = 'rgba(212,175,55,0.25)';
-        label.style.color = GOLD;
+        if (!isMobile) label.style.opacity = '1';
       });
       link.addEventListener('mouseleave', function () {
         circle.style.background = '#1e1e1e';
         circle.style.color = '#7a7570';
         circle.style.borderColor = 'rgba(255,255,255,0.09)';
-        label.style.color = '#7a7570';
+        label.style.opacity = '0';
       });
 
       link.appendChild(circle);
