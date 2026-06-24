@@ -239,9 +239,32 @@
     }
   }
 
+  function initWhenReady() {
+    var preloader = document.getElementById('preloader');
+    if (!preloader) {
+      // No preloader on this page   init now
+      createWidget();
+      return;
+    }
+    // Wait for preloader to be removed from DOM, then init
+    var observer = new MutationObserver(function (mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var removed = mutations[i].removedNodes;
+        for (var j = 0; j < removed.length; j++) {
+          if (removed[j].id === 'preloader') {
+            observer.disconnect();
+            createWidget();
+            return;
+          }
+        }
+      }
+    });
+    observer.observe(document.body, { childList: true });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', createWidget);
+    document.addEventListener('DOMContentLoaded', initWhenReady);
   } else {
-    createWidget();
+    initWhenReady();
   }
 })();

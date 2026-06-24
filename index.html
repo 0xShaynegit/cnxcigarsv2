@@ -613,9 +613,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
 
 <!-- HERO -->
 <section class="hero" id="top" aria-label="Hero">
-  <div class="hero-video">
-    <iframe src="https://player.vimeo.com/video/1203211104?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-  </div>
+  <div class="hero-video" id="heroVideo"></div>
   <div class="hero-scrim"></div>
   <div class="hero-scrim-b"></div>
   <div class="hero-content">
@@ -1295,11 +1293,14 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
 (function(){if(localStorage.getItem('cnx_age_verified')==='1'){document.getElementById('gate').style.display='none';}})();
 function enterSite(){localStorage.setItem('cnx_age_verified','1');const g=document.getElementById('gate');g.classList.add('out');setTimeout(()=>g.style.display='none',700);}
 
-// PRELOADER
+// PRELOADER + VIMEO DEFERRED LOAD
 window.addEventListener('load',function(){
+  // Inject Vimeo iframe now so it loads during preloader, plays when preloader fades
+  const hv=document.getElementById('heroVideo');
+  if(hv){const f=document.createElement('iframe');f.src='https://player.vimeo.com/video/1203211104?background=1&autoplay=1&loop=1&muted=1';f.frameBorder='0';f.allow='autoplay; fullscreen';f.allowFullscreen=true;hv.appendChild(f);}
   const pl=document.getElementById('preloader'),bar=document.getElementById('preBar');
   requestAnimationFrame(()=>bar.classList.add('go'));
-  setTimeout(()=>{pl.classList.add('out');setTimeout(()=>pl.remove(),800);},1400);
+  setTimeout(()=>{pl.classList.add('out');setTimeout(()=>pl.remove(),800);},700);
 });
 
 // NAV
