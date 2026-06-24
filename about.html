@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
@@ -211,20 +211,100 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
   .brands-table td:first-child{white-space:normal}
 }
 </style>
-</head>
+<style>
+.mob-menu{justify-content:flex-start!important;overflow-y:auto;padding:5rem 1.5rem 3rem!important}
+.mob-group{width:100%;text-align:center}
+.mob-group-btn{background:none;border:none;cursor:pointer;font-family:var(--f-display);font-size:clamp(2rem,7vw,3.2rem);font-weight:300;color:var(--cream);transition:color .2s;padding:0}
+.mob-group-btn:hover,.mob-group-btn.active{color:var(--gold)}
+.mob-sub{display:none!important;flex-direction:column;align-items:center;gap:.6rem;padding:.5rem 0 .2rem}
+.mob-sub.open{display:flex!important}
+.mob-sub-inner{width:100%;text-align:center}
+.mob-sub-btn{font-size:clamp(1.1rem,4vw,1.5rem)!important;color:var(--ash)!important;margin-bottom:.2rem}
+.mob-sub-btn.active{color:var(--gold)!important}
+.mob-sub-2{display:none;flex-direction:column;align-items:center;gap:.4rem;padding:.3rem 0 .2rem}
+.mob-sub-2.open{display:flex}
+.mob-sub-2 a{font-family:var(--f-display);font-size:clamp(.75rem,2.4vw,.9rem);letter-spacing:.1em;text-transform:uppercase;color:var(--ash);transition:color .2s}
+.mob-sub-2 a:hover{color:var(--gold)}
+.mob-sub>a{font-family:var(--f-display);font-size:clamp(1rem,3.5vw,1.25rem);letter-spacing:.12em;text-transform:uppercase;color:var(--ash);transition:color .2s}
+.mob-sub>a:hover{color:var(--gold)}
+</style></head>
 <body>
 
 <div class="cursor" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
 
 <!-- MOBILE MENU -->
-<div class="mob-menu" id="mobMenu" role="dialog" aria-label="Navigation">
+<nav class="mob-menu" id="mobMenu" aria-label="Mobile navigation">
   <a href="./services.html" onclick="closeMob()">Services</a>
-  <a href="./collection.html" onclick="closeMob()">Collection</a>
-  <a href="./accessories.html" onclick="closeMob()">Accessories</a>
+  <div class="mob-group">
+    <button class="mob-group-btn" onclick="toggleMobGroup(this)">Collection</button>
+    <div class="mob-sub">
+      <div class="mob-sub-inner">
+        <button class="mob-group-btn mob-sub-btn" onclick="toggleMobGroup(this)">Cuban</button>
+        <div class="mob-sub-2">
+          <a href="./collection.html#bolivar" onclick="closeMob()">Bolivar</a>
+          <a href="./collection.html#cohiba" onclick="closeMob()">Cohiba</a>
+          <a href="./collection.html#hoyo" onclick="closeMob()">Hoyo de Monterrey</a>
+          <a href="./collection.html#romeo-y-julieta" onclick="closeMob()">Romeo y Julieta</a>
+          <a href="./collection.html#jose-l-piedra" onclick="closeMob()">Jose L. Piedra</a>
+          <a href="./collection.html#quintero" onclick="closeMob()">Quintero</a>
+          <a href="./collection.html#juan-lopez" onclick="closeMob()">Juan Lopez</a>
+          <a href="./collection.html#h-upmann" onclick="closeMob()">H. Upmann</a>
+          <a href="./collection.html#montecristo-open" onclick="closeMob()">Montecristo OPEN</a>
+          <a href="./collection.html#partagas" onclick="closeMob()">Partagas</a>
+          <a href="./collection.html#punch" onclick="closeMob()">Punch</a>
+          <a href="./collection.html#montecristo" onclick="closeMob()">Montecristo</a>
+          <a href="./collection.html#quai-dorsay" onclick="closeMob()">Quai d'Orsay</a>
+          <a href="./collection.html#trinidad" onclick="closeMob()">Trinidad</a>
+          <a href="./collection.html#cohiba-cigarillos" onclick="closeMob()">Cohiba Cigarillos</a>
+        </div>
+      </div>
+      <div class="mob-sub-inner">
+        <button class="mob-group-btn mob-sub-btn" onclick="toggleMobGroup(this)">New World</button>
+        <div class="mob-sub-2">
+          <a href="./collection.html#aj-fernandez" onclick="closeMob()">AJ Fernandez</a>
+          <a href="./collection.html#davidoff" onclick="closeMob()">Davidoff</a>
+          <a href="./collection.html#rocky-patel" onclick="closeMob()">Rocky Patel</a>
+          <a href="./collection.html#cusano-honduras" onclick="closeMob()">Cusano Honduras</a>
+          <a href="./collection.html#arturo-fuente" onclick="closeMob()">Arturo Fuente</a>
+          <a href="./collection.html#henry-clay" onclick="closeMob()">Henry Clay</a>
+          <a href="./collection.html#alec-bradley" onclick="closeMob()">Alec Bradley</a>
+          <a href="./collection.html#ashton-vsg" onclick="closeMob()">Ashton VSG</a>
+          <a href="./collection.html#casa-magna" onclick="closeMob()">Casa Magna</a>
+          <a href="./collection.html#esteban-carreras" onclick="closeMob()">Esteban Carreras</a>
+          <a href="./collection.html#jc-newman" onclick="closeMob()">JC Newman</a>
+          <a href="./collection.html#joya-de-nicaragua" onclick="closeMob()">Joya de Nicaragua</a>
+          <a href="./collection.html#league-of-fat-bastards" onclick="closeMob()">League of Fat Bastards</a>
+          <a href="./collection.html#oliva" onclick="closeMob()">Oliva</a>
+          <a href="./collection.html#ep-carrillo" onclick="closeMob()">E.P. Carrillo</a>
+          <a href="./collection.html#villa-zamorano" onclick="closeMob()">Villa Zamorano</a>
+          <a href="./collection.html#plasencia" onclick="closeMob()">Plasencia</a>
+          <a href="./collection.html#my-father" onclick="closeMob()">My Father</a>
+          <a href="./collection.html#nicatabaco" onclick="closeMob()">Nicatabaco</a>
+          <a href="./collection.html#azan" onclick="closeMob()">Azan</a>
+          <a href="./collection.html#baiyasuub" onclick="closeMob()">Baiyasuub</a>
+          <a href="./collection.html#ashton-cigarillos" onclick="closeMob()">Ashton Cigarillos</a>
+          <a href="./collection.html#davidoff-cigarillos" onclick="closeMob()">Davidoff Cigarillos</a>
+          <a href="./collection.html#moods" onclick="closeMob()">Moods</a>
+          <a href="./collection.html#villiger" onclick="closeMob()">Villiger</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mob-group">
+    <button class="mob-group-btn" onclick="toggleMobGroup(this)">Accessories</button>
+    <div class="mob-sub">
+      <a href="./accessories.html#humidors" onclick="closeMob()">Humidors</a>
+      <a href="./accessories.html#cutters" onclick="closeMob()">Cutters</a>
+      <a href="./accessories.html#lighters" onclick="closeMob()">Lighters</a>
+      <a href="./accessories.html#cases" onclick="closeMob()">Cases</a>
+      <a href="./accessories.html#ashtrays" onclick="closeMob()">Ashtrays</a>
+      <a href="./accessories.html#humidity" onclick="closeMob()">Humidity</a>
+    </div>
+  </div>
   <a href="./lounge.html" onclick="closeMob()">The Lounge</a>
   <a href="./about.html" onclick="closeMob()">About</a>
-</div>
+</nav>
 
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
@@ -540,7 +620,8 @@ window.addEventListener('scroll',()=>nav.classList.toggle('dim',window.scrollY>6
 // BURGER
 const burger=document.getElementById('burger'),mob=document.getElementById('mobMenu');
 burger.addEventListener('click',()=>{const o=mob.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);});
-function closeMob(){mob.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');}
+function closeMob(){mob.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');document.querySelectorAll('.mob-sub,.mob-sub-2').forEach(function(e){e.classList.remove('open')});document.querySelectorAll('.mob-group-btn').forEach(function(e){e.classList.remove('active')})}
+function toggleMobGroup(btn){var sub=btn.nextElementSibling;var isOpen=sub.classList.contains('open');var isSub=btn.classList.contains('mob-sub-btn');var par=btn.closest(isSub?'.mob-sub':'.mob-menu');par.querySelectorAll(isSub?'.mob-sub-2':'.mob-sub').forEach(function(e){e.classList.remove('open')});par.querySelectorAll(isSub?'.mob-sub-btn':'.mob-group-btn:not(.mob-sub-btn)').forEach(function(e){e.classList.remove('active')});if(!isOpen){sub.classList.add('open');btn.classList.add('active')}}
 
 // REVEAL
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.12});

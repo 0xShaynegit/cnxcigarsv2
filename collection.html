@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
@@ -184,21 +184,103 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
   .ft-top{grid-template-columns:1fr}
 }
 </style>
-</head>
+<style>
+.mob-menu{justify-content:flex-start!important;overflow-y:auto;padding:5rem 1.5rem 3rem!important}
+.mob-group{width:100%;text-align:center}
+.mob-group-btn{background:none;border:none;cursor:pointer;font-family:var(--f-display);font-size:clamp(2rem,7vw,3.2rem);font-weight:300;color:var(--cream);transition:color .2s;padding:0}
+.mob-group-btn:hover,.mob-group-btn.active{color:var(--gold)}
+.mob-sub{display:none!important;flex-direction:column;align-items:center;gap:.6rem;padding:.5rem 0 .2rem}
+.mob-sub.open{display:flex!important}
+.mob-sub-inner{width:100%;text-align:center}
+.mob-sub-btn{font-size:clamp(1.1rem,4vw,1.5rem)!important;color:var(--ash)!important;margin-bottom:.2rem}
+.mob-sub-btn.active{color:var(--gold)!important}
+.mob-sub-2{display:none;flex-direction:column;align-items:center;gap:.4rem;padding:.3rem 0 .2rem}
+.mob-sub-2.open{display:flex}
+.mob-sub-2 a{font-family:var(--f-display);font-size:clamp(.75rem,2.4vw,.9rem);letter-spacing:.1em;text-transform:uppercase;color:var(--ash);transition:color .2s}
+.mob-sub-2 a:hover{color:var(--gold)}
+.mob-sub>a{font-family:var(--f-display);font-size:clamp(1rem,3.5vw,1.25rem);letter-spacing:.12em;text-transform:uppercase;color:var(--ash);transition:color .2s}
+.mob-sub>a:hover{color:var(--gold)}
+</style><style>
+html,body{overflow-x:hidden}
+@media(max-width:768px){.marque-3col{grid-template-columns:1fr!important}.cigar-grid{flex-direction:column;align-items:stretch}.cigar-card{width:100%!important}}
+</style></head>
 <body>
 
 <div class="cursor" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
 
 <!-- MOBILE MENU -->
-<div class="mob-menu" id="mobMenu" role="dialog" aria-label="Navigation">
+<nav class="mob-menu" id="mobMenu" aria-label="Mobile navigation">
   <a href="./services.html" onclick="closeMob()">Services</a>
-  <a href="./collection.html" aria-current="page" onclick="closeMob()">Collection</a>
-  <div class="mob-sub"><a href="#cuban" onclick="closeMob()">Cuban</a><a href="#newworld" onclick="closeMob()">New World</a></div>
-  <a href="./accessories.html" onclick="closeMob()">Accessories</a>
+  <div class="mob-group">
+    <button class="mob-group-btn" onclick="toggleMobGroup(this)">Collection</button>
+    <div class="mob-sub">
+      <div class="mob-sub-inner">
+        <button class="mob-group-btn mob-sub-btn" onclick="toggleMobGroup(this)">Cuban</button>
+        <div class="mob-sub-2">
+          <a href="./collection.html#bolivar" onclick="closeMob()">Bolivar</a>
+          <a href="./collection.html#cohiba" onclick="closeMob()">Cohiba</a>
+          <a href="./collection.html#hoyo" onclick="closeMob()">Hoyo de Monterrey</a>
+          <a href="./collection.html#romeo-y-julieta" onclick="closeMob()">Romeo y Julieta</a>
+          <a href="./collection.html#jose-l-piedra" onclick="closeMob()">Jose L. Piedra</a>
+          <a href="./collection.html#quintero" onclick="closeMob()">Quintero</a>
+          <a href="./collection.html#juan-lopez" onclick="closeMob()">Juan Lopez</a>
+          <a href="./collection.html#h-upmann" onclick="closeMob()">H. Upmann</a>
+          <a href="./collection.html#montecristo-open" onclick="closeMob()">Montecristo OPEN</a>
+          <a href="./collection.html#partagas" onclick="closeMob()">Partagas</a>
+          <a href="./collection.html#punch" onclick="closeMob()">Punch</a>
+          <a href="./collection.html#montecristo" onclick="closeMob()">Montecristo</a>
+          <a href="./collection.html#quai-dorsay" onclick="closeMob()">Quai d'Orsay</a>
+          <a href="./collection.html#trinidad" onclick="closeMob()">Trinidad</a>
+          <a href="./collection.html#cohiba-cigarillos" onclick="closeMob()">Cohiba Cigarillos</a>
+        </div>
+      </div>
+      <div class="mob-sub-inner">
+        <button class="mob-group-btn mob-sub-btn" onclick="toggleMobGroup(this)">New World</button>
+        <div class="mob-sub-2">
+          <a href="./collection.html#aj-fernandez" onclick="closeMob()">AJ Fernandez</a>
+          <a href="./collection.html#davidoff" onclick="closeMob()">Davidoff</a>
+          <a href="./collection.html#rocky-patel" onclick="closeMob()">Rocky Patel</a>
+          <a href="./collection.html#cusano-honduras" onclick="closeMob()">Cusano Honduras</a>
+          <a href="./collection.html#arturo-fuente" onclick="closeMob()">Arturo Fuente</a>
+          <a href="./collection.html#henry-clay" onclick="closeMob()">Henry Clay</a>
+          <a href="./collection.html#alec-bradley" onclick="closeMob()">Alec Bradley</a>
+          <a href="./collection.html#ashton-vsg" onclick="closeMob()">Ashton VSG</a>
+          <a href="./collection.html#casa-magna" onclick="closeMob()">Casa Magna</a>
+          <a href="./collection.html#esteban-carreras" onclick="closeMob()">Esteban Carreras</a>
+          <a href="./collection.html#jc-newman" onclick="closeMob()">JC Newman</a>
+          <a href="./collection.html#joya-de-nicaragua" onclick="closeMob()">Joya de Nicaragua</a>
+          <a href="./collection.html#league-of-fat-bastards" onclick="closeMob()">League of Fat Bastards</a>
+          <a href="./collection.html#oliva" onclick="closeMob()">Oliva</a>
+          <a href="./collection.html#ep-carrillo" onclick="closeMob()">E.P. Carrillo</a>
+          <a href="./collection.html#villa-zamorano" onclick="closeMob()">Villa Zamorano</a>
+          <a href="./collection.html#plasencia" onclick="closeMob()">Plasencia</a>
+          <a href="./collection.html#my-father" onclick="closeMob()">My Father</a>
+          <a href="./collection.html#nicatabaco" onclick="closeMob()">Nicatabaco</a>
+          <a href="./collection.html#azan" onclick="closeMob()">Azan</a>
+          <a href="./collection.html#baiyasuub" onclick="closeMob()">Baiyasuub</a>
+          <a href="./collection.html#ashton-cigarillos" onclick="closeMob()">Ashton Cigarillos</a>
+          <a href="./collection.html#davidoff-cigarillos" onclick="closeMob()">Davidoff Cigarillos</a>
+          <a href="./collection.html#moods" onclick="closeMob()">Moods</a>
+          <a href="./collection.html#villiger" onclick="closeMob()">Villiger</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mob-group">
+    <button class="mob-group-btn" onclick="toggleMobGroup(this)">Accessories</button>
+    <div class="mob-sub">
+      <a href="./accessories.html#humidors" onclick="closeMob()">Humidors</a>
+      <a href="./accessories.html#cutters" onclick="closeMob()">Cutters</a>
+      <a href="./accessories.html#lighters" onclick="closeMob()">Lighters</a>
+      <a href="./accessories.html#cases" onclick="closeMob()">Cases</a>
+      <a href="./accessories.html#ashtrays" onclick="closeMob()">Ashtrays</a>
+      <a href="./accessories.html#humidity" onclick="closeMob()">Humidity</a>
+    </div>
+  </div>
   <a href="./lounge.html" onclick="closeMob()">The Lounge</a>
   <a href="./about.html" onclick="closeMob()">About</a>
-</div>
+</nav>
 
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
@@ -295,35 +377,6 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
       </div>
     </div>
 
-    <!-- JOSE L. PIEDRA -->
-    <div class="marque">
-      <div class="marque-head r"><h3>Jose L. Piedra</h3><span class="count">Two vitolas</span></div>
-      <p class="marque-note r">A very popular brand in the US prior to the embargo, resurrected in 1996. Tobacco grown in the Remedios region of Cuba. Rustic, straightforward, and honestly priced - the traditional, unfussy side of Havana rolling.</p>
-      <div class="cigar-grid">
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-jose-l-piedra-cazadores.webp" alt="Jose L. Piedra Cazadores" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Jose L. Piedra Cazadores</h4><span class="strength">Mild-Medium</span><p class="cigar-note">Cazadores · 6.3" · Ring 43. Traditional Cuban shape. Earth, cedar, and subtle spice with classic Remedios tobacco character. Also available as Petit Cazadores.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-jose-l-piedra-brevas.webp" alt="Jose L. Piedra Brevas" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Jose L. Piedra Brevas</h4><span class="strength">Mild-Medium</span><p class="cigar-note">Brevas Corona · 5.2" · Ring 42. A rustic, medium-bodied smoke with a straightforward profile of earth, cedar, and subtle spices. Highly praised for its value.</p></div></article>
-      </div>
-    </div>
-
-    <!-- QUINTERO -->
-    <div class="marque">
-      <div class="marque-head r"><h3>Quintero</h3><span class="count">Two vitolas</span></div>
-      <p class="marque-note r">From the south of Cuba. An affordable short-filler smoke that offers a distinctly Cuban profile of rich earth, leather, cedar, and subtle spices. Punches well above its price point.</p>
-      <div class="cigar-grid">
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-quintero-favoritos.webp" alt="Quintero Favoritos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Quintero Favoritos</h4><span class="strength">Medium</span><p class="cigar-note">Petit Robusto · 4.5" · Ring 50. The biggest ring gauge in the brand. More intense and complex than other Quintero vitolas. Rich earth, leather, and classic Cuban character.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-quintero-brevas.webp" alt="Quintero Brevas" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Quintero Brevas</h4><span class="strength">Light-Medium</span><p class="cigar-note">Petit Robusto · 5.5" · Ring 40. An accessible Cuban that punches above its weight. Rich earth, leather, cedar, and subtle spices in a short-filler format.</p></div></article>
-      </div>
-    </div>
-
-    <!-- JUAN LOPEZ -->
-    <div class="marque">
-      <div class="marque-head r"><h3>Juan Lopez</h3><span class="count">One vitola</span></div>
-      <p class="marque-note r">A traditional Havana marque produced by the Habanos company. Medium to full strength with a complex flavour profile built on wood, herbs, and earthiness.</p>
-      <div class="cigar-grid">
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-juan-lopez-seleccion-no2.webp" alt="Juan Lopez Seleccion No.2" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Juan Lopez Seleccion No.2</h4><span class="strength">Medium-Full</span><p class="cigar-note">Robusto · 4.8" · Ring 50 · 45 mins. Complex notes of wood, herbs, and earthiness. Medium to full strength with the honest, unfussy character of traditional Havana rolling.</p></div></article>
-      </div>
-    </div>
-
     <!-- H. UPMANN -->
     <div class="marque" id="h-upmann">
       <div class="marque-head r"><h3>H. Upmann</h3><span class="count">Five vitolas</span></div>
@@ -334,15 +387,6 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         <article class="cigar-card r d2"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-h-upmann-coronas-junior.webp" alt="H. Upmann Coronas Junior" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">H. Upmann Coronas Junior</h4><span class="strength">Light-Medium</span><p class="cigar-note">Half Corona · 36 ring · 115mm / 4.5". Toasted tobacco and cedar with sweet floral and nutty notes. Hints of mild coffee and leather develop as the burn progresses.</p></div></article>
         <article class="cigar-card r d3"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-h-upmann-mag-46.webp" alt="H. Upmann Mag 46" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">H. Upmann Mag 46</h4><span class="strength">Medium</span><p class="cigar-note">Coronas Gordas · 5 3/8" · Ring 46 · 60-95 mins. Medium-bodied, creamy, and refined. Balanced profile of cedar, toasted nuts, coffee, and light spices throughout.</p></div></article>
         <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-h-upmann-mag-50.webp" alt="H. Upmann Mag 50" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">H. Upmann Mag 50</h4><span class="strength">Medium</span><p class="cigar-note">Coronas Gordas · 5 3/8" · Ring 50 · 60-95 mins. Sophisticated mix of sweet cedar, roasted nuts, and creamy leather. Subtle hints of coffee, fruit, and mild baking spices develop as the smoke progresses.</p></div></article>
-      </div>
-    </div>
-
-    <!-- MONTECRISTO OPEN -->
-    <div class="marque">
-      <div class="marque-head r"><h3>Montecristo OPEN</h3><span class="count">One vitola</span></div>
-      <p class="marque-note r">The OPEN line was created as a lighter, less aggressive expression within the Montecristo family - retaining the classic flavour and aroma profile whilst offering a more accessible character in a larger format.</p>
-      <div class="cigar-grid">
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-montecristo-open-regata.webp" alt="Montecristo OPEN Regata" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Montecristo OPEN Regata</h4><span class="strength">Medium-Full</span><p class="cigar-note">5 3/4" · Ring 46 · 40 mins. Premium, hand rolled Cuban cigar. Lighter and less aggressive than the traditional range whilst retaining the classic Montecristo flavour and aroma profile.</p></div></article>
       </div>
     </div>
 
@@ -382,15 +426,6 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
       </div>
     </div>
 
-    <!-- QUAI D'ORSAY -->
-    <div class="marque">
-      <div class="marque-head r"><h3>Quai d'Orsay</h3><span class="count">One vitola</span></div>
-      <p class="marque-note r">A French-commissioned Cuban brand of rare elegance. Specifically crafted for the French market, featuring a light Claro/Colorado Claro wrapper and a smooth, restrained profile.</p>
-      <div class="cigar-grid">
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-quai-dorsay-no50.webp" alt="Quai d'Orsay No.50" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Quai d'Orsay No.50</h4><span class="strength">Mild-Medium</span><p class="cigar-note">Petite Robusto · 4 3/8" · Ring 50 · 45-60 mins. Smooth, creamy, and elegant. Light Claro/Colorado Claro wrapper with subtle notes of cedar, vanilla, and hazelnut.</p></div></article>
-      </div>
-    </div>
-
     <!-- TRINIDAD -->
     <div class="marque" id="trinidad">
       <div class="marque-head r"><h3>Trinidad</h3><span class="count">Three vitolas</span></div>
@@ -402,14 +437,54 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
       </div>
     </div>
 
-    <!-- COHIBA CIGARILLOS -->
-    <div class="marque">
-      <div class="marque-head r"><h3>Cohiba Cigarillos</h3><span class="count">Two formats</span></div>
-      <p class="marque-note r">Cohiba's cigarillo line carries the same prestige and quality standards as the full-size range. Created in 1966, Cohiba remains the most well-known and sought-after Cuban brand in the world.</p>
-      <div class="cigar-grid">
-        <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-cohiba-shorts.webp" alt="Cohiba Shorts" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Cohiba Shorts (Box of 10)</h4><span class="strength">Medium-Full</span><p class="cigar-note">Cigarillo · 3 3/4" · Ring 26. High quality and prestige in a compact format. All the character of the Cohiba brand in a smoke that lasts around 15 minutes.</p></div></article>
-        <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-cohiba-wide-shorts.webp" alt="Cohiba Wide Shorts" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Cohiba Wide Shorts (Box of 6)</h4><span class="strength">Medium-Full</span><p class="cigar-note">Cigarillo · 3 3/4" · Ring 32. A wider gauge version of the Cohiba Shorts. More body and intensity than the standard format, with the same signature Cohiba character.</p></div></article>
+    <!-- SELECTION: ones and twos -->
+    <div class="marque-3col" style="margin-bottom:0">
+
+      <div class="marque" id="juan-lopez">
+        <div class="marque-head r"><h3>Juan Lopez</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-juan-lopez-seleccion-no2.webp" alt="Juan Lopez Seleccion No.2" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Juan Lopez Seleccion No.2</h4><span class="strength">Medium-Full</span><p class="cigar-note">Robusto &middot; 4.8&quot; &middot; Ring 50 &middot; 45 mins. Complex notes of wood, herbs, and earthiness. Medium to full strength with the honest, unfussy character of traditional Havana rolling.</p></div></article>
+        </div>
       </div>
+
+      <div class="marque m2" id="jose-l-piedra">
+        <div class="marque-head r"><h3>Jose L. Piedra</h3><span class="count">Two vitolas</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-jose-l-piedra-cazadores.webp" alt="Jose L. Piedra Cazadores" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Jose L. Piedra Cazadores</h4><span class="strength">Mild-Medium</span><p class="cigar-note">Cazadores &middot; 6.3&quot; &middot; Ring 43. Traditional Cuban shape. Earth, cedar, and subtle spice with classic Remedios tobacco character. Also available as Petit Cazadores.</p></div></article>
+          <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-jose-l-piedra-brevas.webp" alt="Jose L. Piedra Brevas" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Jose L. Piedra Brevas</h4><span class="strength">Mild-Medium</span><p class="cigar-note">Brevas Corona &middot; 5.2&quot; &middot; Ring 42. A rustic, medium-bodied smoke with a straightforward profile of earth, cedar, and subtle spices. Highly praised for its value.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque" id="montecristo-open">
+        <div class="marque-head r"><h3>Montecristo OPEN</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-montecristo-open-regata.webp" alt="Montecristo OPEN Regata" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Montecristo OPEN Regata</h4><span class="strength">Medium-Full</span><p class="cigar-note">5 3/4&quot; &middot; Ring 46 &middot; 40 mins. Premium, hand rolled Cuban cigar. Lighter and less aggressive than the traditional range whilst retaining the classic Montecristo flavour and aroma profile.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque m2" id="quintero">
+        <div class="marque-head r"><h3>Quintero</h3><span class="count">Two vitolas</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-quintero-favoritos.webp" alt="Quintero Favoritos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Quintero Favoritos</h4><span class="strength">Medium</span><p class="cigar-note">Petit Robusto &middot; 4.5&quot; &middot; Ring 50. The biggest ring gauge in the brand. More intense and complex than other Quintero vitolas. Rich earth, leather, and classic Cuban character.</p></div></article>
+          <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-quintero-brevas.webp" alt="Quintero Brevas" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Quintero Brevas</h4><span class="strength">Light-Medium</span><p class="cigar-note">Petit Robusto &middot; 5.5&quot; &middot; Ring 40. An accessible Cuban that punches above its weight. Rich earth, leather, cedar, and subtle spices in a short-filler format.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque" id="quai-dorsay">
+        <div class="marque-head r"><h3>Quai d'Orsay</h3><span class="count">One vitola</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-quai-dorsay-no50.webp" alt="Quai d'Orsay No.50" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Quai d'Orsay No.50</h4><span class="strength">Mild-Medium</span><p class="cigar-note">Petite Robusto &middot; 4 3/8&quot; &middot; Ring 50 &middot; 45-60 mins. Smooth, creamy, and elegant. Light Claro/Colorado Claro wrapper with subtle notes of cedar, vanilla, and hazelnut.</p></div></article>
+        </div>
+      </div>
+
+      <div class="marque m2" id="cohiba-cigarillos">
+        <div class="marque-head r"><h3>Cohiba Cigarillos</h3><span class="count">Two formats</span></div>
+        <div class="cigar-grid">
+          <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-cohiba-shorts.webp" alt="Cohiba Shorts" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Cohiba Shorts (Box of 10)</h4><span class="strength">Medium-Full</span><p class="cigar-note">Cigarillo &middot; 3 3/4&quot; &middot; Ring 26. High quality and prestige in a compact format. All the character of the Cohiba brand in a smoke that lasts around 15 minutes.</p></div></article>
+          <article class="cigar-card r d1"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-cohiba-wide-shorts.webp" alt="Cohiba Wide Shorts" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Cohiba Wide Shorts (Box of 6)</h4><span class="strength">Medium-Full</span><p class="cigar-note">Cigarillo &middot; 3 3/4&quot; &middot; Ring 32. A wider gauge version of the Cohiba Shorts. More body and intensity than the standard format, with the same signature Cohiba character.</p></div></article>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -424,7 +499,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- AJ FERNANDEZ -->
-    <div class="marque">
+    <div class="marque" id="aj-fernandez">
       <div class="marque-head r"><h3>AJ Fernandez</h3><span class="count">Four vitolas</span></div>
       <p class="marque-note r">One of the most respected names in Nicaraguan tobacco. Bold construction and complex flavour profiles built from premium leaves across multiple origins.</p>
       <div class="cigar-grid">
@@ -436,7 +511,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- DAVIDOFF -->
-    <div class="marque">
+    <div class="marque" id="davidoff">
       <div class="marque-head r"><h3>Davidoff</h3><span class="count">Four vitolas</span></div>
       <p class="marque-note r">The premium end of New World cigar production. Meticulous construction, consistently refined tobacco, and a range that spans from elegant mildness to bold complexity.</p>
       <div class="cigar-grid">
@@ -448,7 +523,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- ROCKY PATEL -->
-    <div class="marque">
+    <div class="marque" id="rocky-patel">
       <div class="marque-head r"><h3>Rocky Patel</h3><span class="count">Four vitolas</span></div>
       <div class="cigar-grid">
         <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-rocky-patel-decade-toro-tubo.webp" alt="Rocky Patel Decade Toro Tubo" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Decade Toro (Tubo)</h4><span class="strength">Medium-Full</span><p class="cigar-note">6 1/2" &middot; Ring 52. Wrapper: Honduras. Binder: Mexico. Filler: Nicaragua. Ecuador Sumatra wrapper with a secret Nicaraguan blend. Comes in an aluminium tube.</p></div></article>
@@ -459,7 +534,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     </div>
 
     <!-- CUSANO HONDURAS -->
-    <div class="marque">
+    <div class="marque" id="cusano-honduras">
       <div class="marque-head r"><h3>Cusano Honduras</h3><span class="count">Three vitolas</span></div>
       <p class="marque-note r">A blend of high-quality tobaccos from Honduras, Ecuador, and the Dominican Republic. Balanced spice, earth, and oak across three formats.</p>
       <div class="cigar-grid">
@@ -472,14 +547,14 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
     <!-- SELECTION: individual brands, 3-col grid -->
     <div class="marque-3col" style="margin-bottom:0">
 
-      <div class="marque">
+      <div class="marque" id="arturo-fuente">
         <div class="marque-head r"><h3>Arturo Fuente</h3><span class="count">One vitola</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-arturo-fuente-hemingway-short-story.webp" alt="Arturo Fuente Hemingway Short Story" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Hemingway Short Story</h4><span class="strength">Mild-Medium</span><p class="cigar-note">4" &middot; Ring 42. Cameroon wrapper over Dominican Republic binder and filler. Cedar, spice, and a touch of sweetness.</p></div></article>
         </div>
       </div>
 
-      <div class="marque m2">
+      <div class="marque m2" id="henry-clay">
         <div class="marque-head r"><h3>Henry Clay</h3><span class="count">Two vitolas</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-henry-clay-warhawk-robusto.webp" alt="Henry Clay Warhawk Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Warhawk Robusto</h4><span class="strength">Mild-Medium</span><p class="cigar-note">5 1/2" &middot; Ring 50. Connecticut wrapper. Honduran binder and filler. Well-structured personality with a complex palette of aromas.</p></div></article>
@@ -487,28 +562,28 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="alec-bradley">
         <div class="marque-head r"><h3>Alec Bradley</h3><span class="count">One vitola</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-alec-bradley-project-40-maduro.webp" alt="Alec Bradley Project 40 Maduro" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Project 40 Maduro</h4><span class="strength">Medium-Full</span><p class="cigar-note">Wrapper: Nicaragua. Binder: Habano-seed Brazilian. Filler: Nicaragua. Creamy almond, toast, cedar, leather, gritty earth, and dark cocoa.</p></div></article>
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="ashton-vsg">
         <div class="marque-head r"><h3>Ashton VSG</h3><span class="count">One vitola</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-ashton-vsg-eclipse.webp" alt="Ashton VSG Eclipse" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Eclipse</h4><span class="strength">Full</span><p class="cigar-note">6" &middot; Ring 52. Ecuadorian Sun Grown wrapper. Aged Dominican filler. Powerful and refined. The only round, not box-pressed, vitola in the VSG line.</p></div></article>
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="casa-magna">
         <div class="marque-head r"><h3>Casa Magna</h3><span class="count">One vitola</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-casa-magna-colorado-robusto.webp" alt="Casa Magna Colorado Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Colorado Robusto</h4><span class="strength">Medium-Full</span><p class="cigar-note">5.5" &middot; Ring 50. Earthy, cocoa, leather, spice, cedar, nuts, and hints of espresso. Cigar Aficionado #1 Cigar of the Year 2008, rated 93.</p></div></article>
         </div>
       </div>
 
-      <div class="marque m2">
+      <div class="marque m2" id="esteban-carreras">
         <div class="marque-head r"><h3>Esteban Carreras</h3><span class="count">Two vitolas</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-esteban-carreras-mr-brownstone.webp" alt="Esteban Carreras Mr. Brownstone" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Mr. Brownstone</h4><span class="strength">Medium-Full</span><p class="cigar-note">5" &middot; Ring 52. Connecticut Broadleaf wrapper. Ecuadorian Habano binder. Nicaraguan filler. Cocoa, chocolate, coffee, earth, and red pepper.</p></div></article>
@@ -516,14 +591,14 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="jc-newman">
         <div class="marque-head r"><h3>JC Newman</h3><span class="count">One vitola</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-jc-newman-brick-house-habano.webp" alt="JC Newman Brick House Habano" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Brick House Habano</h4><span class="strength">Medium</span><p class="cigar-note">5" &middot; Ring 54. Ecuador wrapper over Nicaraguan binder and filler. Cocoa powder, earth, red pepper, and cedar from start to finish.</p></div></article>
         </div>
       </div>
 
-      <div class="marque m2">
+      <div class="marque m2" id="joya-de-nicaragua">
         <div class="marque-head r"><h3>Joya de Nicaragua</h3><span class="count">Two vitolas</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-joya-de-nicaragua-cabinetta.webp" alt="Joya de Nicaragua Cabinetta" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Cabinetta</h4><span class="strength">Mild-Medium</span><p class="cigar-note">6" &middot; Ring 54. Ecuadorian Shade wrapper. Floral aroma with leather, toast, fruity jam, butter, and growing black pepper.</p></div></article>
@@ -531,7 +606,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         </div>
       </div>
 
-      <div class="marque m2">
+      <div class="marque m2" id="league-of-fat-bastards">
         <div class="marque-head r"><h3>League of Fat Bastards</h3><span class="count">Two vitolas</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-league-of-fat-bastards-serie-o.webp" alt="League of Fat Bastards Serie O" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Serie O</h4><span class="strength">Full</span><p class="cigar-note">5 1/2" &middot; Ring 46. Mexican San Andres Oscuro wrapper. Dominican binder. Nicaraguan Condega filler. Cherry, cocoa, earth, and spice. Bold but never bitter.</p></div></article>
@@ -539,21 +614,21 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="oliva">
         <div class="marque-head r"><h3>Oliva</h3><span class="count">One vitola</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-oliva-serie-v-double-robusto.webp" alt="Oliva Serie V Double Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Serie V Double Robusto</h4><span class="strength">Medium-Full</span><p class="cigar-note">5" &middot; Ring 54. Ecuadorian Sungrown wrapper. Nicaraguan binder and filler. Bold coffee, oak, and spice with orange peel, cinnamon, and rum.</p></div></article>
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="ep-carrillo">
         <div class="marque-head r"><h3>E.P. Carrillo</h3><span class="count">One vitola</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-ep-carrillo-pledge-prequel.webp" alt="E.P. Carrillo Pledge Prequel" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Pledge Prequel</h4><span class="strength">Full</span><p class="cigar-note">5" &middot; Ring 50. All-Nicaraguan. Spicy oak, black pepper, leather, espresso, and dark fruit, evolving into licorice and cocoa.</p></div></article>
         </div>
       </div>
 
-      <div class="marque m2">
+      <div class="marque m2" id="villa-zamorano">
         <div class="marque-head r"><h3>Villa Zamorano</h3><span class="count">Two vitolas</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-villa-zamorano-robusto.webp" alt="Villa Zamorano Robusto" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Robusto</h4><span class="strength">Medium</span><p class="cigar-note">5" &middot; Ring 52. Indonesian Sumatra wrapper. Honduran binder and filler. Handmade at the Maya Selva factory. Accessible with exceptional value.</p></div></article>
@@ -561,14 +636,14 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="plasencia">
         <div class="marque-head r"><h3>Plasencia</h3><span class="count">One vitola</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-plasencia-reserva-original.webp" alt="Plasencia Reserva Original" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Reserva Original</h4><span class="strength">Medium</span><p class="cigar-note">All-Nicaraguan. Notes of nuts, fruits, caramel, marzipan nuances, and cedar. The taste that captivated Europeans more than five centuries ago.</p></div></article>
         </div>
       </div>
 
-      <div class="marque m2">
+      <div class="marque m2" id="my-father">
         <div class="marque-head r"><h3>My Father</h3><span class="count">Two vitolas</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-my-father-flor-de-las-antillas-toro.webp" alt="My Father Flor de las Antillas Toro" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Flor de las Antillas Toro</h4><span class="strength">Medium-Full</span><p class="cigar-note">6" &middot; Ring 52. Sun-grown Nicaraguan Corojo wrapper. Full-bodied puro with coffee, leather, espresso, and a peppery kick.</p></div></article>
@@ -576,35 +651,35 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="nicatabaco">
         <div class="marque-head r"><h3>Nicatabaco</h3><span class="count">One vitola</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-nicatabaco-factory-blend-no2-toro-deluxe.webp" alt="Nicatabaco Factory Blend No.2 Toro Deluxe" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Factory Blend No.2 Toro Deluxe</h4><span class="strength">Mild-Medium</span><p class="cigar-note">6" &middot; Ring 50. All-Nicaraguan. Balanced and aromatic flavour profile with a clean, accessible character.</p></div></article>
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="azan">
         <div class="marque-head r"><h3>Azan</h3><span class="count">One vitola</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-azan-white-campana.webp" alt="Azan White Campana" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">White Campana</h4><span class="strength">Medium</span><p class="cigar-note">Campana &middot; 5 1/2" &middot; Ring 52. Ecuadorian Corojo grande wrapper. Nicaraguan and Brazilian filler. A distinctive sweet flavoured cigar with exceptional construction.</p></div></article>
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="baiyasuub">
         <div class="marque-head r"><h3>Baiyasuub</h3><span class="count">One vitola</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-baiyasuub-thailand.webp" alt="Baiyasuub Thailand" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Thailand</h4><span class="strength">Mild-Medium</span><p class="cigar-note">Robusto &middot; 5" &middot; Ring 50. The first commercially produced, 100% handrolled premium cigar from pure Thai tobacco. Earthy, subtly sweet, clean finish.</p></div></article>
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="ashton-cigarillos">
         <div class="marque-head r"><h3>Ashton</h3><span class="count">Cigarillos</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-ashton-connecticut-cigarillos.webp" alt="Ashton Connecticut Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Connecticut Cigarillos</h4><span class="strength">Mild</span><p class="cigar-note">3 1/2" &middot; Ring 20. Dominican wrapper. Cameroon filler. Hickory, black pepper, cocoa, and nutmeg opening, with leather and baking spices.</p></div></article>
         </div>
       </div>
 
-      <div class="marque m2">
+      <div class="marque m2" id="davidoff-cigarillos">
         <div class="marque-head r"><h3>Davidoff</h3><span class="count">Cigarillos</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-davidoff-club-cigarillos.webp" alt="Davidoff Club Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Club Cigarillos</h4><span class="strength">Mild</span><p class="cigar-note">3 1/2" &middot; Ring 20. Ecuadorian wrapper. Dominican binder and filler. Hay, mild spices, cedar, and a hint of nut with a delicate sweetness.</p></div></article>
@@ -612,14 +687,14 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="moods">
         <div class="marque-head r"><h3>Moods</h3><span class="count">Cigarillos</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-moods-cigarillos.webp" alt="Moods Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Cigarillos</h4><span class="strength">Mild-Medium</span><p class="cigar-note">3.5" &middot; 10 per pack. Sumatra wrapper. Tropical filler blend with Virginia and Oriental tobaccos. Gently aged and perfectly balanced.</p></div></article>
         </div>
       </div>
 
-      <div class="marque">
+      <div class="marque" id="villiger">
         <div class="marque-head r"><h3>Villiger</h3><span class="count">Cigarillos</span></div>
         <div class="cigar-grid">
           <article class="cigar-card r"><div class="cigar-media"><img src="./images/cnxcigars-cnx-cigars-villiger-export-cigarillos.webp" alt="Villiger Export Cigarillos" width="260" height="325" loading="lazy"></div><div class="cigar-info"><h4 class="cigar-name">Export Cigarillos</h4><span class="strength">Mild-Medium</span><p class="cigar-note">4" &middot; 36mm. Swiss dry-cured. Indonesian Sumatra or Brazilian wrapper. Consistent cocoa, cream, roasted nuts, and a subtle spiciness.</p></div></article>
@@ -754,7 +829,8 @@ window.addEventListener('scroll',()=>nav.classList.toggle('dim',window.scrollY>6
 // BURGER
 const burger=document.getElementById('burger'),mob=document.getElementById('mobMenu');
 burger.addEventListener('click',()=>{const o=mob.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);});
-function closeMob(){mob.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');}
+function closeMob(){mob.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');document.querySelectorAll('.mob-sub,.mob-sub-2').forEach(function(e){e.classList.remove('open')});document.querySelectorAll('.mob-group-btn').forEach(function(e){e.classList.remove('active')})}
+function toggleMobGroup(btn){var sub=btn.nextElementSibling;var isOpen=sub.classList.contains('open');var isSub=btn.classList.contains('mob-sub-btn');var par=btn.closest(isSub?'.mob-sub':'.mob-menu');par.querySelectorAll(isSub?'.mob-sub-2':'.mob-sub').forEach(function(e){e.classList.remove('open')});par.querySelectorAll(isSub?'.mob-sub-btn':'.mob-group-btn:not(.mob-sub-btn)').forEach(function(e){e.classList.remove('active')});if(!isOpen){sub.classList.add('open');btn.classList.add('active')}}
 
 // REVEAL
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});

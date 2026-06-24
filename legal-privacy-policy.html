@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
@@ -116,7 +116,23 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
   .ft-top{grid-template-columns:1fr 1fr}
 }
 </style>
-</head>
+<style>
+.mob-menu{justify-content:flex-start!important;overflow-y:auto;padding:5rem 1.5rem 3rem!important}
+.mob-group{width:100%;text-align:center}
+.mob-group-btn{background:none;border:none;cursor:pointer;font-family:var(--f-display);font-size:clamp(2rem,7vw,3.2rem);font-weight:300;color:var(--cream);transition:color .2s;padding:0}
+.mob-group-btn:hover,.mob-group-btn.active{color:var(--gold)}
+.mob-sub{display:none!important;flex-direction:column;align-items:center;gap:.6rem;padding:.5rem 0 .2rem}
+.mob-sub.open{display:flex!important}
+.mob-sub-inner{width:100%;text-align:center}
+.mob-sub-btn{font-size:clamp(1.1rem,4vw,1.5rem)!important;color:var(--ash)!important;margin-bottom:.2rem}
+.mob-sub-btn.active{color:var(--gold)!important}
+.mob-sub-2{display:none;flex-direction:column;align-items:center;gap:.4rem;padding:.3rem 0 .2rem}
+.mob-sub-2.open{display:flex}
+.mob-sub-2 a{font-family:var(--f-display);font-size:clamp(.75rem,2.4vw,.9rem);letter-spacing:.1em;text-transform:uppercase;color:var(--ash);transition:color .2s}
+.mob-sub-2 a:hover{color:var(--gold)}
+.mob-sub>a{font-family:var(--f-display);font-size:clamp(1rem,3.5vw,1.25rem);letter-spacing:.12em;text-transform:uppercase;color:var(--ash);transition:color .2s}
+.mob-sub>a:hover{color:var(--gold)}
+</style></head>
 <body>
 
 <div class="cursor" aria-hidden="true"></div>
@@ -263,7 +279,8 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('dim',window.scrollY>60),{passive:true});
 const burger=document.getElementById('burger'),mob=document.getElementById('mobMenu');
 burger.addEventListener('click',()=>{const o=mob.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);});
-function closeMob(){mob.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');}
+function closeMob(){mob.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');document.querySelectorAll('.mob-sub,.mob-sub-2').forEach(function(e){e.classList.remove('open')});document.querySelectorAll('.mob-group-btn').forEach(function(e){e.classList.remove('active')})}
+function toggleMobGroup(btn){var sub=btn.nextElementSibling;var isOpen=sub.classList.contains('open');var isSub=btn.classList.contains('mob-sub-btn');var par=btn.closest(isSub?'.mob-sub':'.mob-menu');par.querySelectorAll(isSub?'.mob-sub-2':'.mob-sub').forEach(function(e){e.classList.remove('open')});par.querySelectorAll(isSub?'.mob-sub-btn':'.mob-group-btn:not(.mob-sub-btn)').forEach(function(e){e.classList.remove('active')});if(!isOpen){sub.classList.add('open');btn.classList.add('active')}}
 (function(){
   if(window.matchMedia('(pointer:coarse)').matches)return;
   const dot=document.querySelector('.cursor'),ring=document.querySelector('.cursor-ring');
