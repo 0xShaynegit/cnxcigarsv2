@@ -63,6 +63,8 @@
     /* --- trigger --- */
     var trigger = document.createElement('div');
     trigger.id = 'cnx-chat-trigger';
+    trigger.setAttribute('role', 'button');
+    trigger.setAttribute('tabindex', '0');
     trigger.setAttribute('aria-label', 'Open chat');
     trigger.style.cssText = [
       'position:fixed',

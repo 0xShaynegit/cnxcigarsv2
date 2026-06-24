@@ -325,7 +325,7 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .testi-btn:hover{border-color:#D4AF37;background:rgba(212,175,55,.08)}
 .testi-btn svg{width:18px;height:18px;stroke:#D4AF37;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .testi-dots{display:flex;gap:.5rem}
-.testi-dot{width:6px;height:6px;border-radius:50%;background:rgba(212,175,55,.25);border:none;cursor:pointer;padding:0;transition:background .2s}
+.testi-dot{width:6px;height:6px;border-radius:50%;background:rgba(212,175,55,.25);border:none;cursor:pointer;padding:11px;box-sizing:content-box;transition:background .2s}
 .testi-dot.active{background:#D4AF37}
 
 /* FAQ */
@@ -361,7 +361,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
 .ft-brand .brand-mark{font-family:var(--f-brand);font-size:1.9rem;color:var(--gold);letter-spacing:.44em;line-height:1}
 .ft-brand .brand-tag{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ash);margin:.05rem 0 1.6rem}
 .ft-brand p{font-size:.85rem;color:var(--ash);line-height:1.75}
-.ft-col h4{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.ft-col h3{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
 .ft-col ul{display:flex;flex-direction:column;gap:.55rem}
 .ft-col a{font-size:.87rem;color:var(--ash);transition:color .2s}
 .ft-col a:hover{color:var(--cream)}
@@ -620,7 +620,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
     <p class="h-eyebrow"><span>Nimman Road &ndash; Chiang Mai</span></p>
     <h1 class="h-h1"><span class="w"><span style="animation-delay:.3s">Chiang Mai's</span></span> <span class="w"><span style="animation-delay:.45s">Premier</span></span><br><span class="w"><span style="animation-delay:.6s">International</span></span><br><span class="w"><span style="animation-delay:.75s">Cigar Lounge</span></span></h1>
     <span class="h-brand">CNX Cigars</span>
-    <a href="#about" class="h-arrow">
+    <a href="#about" class="h-arrow" aria-label="Scroll down">
       <svg width="12" height="36" viewBox="0 0 12 36" fill="none"><line x1="6" y1="0" x2="6" y2="30" stroke="currentColor" stroke-width="1"/><path d="M1 25L6 32L11 25" stroke="currentColor" stroke-width="1" fill="none"/></svg>
     </a>
   </div>
@@ -1259,7 +1259,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
         <p style="margin-top:1rem">WhatsApp: +66 622 769 937<br>LINE: Bodazey<br>cigarschiangmai@gmail.com</p>
       </div>
       <div class="ft-col">
-        <h4>Explore</h4>
+        <h3>Explore</h3>
         <ul>
           <li><a href="./collection.html">Collection</a></li>
           <li><a href="./accessories.html">Accessories</a></li>
@@ -1269,7 +1269,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
         </ul>
       </div>
       <div class="ft-col ft-nl">
-        <h4>Stay in touch</h4>
+        <h3>Stay in touch</h3>
         <p>The occasional note on tastings and new arrivals.</p>
         <form class="nl-form" onsubmit="handleNL(event)">
           <input class="nl-input" type="email" placeholder="Email address" required aria-label="Email address">
@@ -1297,7 +1297,7 @@ function enterSite(){localStorage.setItem('cnx_age_verified','1');const g=docume
 window.addEventListener('load',function(){
   // Inject Vimeo iframe now so it loads during preloader, plays when preloader fades
   const hv=document.getElementById('heroVideo');
-  if(hv){const f=document.createElement('iframe');f.src='https://player.vimeo.com/video/1203211104?background=1&autoplay=1&loop=1&muted=1';f.frameBorder='0';f.allow='autoplay; fullscreen';f.allowFullscreen=true;hv.appendChild(f);}
+  if(hv){const f=document.createElement('iframe');f.src='https://player.vimeo.com/video/1203211104?background=1&autoplay=1&loop=1&muted=1';f.frameBorder='0';f.allow='autoplay; fullscreen';f.allowFullscreen=true;f.title='CNX Cigars Lounge';f.setAttribute('aria-hidden','true');hv.appendChild(f);}
   const pl=document.getElementById('preloader'),bar=document.getElementById('preBar');
   requestAnimationFrame(()=>bar.classList.add('go'));
   setTimeout(()=>{pl.classList.add('out');setTimeout(()=>pl.remove(),800);},700);
