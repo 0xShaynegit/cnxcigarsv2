@@ -182,9 +182,9 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 
 /* ABOUT STICKY */
 .about-block{position:relative;background:var(--ink)}
-.about-sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:center;will-change:transform}
-.about-bg{position:absolute;inset:0}
-.about-bg img{width:100%;height:100%;object-fit:cover;transition:transform .08s linear;will-change:transform}
+.about-sticky{position:relative;height:100svh;overflow:hidden;display:flex;align-items:center}
+.about-bg{position:absolute;inset:0;overflow:hidden}
+.about-bg img{width:100%;height:125%;object-fit:cover;margin-top:-12%;will-change:transform}
 .about-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(8,8,8,.9) 0%,rgba(8,8,8,.58) 50%,rgba(8,8,8,.2) 100%)}
 .about-body{position:relative;z-index:1;padding:0 var(--g);display:flex;align-items:flex-start;justify-content:space-between;gap:4rem;width:100%}
 .about-head{max-width:52%}
@@ -195,7 +195,7 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .aside-card:hover{border-color:rgba(212,175,55,.28);background:rgba(8,8,8,.75)}
 .aside-card .ac-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ash);margin-bottom:.5rem}
 .aside-card .ac-title{font-family:var(--f-display);font-size:1.45rem;font-weight:300;color:var(--cream)}
-.about-spacer{height:110vh}
+.about-spacer{height:0}
 
 /* COLLECTIONS */
 .collections{padding:clamp(5rem,9vw,9rem) 0;background:var(--ink-2)}
@@ -1320,19 +1320,16 @@ function toggleMobGroup(btn){var sub=btn.nextElementSibling;var isOpen=sub.class
 
 // ABOUT BG PARALLAX
 (function(){
-  const bg=document.getElementById('aboutBg');
-  if(!bg)return;
-  const img=bg.querySelector('img');
+  const section=document.getElementById('about');
+  const img=section&&section.querySelector('#aboutBg img');
+  if(!img)return;
   function tick(){
-    const sticky=document.getElementById('aboutSticky');
-    if(!sticky)return;
-    const r=sticky.getBoundingClientRect();
-    if(r.top<=0&&r.bottom>=0){
-      const pct=Math.abs(r.top)/sticky.offsetHeight;
-      img.style.transform='scale(1.06) translateY('+Math.min(pct*9,8)+'%)';
-    }
+    const r=section.getBoundingClientRect();
+    const pct=(-r.top)/(r.height+window.innerHeight);
+    img.style.transform='translateY('+Math.round(pct*18)+'%)';
   }
   window.addEventListener('scroll',tick,{passive:true});
+  tick();
 })();
 
 // COLLECTIONS DRAG + NAV + AUTOPLAY
