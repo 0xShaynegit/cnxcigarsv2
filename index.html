@@ -240,8 +240,8 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 .gal-head{padding:0 var(--g);margin-bottom:2.5rem}
 .gal-head h2{font-family:var(--f-display);font-weight:300;font-size:clamp(2.2rem,4.5vw,4rem);color:var(--cream)}
 .gal-strip{display:flex;gap:5px}
-.gal-item{flex:0 0 auto;overflow:hidden}
-.gal-item img{display:block;height:clamp(280px,38vw,500px);width:auto;object-fit:cover;transition:transform 1.2s var(--ease-expo)}
+.gal-item{flex:1 1 0;min-width:0;overflow:hidden}
+.gal-item img{display:block;height:clamp(280px,38vw,500px);width:100%;object-fit:cover;transition:transform 1.2s var(--ease-expo)}
 .gal-item:hover img{transform:scale(1.05)}
 .gal-wide{overflow:hidden;margin-top:5px}
 .gal-wide img{width:100%;height:clamp(300px,30vw,440px);object-fit:cover;object-position:center 28%}
@@ -841,11 +841,8 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:4.5rem
     <h2>The Lounge</h2>
   </div>
   <div class="gal-strip">
-    <div class="gal-item r"><img src="./images/cnxcigars-cnx-cigars-lounge-interior-view.webp" alt="Lounge interior" width="480" height="640" loading="lazy"></div>
-    <div class="gal-item r d1"><img src="./images/cnxcigars-cnx-cigars-lounge-green-velvet-seating.webp" alt="Green velvet seating" width="480" height="640" loading="lazy"></div>
-    <div class="gal-item r d2"><img src="./images/cnxcigars-cnx-cigars-event-opening-night-full-room-fisheye.webp" alt="Opening night full room" width="480" height="640" loading="lazy"></div>
-    <div class="gal-item r d3"><img src="./images/cnxcigars-cnx-cigars-cigar-accessories-flatlay.webp" alt="Cigar accessories" width="480" height="640" loading="lazy"></div>
-    <div class="gal-item r d4"><img src="./images/cnxcigars-cnx-cigars-lounge-teal-reserved-seating-nook.webp" alt="Reserved seating nook" width="480" height="640" loading="lazy"></div>
+    <div class="gal-item r"><img src="./images/cnxcigars-cnx-cigars-lounge-green-velvet-seating.webp" alt="Green velvet seating in the CNX Cigars lounge" width="480" height="640" loading="lazy"></div>
+    <div class="gal-item r d1"><img src="./images/cnxcigars-cnx-cigars-lounge-bar-leather-chairs-teal-backdrop.webp" alt="CNX Cigars bar with leather chairs and teal backdrop" width="480" height="640" loading="lazy"></div>
   </div>
   <div class="gal-wide r">
     <img src="./images/cnxcigars-cnx-cigars-award-celebration.webp" alt="CNX Cigars award celebration" width="1920" height="800" loading="lazy">
