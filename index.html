@@ -1310,12 +1310,14 @@ function toggleMobGroup(btn){var sub=btn.nextElementSibling;var isOpen=sub.class
   const section=document.getElementById('about');
   const img=section&&section.querySelector('#aboutBg img');
   if(!img)return;
+  let raf=null;
   function tick(){
     const r=section.getBoundingClientRect();
     const pct=(-r.top)/(r.height+window.innerHeight);
-    img.style.transform='translateY('+Math.round(pct*18)+'%)';
+    img.style.transform='translateY('+(pct*18)+'%)';
+    raf=null;
   }
-  window.addEventListener('scroll',tick,{passive:true});
+  window.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(tick);},{passive:true});
   tick();
 })();
 
