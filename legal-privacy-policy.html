@@ -229,7 +229,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
       <div class="contact-block">
         <p><strong>Cigars Chiang Mai Co., Ltd (CNX Cigars)</strong></p>
         <p>2nd Floor, 45 Nimmana Haeminda Rd Lane 11<br>Tambon Su Thep, Mueang Chiang Mai<br>Chiang Mai 50200, Thailand</p>
-        <p>WhatsApp: +66 622 769 937</p>
+        <p><span class="obf-wa"></span></p>
         <p>Email: cigarschiangmai@gmail.com</p>
       </div>
 
@@ -244,7 +244,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         <div class="brand-mark">CNX Cigars</div>
         <div class="brand-tag">International Cigar Bar &amp; Lounge</div>
         <p>Cigars Chiang Mai Co., Ltd<br>2nd Floor, 45 Nimmana Haeminda Rd Lane 11<br>Chiang Mai 50200, Thailand</p>
-        <p style="margin-top:1rem">WhatsApp: +66 622 769 937<br>LINE: Bodazey<br>cigarschiangmai@gmail.com</p>
+        <p style="margin-top:1rem"><span class="obf-wa"></span><br><span class="obf-line"></span><br>cigarschiangmai@gmail.com</p>
       </div>
       <div class="ft-col">
         <h4>Explore</h4>
@@ -294,5 +294,12 @@ function toggleMobGroup(btn){var sub=btn.nextElementSibling;var isOpen=sub.class
 })();
 </script>
 <script src="./scripts/chaty-widget.js?v=4" defer></script>
-</body>
+<script>
+(function(){
+  var w=atob('V2hhdHNBcHA6ICs2NiA2MjIgNzY5IDkzNw==');
+  var l=atob('TElORTogQm9kYXpleQ==');
+  document.querySelectorAll('.obf-wa').forEach(function(el){el.textContent=w;});
+  document.querySelectorAll('.obf-line').forEach(function(el){el.textContent=l;});
+})();
+</script></body>
 </html>

@@ -579,7 +579,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         <div class="brand-mark">CNX Cigars</div>
         <div class="brand-tag">International Cigar Bar &amp; Lounge</div>
         <p>Cigars Chiang Mai Co., Ltd<br>2nd Floor, 45 Nimmana Haeminda Rd Lane 11<br>Chiang Mai 50200, Thailand</p>
-        <p style="margin-top:1rem">WhatsApp: +66 622 769 937<br>LINE: Bodazey<br>cigarschiangmai@gmail.com</p>
+        <p style="margin-top:1rem"><span class="obf-wa"></span><br><span class="obf-line"></span><br>cigarschiangmai@gmail.com</p>
       </div>
       <div class="ft-col">
         <h4>Explore</h4>
@@ -646,5 +646,12 @@ document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',(
 })();
 </script>
 <script src="./scripts/chaty-widget.js?v=4" defer></script>
-</body>
+<script>
+(function(){
+  var w=atob('V2hhdHNBcHA6ICs2NiA2MjIgNzY5IDkzNw==');
+  var l=atob('TElORTogQm9kYXpleQ==');
+  document.querySelectorAll('.obf-wa').forEach(function(el){el.textContent=w;});
+  document.querySelectorAll('.obf-line').forEach(function(el){el.textContent=l;});
+})();
+</script></body>
 </html>

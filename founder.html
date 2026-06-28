@@ -331,6 +331,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
       <div class="bio-body">
         <p class="r d2">Amir's approach to cigars is clinical, grounded in a lifelong dedication to understanding the mechanics of high-performance environments. Whether he is analyzing the complex flavor profile of a vintage Cuban or consulting on the hospitality standards of a premier hotel, Amir applies the same meticulous attention to detail that has defined his professional career.</p>
         <p class="r d3">His pedigree is not built on trends. It is built on the rigorous study of the "cigar life", a cycle that begins in the fertile valleys of Pinar del Rio and ends in the quiet, reflective moments of a perfectly paired smoke. For Amir, a cigar is not merely a consumable. It is a complex, living document of the land it came from and the hands that rolled it.</p>
+        <p class="r d4">That study began in earnest in 1997, in Havana, where direct contact with the production infrastructure of Habanos S.A. established the foundation of his sourcing philosophy. In CNX Cigars' supply chain, every Cuban vitola is procured through Pacific Cigar Company, the sole authorised Habanos S.A. distributor for the Asia-Pacific territory. That chain of custody, from the Vegas Finas de Primera in Vuelta Abajo to the humidor on Nimman Soi 11, is unbroken and fully documented.</p>
         <div class="bio-img r d4">
           <img src="./images/cnxcigars-cnx-cigars-amir-portrait-humidor-holding-cigar.webp" alt="Amir Nadimi in the CNX Cigars humidor" width="720" height="960" loading="lazy">
         </div>
@@ -453,7 +454,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         <div class="brand-mark">CNX Cigars</div>
         <div class="brand-tag">International Cigar Bar &amp; Lounge</div>
         <p>Cigars Chiang Mai Co., Ltd<br>2nd Floor, 45 Nimmana Haeminda Rd Lane 11<br>Chiang Mai 50200, Thailand</p>
-        <p style="margin-top:1rem">WhatsApp: +66 622 769 937<br>LINE: Bodazey<br>cigarschiangmai@gmail.com</p>
+        <p style="margin-top:1rem"><span class="obf-wa"></span><br><span class="obf-line"></span><br>cigarschiangmai@gmail.com</p>
       </div>
       <div class="ft-col">
         <h4>Explore</h4>
@@ -517,5 +518,12 @@ document.querySelectorAll('.r,.r-img').forEach(el=>obs.observe(el));
 })();
 </script>
 <script src="./scripts/chaty-widget.js?v=4" defer></script>
-</body>
+<script>
+(function(){
+  var w=atob('V2hhdHNBcHA6ICs2NiA2MjIgNzY5IDkzNw==');
+  var l=atob('TElORTogQm9kYXpleQ==');
+  document.querySelectorAll('.obf-wa').forEach(function(el){el.textContent=w;});
+  document.querySelectorAll('.obf-line').forEach(function(el){el.textContent=l;});
+})();
+</script></body>
 </html>

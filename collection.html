@@ -725,7 +725,7 @@ html,body{overflow-x:hidden}
       <div class="faq-list r d1">
         <div class="faq-item">
           <button class="faq-q">What is the difference between Cuban and New World cigars? <span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>Cuban cigars use tobacco grown exclusively in Cuba, primarily from the Vuelta Abajo region, and are governed by strict production rules overseen by Habanos S.A. New World cigars are made in countries like Nicaragua, the Dominican Republic, and Honduras, often using Cuban seed tobacco transplanted decades ago. Cuban cigars are prized for their complexity and heritage. New World cigars often offer bolder, more consistent flavour profiles at competitive prices. Both categories have great examples. The right choice depends on the profile you enjoy.</p></div>
+          <div class="faq-a"><p>Cuban cigars use tobacco grown exclusively in Cuba, primarily from the Vuelta Abajo region, and are governed by strict production rules overseen by Habanos S.A. New World cigars are made in countries like Nicaragua, the Dominican Republic, and Honduras, often using Cuban seed tobacco transplanted decades ago. Cuban cigars are prized for their complexity and heritage. New World cigars often deliver bolder, more consistent flavour profiles with distinct construction and terroir character of their own. Both categories have exceptional examples. The right choice depends on the profile and the occasion.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q">What strength should a beginner start with? <span class="faq-icon">+</span></button>
@@ -789,7 +789,7 @@ html,body{overflow-x:hidden}
         <div class="brand-mark">CNX Cigars</div>
         <div class="brand-tag">International Cigar Bar &amp; Lounge</div>
         <p>Cigars Chiang Mai Co., Ltd<br>2nd Floor, 45 Nimmana Haeminda Rd Lane 11<br>Chiang Mai 50200, Thailand</p>
-        <p style="margin-top:1rem">WhatsApp: +66 622 769 937<br>LINE: Bodazey<br>cigarschiangmai@gmail.com</p>
+        <p style="margin-top:1rem"><span class="obf-wa"></span><br><span class="obf-line"></span><br>cigarschiangmai@gmail.com</p>
       </div>
       <div class="ft-col">
         <h4>Explore</h4>
@@ -853,5 +853,12 @@ document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',(
 })();
 </script>
 <script src="./scripts/chaty-widget.js?v=4" defer></script>
-</body>
+<script>
+(function(){
+  var w=atob('V2hhdHNBcHA6ICs2NiA2MjIgNzY5IDkzNw==');
+  var l=atob('TElORTogQm9kYXpleQ==');
+  document.querySelectorAll('.obf-wa').forEach(function(el){el.textContent=w;});
+  document.querySelectorAll('.obf-line').forEach(function(el){el.textContent=l;});
+})();
+</script></body>
 </html>
