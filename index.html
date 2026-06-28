@@ -1487,8 +1487,9 @@ function handleNL(e){
   var line=atob('aHR0cHM6Ly9saW5lLm1lL3RpL3AvQm9kYXpleQ==');
   var email=atob('bWFpbHRvOmNpZ2Fyc2NoaWFuZ21haUBnbWFpbC5jb20=');
   function setLink(id,url,blank){var el=document.getElementById(id);if(!el)return;el.href=url;if(blank){el.target='_blank';el.rel='noopener noreferrer';}}
-  setLink('ft-wa',wa,true);
-  setLink('ft-line',line,true);
+  function setPopup(id,url){var el=document.getElementById(id);if(!el)return;el.addEventListener('click',function(e){e.preventDefault();window.open(url,'_blank','noopener,noreferrer');});}
+  setPopup('ft-wa',wa);
+  setPopup('ft-line',line);
   setLink('ft-fb','https://www.facebook.com/cigarschiangmai',true);
   setLink('ft-msg','https://m.me/cigarschiangmai',true);
   setLink('ft-email',email,false);
