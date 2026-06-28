@@ -142,11 +142,10 @@
       ].join(';');
 
       var link = document.createElement('a');
-      link.href = ch.url;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
+      link.href = '#';
       link.setAttribute('aria-label', ch.label);
       link.style.cssText = 'display:flex;align-items:center;gap:10px;text-decoration:none;';
+      (function(url){link.addEventListener('click',function(e){e.preventDefault();window.open(url,'_blank','noopener,noreferrer');});})(ch.url);
 
       var circle = document.createElement('div');
       circle.style.cssText = [
@@ -181,11 +180,13 @@
         circle.style.background = '#2a2a2a';
         circle.style.color = GOLD;
         circle.style.borderColor = 'rgba(212,175,55,0.25)';
+        if (!isMobile) label.style.opacity = '1';
       });
       link.addEventListener('mouseleave', function () {
         circle.style.background = '#1e1e1e';
         circle.style.color = '#7a7570';
         circle.style.borderColor = 'rgba(255,255,255,0.09)';
+        label.style.opacity = '0';
       });
 
       link.appendChild(circle);
