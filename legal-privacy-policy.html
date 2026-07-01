@@ -87,7 +87,9 @@ button{cursor:pointer;border:none;background:none;font:inherit}
 
 /* FOOTER */
 footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(4rem,7vw,6rem) 0 2rem}
-.ft-top{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem}
+.ft-top{position:relative;display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem}
+.ft-logo{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+.ft-logo img{width:234px;height:234px}
 .ft-brand .brand-mark{font-family:var(--f-brand);font-size:1.1rem;letter-spacing:.44em;color:var(--gold);margin-bottom:.4rem}
 .ft-brand .brand-tag{font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;color:#867E77;margin-bottom:1.2rem}
 .ft-brand p{font-size:1.07rem;color:#867E77;line-height:1.75}
@@ -116,6 +118,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
 }
 @media(max-width:1100px){
   .ft-top{grid-template-columns:1fr 1fr}
+  .ft-logo{display:none}
 }
 </style>
 <style>
@@ -250,19 +253,24 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
         <h4>Explore</h4>
         <ul>
           <li><a href="./">Home</a></li>
-          <li><a href="./collection.html">Cigars &amp; Brands</a></li>
+          <li><a href="./collection.html">Collection</a></li>
+          <li><a href="./accessories.html">Accessories</a></li>
+          <li><a href="./lounge.html">The Lounge</a></li>
           <li><a href="./about.html">About</a></li>
-          <li><a href="./founder.html">The Founder</a></li>
-          <li><a href="./services.html#reserve">Contact</a></li>
+          <li><a href="./services.html">Services &amp; Contact</a></li>
         </ul>
       </div>
-      <div class="ft-col">
-        <h4>Legal</h4>
+      <div class="ft-col" style="margin-left:-100px">
+        <h4>The Lounge</h4>
         <ul>
-          <li><a href="./legal-privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="./legal-terms-of-service.html">Terms of Service</a></li>
-          <li><a href="./legal-photo-disclaimer.html">Photo Disclaimer</a></li>
+          <li><a href="./collection.html">The Collection</a></li>
+          <li><a href="./lounge.html">Experience</a></li>
+          <li><a href="./services.html#reserve">B2B &amp; HORECA</a></li>
+          <li><a href="./services.html#reserve">Reserve a Seat</a></li>
         </ul>
+      </div>
+      <div class="ft-logo" aria-hidden="true">
+        <img src="./images/cnxcigars-cnx-cigars-logo-circle.webp" alt="" width="150" height="150" loading="lazy">
       </div>
     </div>
     <p class="ft-legal">Online sale of tobacco is strictly prohibited in the Kingdom of Thailand including sales to persons under 20 years.</p>

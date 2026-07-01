@@ -63,7 +63,9 @@ button{cursor:pointer;border:none;background:none;font:inherit}
 .btn-outline:hover{border-color:var(--stone);color:var(--cream)}
 
 footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(4rem,7vw,6rem) 0 2rem}
-.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
+.ft-top{position:relative;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
+.ft-logo{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+.ft-logo img{width:234px;height:234px}
 .ft-brand .brand-mark{font-family:var(--f-brand);font-size:.85rem;letter-spacing:.4em;color:var(--gold);margin-bottom:.4rem}
 .ft-brand .brand-tag{font-size:.87rem;letter-spacing:.2em;text-transform:uppercase;color:#867E77;margin-bottom:1.4rem}
 .ft-brand p{font-size:1.07rem;line-height:1.7;color:#867E77}
@@ -83,6 +85,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
   .burger{display:flex}
   .ft-top{grid-template-columns:1fr 1fr}
   .ft-brand{grid-column:1/-1}
+  .ft-logo{display:none}
 }
 @media(max-width:480px){
   .ft-top{grid-template-columns:1fr}
@@ -163,7 +166,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
           <li><a href="./services.html">Services &amp; Contact</a></li>
         </ul>
       </div>
-      <div class="ft-col">
+      <div class="ft-col" style="margin-left:-100px">
         <h4>The Lounge</h4>
         <ul>
           <li><a href="./collection.html">The Collection</a></li>
@@ -171,6 +174,9 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
           <li><a href="./services.html#reserve">B2B &amp; HORECA</a></li>
           <li><a href="./services.html#reserve">Reserve a Seat</a></li>
         </ul>
+      </div>
+      <div class="ft-logo" aria-hidden="true">
+        <img src="./images/cnxcigars-cnx-cigars-logo-circle.webp" alt="" width="150" height="150" loading="lazy">
       </div>
     </div>
     <p class="ft-legal">Online sale of tobacco is strictly prohibited in the Kingdom of Thailand including sales to persons under 20 years.</p>

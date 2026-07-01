@@ -161,9 +161,9 @@ body{font-family:var(--f-body);color:var(--cream);background:var(--ink)}
 
 /* FOOTER */
 footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(4rem,7vw,6rem) 0 2rem}
-.ft-top{display:grid;grid-template-columns:1.2fr .9fr 1fr auto;gap:3rem;margin-bottom:3rem;align-items:center}
-.ft-logo{justify-self:end}
-.ft-logo img{width:150px;height:150px}
+.ft-top{position:relative;display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem}
+.ft-logo{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+.ft-logo img{width:234px;height:234px}
 .ft-brand .brand-mark{font-family:var(--f-brand);font-size:1.1rem;letter-spacing:.44em;color:var(--gold);margin-bottom:.4rem}
 .ft-brand .brand-tag{font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;color:#867E77;margin-bottom:1.2rem}
 .ft-brand p{font-size:1.07rem;color:#867E77;line-height:1.75}
@@ -186,7 +186,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
 }
 
 /* RESPONSIVE */
-@media(max-width:1100px){.ft-top{grid-template-columns:1fr 1fr}}
+@media(max-width:1100px){.ft-top{grid-template-columns:1fr 1fr}.ft-logo{display:none}}
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none}
   .burger{display:flex}
@@ -834,7 +834,7 @@ html,body{overflow-x:hidden}
           <li><a href="./services.html">Services &amp; Contact</a></li>
         </ul>
       </div>
-      <div class="ft-col">
+      <div class="ft-col" style="margin-left:-100px">
         <h4>The Lounge</h4>
         <ul>
           <li><a href="./collection.html">The Collection</a></li>
