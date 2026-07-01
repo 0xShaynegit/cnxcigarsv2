@@ -1,5 +1,5 @@
 # CNX Cigars Handover
-**Session:** 28/06/2026 (sixth pass)
+**Session:** 28/06/2026 (seventh pass)
 **Branch:** master
 **Deploy:** Cloudflare Workers via GitHub (0xShaynegit/cnxcigarsv2)
 **Live URL:** https://cnxcigarsv2.slrclaude.workers.dev
@@ -57,6 +57,31 @@ Site is live. Age gate is active. All 160 image references verified present. All
 - Removed style="display:none" from <div id="gate"> in index.html
 - Gate now active on all visits; localStorage cnx_age_verified persists 30 days
 
+### Contact Info Visibility Fix (seventh pass)
+- Footer on all 10 non-index pages: .obf-wa/.obf-line spans replaced with <a href="#" id="ftr-wa"> and <a href="#" id="ftr-line"> showing "WhatsApp" and "LINE" text only
+- Decode script updated to use click handler + window.open() instead of setting href   number and LINE ID never appear in browser status bar
+- index.html footer icons (ft-wa, ft-line): same treatment via setPopup() helper. FB and Messenger left as standard href links (not sensitive)
+- Chaty widget: WA and LINE channels use href="#" + window.open() click handler. FB and Messenger remain standard href. Text labels restored (appear beside icons on hover, desktop only)
+
+---
+
+## External Topical Map (28/06/2026)
+
+Full map at `.md/external-topical-map.md`
+
+| # | Action | Owner | Status |
+|---|---|---|---|
+| 1 | Google Business Profile | Amir / Shayne | Pending |
+| 2 | CMA article "Best Cigar Lounge in Chiang Mai" | Claude | Done 28/06/2026 |
+| 3 | CMLocals Nimman nightlife article | Claude | Done 28/06/2026 |
+| 4 | TripAdvisor listing | Amir | Pending |
+| 5 | Chiang Mai Citylife outreach | Shayne | Pending |
+| 6 | The Thaiger submission | Shayne | Pending |
+| 7 | GBP Q&A seeds + first 3 posts | Claude drafted, Amir publishes | Ready - see .md/gbp-setup.md |
+| 8 | LinkedIn article from Amir | Claude drafts | Pending |
+
+GBP setup doc (description, Q&A, posts) at `.md/gbp-setup.md` — ready to paste.
+
 ---
 
 ## Still Pending Before Delivery
@@ -64,7 +89,7 @@ Site is live. Age gate is active. All 160 image references verified present. All
 1. **Analytics token**   replace ANALYTICS_TOKEN_PLACEHOLDER in all 11 pages
 2. **Browser verify**   full scroll desktop + mobile before launch
 3. **OG social card**   currently logo (black on black on social). Low priority.
-4. **Google Business Profile**   post-launch
+4. **Google Business Profile**   post-launch (drafts ready in .md/gbp-setup.md)
 5. **Search Console**   submit sitemap post-launch
 
 ---
@@ -75,7 +100,7 @@ Site is live. Age gate is active. All 160 image references verified present. All
 - **No dist folder.** Files served from repo root via .assetsignore
 - **Worker** (not Pages): wrangler.toml with [assets] directory = "."
 - **Chaty widget**: scripts/chaty-widget.js?v=4 on all 11 pages. 5 channels: WA, LINE, FB, Messenger, Email.
-- **Obfuscation pattern**: WA (+66 622 769 937) and LINE (Bodazey) decoded at runtime via atob(). Used in Chaty widget, footer inline script, and .obf-wa/.obf-line spans across all pages.
+- **Obfuscation pattern**: WA and LINE URLs decoded via atob() at runtime. All WA/LINE links use href="#" + window.open() click handler so number/ID never appear in browser status bar. FB and Messenger use standard href (not sensitive). JSON-LD schema on index.html retains plain phone for SEO -- intentional.
 - **Age gate**: localStorage key cnx_age_verified, 30-day persistence
 - **Fonts**: WOFF2 from ./fonts/woff2/ with font-display:swap
 - **Images**: WebP only, ./images/, all 160 references verified present
@@ -91,4 +116,4 @@ Other files vary. Always check before any PowerShell string replacement.
 
 ## Latest Commit
 
-604a1eb - Compliance update + reinstate age gate
+c69a555 - Footer: hide wa.me/line.me URLs from browser status bar

@@ -264,8 +264,28 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
 .mob-sub-2 a:hover{color:var(--gold)}
 .mob-sub>a{font-family:var(--f-display);font-size:clamp(1rem,3.5vw,1.25rem);letter-spacing:.12em;text-transform:uppercase;color:var(--ash);transition:color .2s}
 .mob-sub>a:hover{color:var(--gold)}
+#gate{position:fixed;inset:0;z-index:9000;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;transition:opacity .6s var(--ease-expo)}
+#gate.out{opacity:0;pointer-events:none}
+.gate-mark{font-family:var(--f-brand);font-size:clamp(2.2rem,6vw,4rem);color:var(--gold);letter-spacing:.5em;margin-bottom:.25rem}
+.gate-sub{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ash);margin-bottom:3.5rem}
+.gate-q{font-family:var(--f-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:300;color:var(--cream);margin-bottom:.7rem}
+.gate-copy{font-size:.87rem;color:var(--ash);margin-bottom:2.5rem;max-width:380px;line-height:1.7}
+.gate-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.gate-legal{font-size:.62rem;color:rgba(120,112,104,.45);margin-top:2rem;max-width:360px;line-height:1.7}
 </style></head>
 <body>
+
+<div id="gate">
+  <div class="gate-mark" style="font-size:clamp(1.6rem,4vw,2.8rem);letter-spacing:.32em">CNX Cigars</div>
+  <div class="gate-sub">International Cigar Bar &amp; Lounge &ndash; Chiang Mai</div>
+  <p class="gate-q">Are you 20 years of age or older?</p>
+  <p class="gate-copy">Under the Thailand Tobacco Products Control Act, access to tobacco-related archives, collections, and lounge premises is restricted to persons aged 20 years or older. By clicking below, you confirm your legal compliance and unconditionally agree to our Terms of Service and Privacy Policy.</p>
+  <div class="gate-btns">
+    <button class="btn-gold" onclick="enterSite()">Yes, I am 20 or older</button>
+    <button class="btn-outline" onclick="window.location.href='https://www.google.com'">No, I am under 20</button>
+  </div>
+  <p class="gate-legal">This site is a non-transactional informational archive for an offline, licensed lounge. No e-commerce or online tobacco sales are conducted. <a href="./legal-terms-of-service.html" style="color:var(--ash);text-decoration:underline">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="./legal-privacy-policy.html" style="color:var(--ash);text-decoration:underline">Privacy Policy</a></p>
+</div>
 
 <div class="cursor" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
@@ -711,6 +731,10 @@ footer{background:var(--ink-2);border-top:1px solid var(--border);padding:clamp(
 </footer>
 
 <script>
+// AGE GATE
+(function(){if(localStorage.getItem('cnx_age_verified')==='1'){document.getElementById('gate').style.display='none';}})();
+function enterSite(){localStorage.setItem('cnx_age_verified','1');const g=document.getElementById('gate');g.classList.add('out');setTimeout(()=>g.style.display='none',700);}
+
 // NAV
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('dim',window.scrollY>60),{passive:true});
